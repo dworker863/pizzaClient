@@ -1,10 +1,11 @@
-import { FC, MouseEvent, useState } from 'react';
+import { FC, MouseEvent } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const HamburgerWrapper = styled.div`
   ${tw`
     pt-5
+    cursor-pointer
   `}
 
   &:hover {
@@ -24,7 +25,6 @@ const StyledHamburger = styled.div`
     w-6
     h-1
     bg-gray-400
-    cursor-pointer
     transition-all
   `}
 
@@ -60,16 +60,15 @@ const StyledHamburger = styled.div`
   }
 `;
 
-const Hamburger: FC = () => {
-  const [isActive, setActive] = useState<boolean>(false);
+interface HamburgerProps {
+  hamburgerActive: boolean;
+  clickHandler: (event: React.MouseEvent<HTMLDivElement>) => void;
+}
 
-  const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
-    setActive(!isActive);
-  };
-
+const Hamburger: FC<HamburgerProps> = ({ clickHandler, hamburgerActive }) => {
   return (
     <HamburgerWrapper onClick={clickHandler}>
-      <StyledHamburger className={isActive ? 'active' : ''} />
+      <StyledHamburger className={hamburgerActive ? 'active' : ''} />
     </HamburgerWrapper>
   );
 };

@@ -4,9 +4,10 @@ import tw from 'twin.macro';
 
 const HamburgerWrapper = styled.div`
   ${tw`
-    pt-5
     cursor-pointer
-  `}
+    `}
+
+  padding-top: 26px;
 
   &:hover {
     div {

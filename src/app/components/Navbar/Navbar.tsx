@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import Button from '../Buttons/Button';
 
 const StyledNavbar = styled.nav`
   ${tw`
@@ -13,6 +14,7 @@ const StyledNavbar = styled.nav`
 
 const StyledMenu = styled.ul`
   ${tw`
+    inline-block
     list-none
   `}
 `;
@@ -41,6 +43,7 @@ const Navbar: FC = () => {
           <StyledItem>{item}</StyledItem>
         ))}
       </StyledMenu>
+      <Button text="ВХОД" inverse={true} />
     </StyledNavbar>
   );
 };

@@ -4,22 +4,7 @@ import tw from 'twin.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
-interface ButtonProps {
-  location?: boolean;
-  text: string;
-}
-
-const StyledButton = styled.button`
-  ${tw`
-  relative
-  py-3
-  px-20
-  rounded-3xl
-  font-bold
-  text-white
-  bg-green-600
-  `}
-
+const StyledAddressButton = styled.button`
   &:before {
     z-index: -1;
     position: absolute;
@@ -38,19 +23,27 @@ const StyledButton = styled.button`
       transform: scale(1.083333333333333);
     }
   }
+
+  ${tw`
+  relative
+  py-3
+  px-20
+  rounded-3xl
+  font-bold
+  text-white
+  bg-green-600
+  `}
 `;
 
-const Button: FC<ButtonProps> = ({ text, location }) => {
+const AddressButon: FC = () => {
   return (
     <div>
-      <StyledButton>
-        {location ? (
-          <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-        ) : null}
-        {text}
-      </StyledButton>
+      <StyledAddressButton>
+        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
+        Укажите свой адрес
+      </StyledAddressButton>
     </div>
   );
 };
 
-export default Button;
+export default AddressButon;

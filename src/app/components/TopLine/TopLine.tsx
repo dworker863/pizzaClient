@@ -1,7 +1,7 @@
 import { FC, useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import Button from '../Button/Button';
+import AddressButton from '../Buttons/AddressButton';
 import Container from '../Container/Container';
 import LogoWrapper from './Logo';
 import Hamburger from './Hamburger';
@@ -34,11 +34,7 @@ const TopLine: FC = () => {
     <StyledTopLine>
       <Container>
         <LogoWrapper />
-        {hamburgerActive ? (
-          <Navbar />
-        ) : (
-          <Button text="Укажите свой адрес" location={true} />
-        )}
+        {hamburgerActive ? <Navbar /> : <AddressButton />}
         <Hamburger
           clickHandler={clickHandler}
           hamburgerActive={hamburgerActive}

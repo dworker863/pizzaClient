@@ -4,14 +4,14 @@ import tw from 'twin.macro';
 import logo from '../../../assets/images/logo.png';
 
 const Logo = styled.div`
-  ${tw`
-    cursor-pointer
-  `}
-
   img {
     width: 73px;
     margin-top: -10px;
   }
+
+  ${tw`
+    cursor-pointer
+  `}
 `;
 
 const LogoWrapper: FC = () => {

@@ -5,7 +5,7 @@ import AddressButton from '../Buttons/AddressButton';
 import Container from '../Container/Container';
 import LogoWrapper from './Logo';
 import Hamburger from './Hamburger';
-import Navbar from '../Navbar/Navbar';
+import NavbarMobile from '../Navbar/NavbarMobile';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -15,16 +15,6 @@ const StyledTopLine = styled.div`
 
 const TopLine: FC = () => {
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
-  // const categories = [
-  //   'ПИЦЦА',
-  //   'CЕТЫ',
-  //   'ЗАКУСКИ',
-  //   'САЛАТЫ',
-  //   'ДЕСЕРТЫ',
-  //   'НАПИТКИ',
-  //   'ГОРЯЧЕЕ',
-  //   'СОУСЫ',
-  // ];
 
   const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
     sethamburgerActive(!hamburgerActive);
@@ -34,7 +24,7 @@ const TopLine: FC = () => {
     <StyledTopLine>
       <Container>
         <LogoWrapper />
-        {hamburgerActive ? <Navbar /> : <AddressButton />}
+        {hamburgerActive ? <NavbarMobile /> : <AddressButton />}
         <Hamburger
           clickHandler={clickHandler}
           hamburgerActive={hamburgerActive}

@@ -10,20 +10,20 @@ const StyledButton = styled.button`
   }
 
   &.inverse {
-    background-color: #b8e7e2;
+    background-color: #e0f7f5;
     color: #059689;
   }
 
   ${tw`
-  relative
-  ml-10
-  py-3
-  px-6
-  rounded-3xl
-  text-sm
-  font-bold
-  text-white
-  bg-green-600
+    relative
+    ml-10
+    py-3
+    px-6
+    rounded-3xl
+    text-sm
+    font-bold
+    text-white
+    bg-green-600
   `}
 
   font-family: Montserrat, sans-serif;

@@ -1,21 +1,23 @@
+import { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
 import MenuItem from './MenuItem';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const NavbarMobileWrapper = styled.nav`
-  ${tw`    
+  ${tw`
+    z-10
     absolute
-    right-40
+    right-10
     w-96
     p-8
     pt-24
     rounded-lg
+    bg-white
   `}
 
-  z-index: -1;
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
 `;
 
@@ -76,7 +78,7 @@ const StyledTelIcon = styled.span`
   color: #70544f;
 `;
 
-const NavbarMobile = () => {
+const NavbarMobile: FC = () => {
   return (
     <NavbarMobileWrapper>
       <StyledNavbarMobile>

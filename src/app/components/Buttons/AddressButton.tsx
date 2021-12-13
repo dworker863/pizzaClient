@@ -5,6 +5,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const StyledAddressButton = styled.button`
+  ${tw`
+  hidden
+  relative
+  py-3
+  px-20
+  rounded-3xl
+  font-bold
+  text-white
+  bg-green-600
+  lg:block
+  `}
+
   &:before {
     z-index: -1;
     position: absolute;
@@ -23,16 +35,6 @@ const StyledAddressButton = styled.button`
       transform: scale(1.083333333333333);
     }
   }
-
-  ${tw`
-  relative
-  py-3
-  px-20
-  rounded-3xl
-  font-bold
-  text-white
-  bg-green-600
-  `}
 `;
 
 const AddressButon: FC = () => {

@@ -3,17 +3,6 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 const StyledButton = styled.button`
-  &:hover {
-    &:before {
-      transform: scale(1.083333333333333);
-    }
-  }
-
-  &.inverse {
-    background-color: #e0f7f5;
-    color: #059689;
-  }
-
   ${tw`
     relative
     ml-10
@@ -24,11 +13,22 @@ const StyledButton = styled.button`
     font-bold
     text-white
     bg-green-600
-  `}
+    `}
 
   font-family: Montserrat, sans-serif;
   font-weight: 700;
   letter-spacing: 0.08rem;
+
+  &:hover {
+    &:before {
+      transform: scale(1.083333333333333);
+    }
+  }
+
+  &.inverse {
+    background-color: #e0f7f5;
+    color: #059689;
+  }
 `;
 
 interface ButtonProps {

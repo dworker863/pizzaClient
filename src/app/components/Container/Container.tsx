@@ -4,6 +4,7 @@ import tw from 'twin.macro';
 
 const StyledContainer = styled.div`
   ${tw`
+    relative
     flex
     container
     mx-auto

@@ -21,7 +21,8 @@ const HamburgerWrapper = styled.div`
 `;
 
 const StyledHamburger = styled.div`
-  ${tw`  
+  ${tw`
+    z-20 
     relative
     w-6
     h-1

@@ -8,6 +8,7 @@ import LogoWrapper from './Logo';
 import Hamburger from './Hamburger';
 import NavbarMobile from '../Navbar/NavbarMobile';
 import Navbar from '../Navbar/Navbar';
+import NavbarTablet from '../Navbar/NavbarTablet';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -18,11 +19,9 @@ const StyledTopLine = styled.div`
 const TopLine: FC = () => {
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1280px)',
-  });
-
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1280px)' });
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1280 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1280 });
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
     sethamburgerActive(!hamburgerActive);
@@ -30,10 +29,11 @@ const TopLine: FC = () => {
 
   return (
     <StyledTopLine>
+      {isMobile && <NavbarMobile isActive={hamburgerActive ? true : false} />}
       <Container>
         <LogoWrapper />
         {isDesktopOrLaptop && hamburgerActive ? <Navbar /> : <AddressButton />}
-        {isTabletOrMobile && hamburgerActive && <NavbarMobile />}
+        {isTablet && hamburgerActive && <NavbarTablet />}
         <Hamburger
           clickHandler={clickHandler}
           hamburgerActive={hamburgerActive}

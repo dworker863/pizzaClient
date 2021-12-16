@@ -14,7 +14,7 @@ const StyledAddressButton = styled.button`
   font-bold
   text-white
   bg-green-600
-  lg:block
+  md:block
   `}
 
   &:before {

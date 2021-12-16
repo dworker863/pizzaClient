@@ -6,29 +6,23 @@ import tw from 'twin.macro';
 import Button from '../Buttons/Button';
 import MenuItem from './MenuItem';
 
-const NavbarMobileWrapper = styled.nav`
+const NavbarTabletWrapper = styled.nav`
   ${tw`
     z-10
     absolute
-    top-0
-    w-screen
-    h-screen
+    -right-4
+    w-96
     p-8
     pt-24
     rounded-lg
     bg-white
+    lg:right-10
   `}
 
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
-  transition: all 1s ease-in-out;
-  right: -100vh;
-
-  &.active {
-    right: 0;
-  }
 `;
 
-const StyledNavbarMobile = styled.ul`
+const StyledNavbarTablet = styled.ul`
   ${tw`
     grid
     grid-rows-3
@@ -85,14 +79,10 @@ const StyledTelIcon = styled.span`
   color: #70544f;
 `;
 
-interface NavbarMobileProps {
-  isActive: boolean;
-}
-
-const NavbarMobile: FC<NavbarMobileProps> = ({ isActive }) => {
+const NavbarTablet: FC = () => {
   return (
-    <NavbarMobileWrapper className={isActive ? 'active' : ''}>
-      <StyledNavbarMobile>
+    <NavbarTabletWrapper>
+      <StyledNavbarTablet>
         <StyledNavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
           <Button text="ВХОД" inverse={true} />
@@ -106,9 +96,9 @@ const NavbarMobile: FC<NavbarMobileProps> = ({ isActive }) => {
             <FontAwesomeIcon icon={faPhone} className="m-auto" />
           </StyledTelIcon>
         </StyledNavbarItem>
-      </StyledNavbarMobile>
-    </NavbarMobileWrapper>
+      </StyledNavbarTablet>
+    </NavbarTabletWrapper>
   );
 };
 
-export default NavbarMobile;
+export default NavbarTablet;

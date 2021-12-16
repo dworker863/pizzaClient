@@ -8,7 +8,9 @@ const StyledContainer = styled.div`
     flex
     container
     mx-auto
+    px-0
     justify-between
+    lg:px-14
   `}
 `;
 

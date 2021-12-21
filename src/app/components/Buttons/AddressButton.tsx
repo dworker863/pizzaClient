@@ -13,9 +13,10 @@ const StyledAddressButton = styled.button`
   rounded-3xl
   font-bold
   text-white
-  bg-green-600
   md:block
   `}
+
+  background-color: #50a684;
 
   &:before {
     z-index: -1;
@@ -23,10 +24,10 @@ const StyledAddressButton = styled.button`
     top: 0;
     left: 0;
     content: '';
-    width: 337px;
-    height: 48px;
+    width: 100%;
+    height: 100%;
     border-radius: 24px;
-    background-color: rgba(5, 150, 105);
+    background-color: #50a684;
     transition: all 0.2s;
   }
 

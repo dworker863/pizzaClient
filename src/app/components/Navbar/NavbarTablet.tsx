@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
 import MenuItem from './MenuItem';
+import NavbarItem from './NavbarItem';
 
 const NavbarTabletWrapper = styled.nav`
   ${tw`
@@ -28,22 +29,6 @@ const StyledNavbarTablet = styled.ul`
     grid-rows-3
     grid-cols-1
   `}
-`;
-
-const StyledNavbarItem = styled.li`
-  ${tw`
-    flex
-    items-center
-    justify-between
-    py-4
-    px-2
-    border-t
-    border-gray-200
-  `}
-
-  &:nth-child(2) {
-    justify-content: flex-end;
-  }
 `;
 
 const StyledText = styled.p`
@@ -83,19 +68,19 @@ const NavbarTablet: FC = () => {
   return (
     <NavbarTabletWrapper>
       <StyledNavbarTablet>
-        <StyledNavbarItem>
+        <NavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
           <Button text="ВХОД" inverse={true} />
-        </StyledNavbarItem>
-        <StyledNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <MenuItem />
-        </StyledNavbarItem>
-        <StyledNavbarItem>
+        </NavbarItem>
+        <NavbarItem>
           <StyledTel>Телефон: 1234</StyledTel>
           <StyledTelIcon>
             <FontAwesomeIcon icon={faPhone} className="m-auto" />
           </StyledTelIcon>
-        </StyledNavbarItem>
+        </NavbarItem>
       </StyledNavbarTablet>
     </NavbarTabletWrapper>
   );

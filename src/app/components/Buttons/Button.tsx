@@ -12,12 +12,12 @@ const StyledButton = styled.button`
     text-sm
     font-bold
     text-white
-    bg-green-600
     `}
 
   font-family: Montserrat, sans-serif;
   font-weight: 700;
   letter-spacing: 0.08rem;
+  background-color: #50a684;
 
   &:before {
     z-index: -1;
@@ -25,10 +25,10 @@ const StyledButton = styled.button`
     top: 0;
     left: 0;
     content: '';
-    width: 95px;
-    height: 44px;
+    width: 100%;
+    height: 100%;
     border-radius: 24px;
-    background-color: rgba(5, 150, 105);
+    background-color: inherit;
     transition: all 0.2s;
   }
 
@@ -50,10 +50,10 @@ const StyledButton = styled.button`
 
 interface ButtonProps {
   text: string;
-  inverse: boolean;
+  inverse?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({ text, inverse }) => {
+const Button: FC<ButtonProps> = ({ text, inverse = false }) => {
   return (
     <StyledButton className={inverse ? 'inverse' : ''}>{text}</StyledButton>
   );

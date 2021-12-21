@@ -1,7 +1,8 @@
-import { FC, MouseEvent } from 'react';
+import { FC, MouseEvent, useState } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
+import FormItem from '../common/FormItem';
 
 const StyledAuthModal = styled.div`
   ${tw`
@@ -16,6 +17,7 @@ const StyledAuthModal = styled.div`
   top: 52px;
   right: 140px;
   width: 340px;
+  padding-top: 48px;
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
   background-color: #fff;
   font-family: Roboto, sans-serif;
@@ -65,26 +67,6 @@ const StyledCloseButton = styled.span`
   }
 `;
 
-const StyledLabel = styled.label`
-  color: #a69895;
-`;
-
-const StyledInput = styled.input`
-  ${tw`
-    rounded-lg    
-    mt-1
-    `}
-
-  width: 100%;
-  height: 49px;
-  color: #70544f;
-  background-color: #f8f8f8;
-
-  &:nth-child(3) {
-    margin-bottom: 20px;
-  }
-`;
-
 const StyledRestoreAnchor = styled.a`
   ${tw`
     mb-10
@@ -110,35 +92,48 @@ const StyledRegistrationAnchor = styled.a`
 `;
 
 interface IAuthModalProps {
+  itemsList: string[][];
   closeButtonClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const AuthModal: FC<IAuthModalProps> = ({ closeButtonClickHandler }) => {
+const AuthModal: FC<IAuthModalProps> = ({
+  closeButtonClickHandler,
+  itemsList,
+}) => {
+  const [mode, setMode] = useState<string>('login');
+
+  const changeModeHandler = (event: MouseEvent<HTMLAnchorElement>): void => {
+    event.preventDefault();
+    setMode(mode === 'login' ? 'registration' : 'login');
+  };
+
   const loginClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
     console.log('Registration');
   };
+
+  itemsList = itemsList.filter(([id]) =>
+    mode === 'login' ? id !== 'email' && id !== 'name' : id !== 'password',
+  );
 
   return (
     <StyledAuthModal>
       <StyledCloseButtonWrapper>
         <StyledCloseButton onClick={closeButtonClickHandler} />
       </StyledCloseButtonWrapper>
-      <StyledLabel htmlFor="tel">Номер Телефона</StyledLabel>
-      <StyledInput type="tel" id="tel" />
-      <StyledLabel htmlFor="password">Пароль</StyledLabel>
-      <StyledInput type="password" id="password" />
-      <StyledRestoreAnchor target="_blank" rel="noopener noreferrer">
+      {itemsList.map(([id, labelText, type]) => (
+        <FormItem id={id} labelText={labelText} type={type} />
+      ))}
+      <StyledRestoreAnchor href="http://">
         Восстановить пароль
       </StyledRestoreAnchor>
       <StyledAuthButtonsWrapper>
-        <StyledRegistrationAnchor
-          href="http://"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Регистрация
+        <StyledRegistrationAnchor href="http://" onClick={changeModeHandler}>
+          {mode === 'login' ? 'Регистрация' : 'Отмена'}
         </StyledRegistrationAnchor>
-        <Button text="Войти" clickHandler={loginClickHandler} />
+        <Button
+          text={mode === 'login' ? 'Вход' : 'Продолжить'}
+          clickHandler={loginClickHandler}
+        />
       </StyledAuthButtonsWrapper>
     </StyledAuthModal>
   );

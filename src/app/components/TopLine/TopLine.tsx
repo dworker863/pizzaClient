@@ -45,7 +45,15 @@ const TopLine: FC = () => {
       )}
       <Container>
         {isDesktopOrLaptop && modal && (
-          <AuthModal closeButtonClickHandler={modalClickHandler} />
+          <AuthModal
+            closeButtonClickHandler={modalClickHandler}
+            itemsList={[
+              ['tel', 'Номер телефона', 'tel'],
+              ['email', 'Пароль', 'email'],
+              ['name', 'Имя', 'text'],
+              ['password', 'Пароль', 'password'],
+            ]}
+          />
         )}
         {isTablet && modal && (
           <AuthModalTablet closeButtonClickHandler={modalClickHandler} />

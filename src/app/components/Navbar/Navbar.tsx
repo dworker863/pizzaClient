@@ -21,16 +21,16 @@ const StyledMenu = styled.ul`
 `;
 
 interface INavbarProps {
-  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  modalClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Navbar: FC<INavbarProps> = ({ clickHandler }) => {
+const Navbar: FC<INavbarProps> = ({ modalClickHandler }) => {
   return (
     <StyledNavbar>
       <StyledMenu>
         <MenuItem />
       </StyledMenu>
-      <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
+      <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
     </StyledNavbar>
   );
 };

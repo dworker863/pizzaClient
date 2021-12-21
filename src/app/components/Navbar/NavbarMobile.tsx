@@ -87,16 +87,19 @@ const StyledTelIcon = styled.span`
 
 interface NavbarMobileProps {
   isActive: boolean;
-  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  modalClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const NavbarMobile: FC<NavbarMobileProps> = ({ isActive, clickHandler }) => {
+const NavbarMobile: FC<NavbarMobileProps> = ({
+  isActive,
+  modalClickHandler,
+}) => {
   return (
     <NavbarMobileWrapper className={isActive ? 'active' : ''}>
       <StyledNavbarMobile>
         <StyledNavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
+          <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
         </StyledNavbarItem>
         <StyledNavbarItem>
           <MenuItem />

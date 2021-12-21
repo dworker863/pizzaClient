@@ -8,7 +8,7 @@ const StyledContainer = styled.div`
     flex
     container
     mx-auto
-    px-0
+    px-5
     justify-between
     lg:px-14
   `}

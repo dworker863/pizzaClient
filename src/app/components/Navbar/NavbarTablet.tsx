@@ -11,7 +11,7 @@ const NavbarTabletWrapper = styled.nav`
   ${tw`
     z-10
     absolute
-    -right-4
+    right-0
     w-96
     p-8
     pt-24
@@ -65,16 +65,16 @@ const StyledTelIcon = styled.span`
 `;
 
 interface INavbarTablet {
-  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  modalClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const NavbarTablet: FC<INavbarTablet> = ({ clickHandler }) => {
+const NavbarTablet: FC<INavbarTablet> = ({ modalClickHandler }) => {
   return (
     <NavbarTabletWrapper>
       <StyledNavbarTablet>
         <NavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
+          <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
         </NavbarItem>
         <NavbarItem>
           <MenuItem />

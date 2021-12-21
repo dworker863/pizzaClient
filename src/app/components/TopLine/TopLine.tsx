@@ -49,9 +49,10 @@ const TopLine: FC = () => {
             closeButtonClickHandler={modalClickHandler}
             itemsList={[
               ['tel', 'Номер телефона', 'tel'],
-              ['email', 'Пароль', 'email'],
+              ['email', 'Email', 'email'],
               ['name', 'Имя', 'text'],
               ['password', 'Пароль', 'password'],
+              ['password', 'Подтвердите пароль', 'password'],
             ]}
           />
         )}

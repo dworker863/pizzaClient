@@ -100,7 +100,7 @@ const AuthModal: FC<IAuthModalProps> = ({
   closeButtonClickHandler,
   itemsList,
 }) => {
-  const [mode, setMode] = useState<string>('login');
+  const [mode, setMode] = useState<string | null>('login');
 
   const changeModeHandler = (event: MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
@@ -108,11 +108,21 @@ const AuthModal: FC<IAuthModalProps> = ({
   };
 
   const loginClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
-    console.log('Registration');
+    console.log('Login');
   };
 
-  itemsList = itemsList.filter(([id]) =>
-    mode === 'login' ? id !== 'email' && id !== 'name' : id !== 'password',
+  const registrationClickHandler = (
+    event: MouseEvent<HTMLButtonElement>,
+  ): void => {
+    setMode(mode === 'registration' ? 'registration continue' : null);
+  };
+
+  itemsList = itemsList.filter(([id, labelText]) =>
+    mode === 'login'
+      ? id !== 'email' && id !== 'name' && labelText !== 'Подтвердите пароль'
+      : mode === 'registration'
+      ? id !== 'password'
+      : id === 'password',
   );
 
   return (
@@ -131,8 +141,10 @@ const AuthModal: FC<IAuthModalProps> = ({
           {mode === 'login' ? 'Регистрация' : 'Отмена'}
         </StyledRegistrationAnchor>
         <Button
-          text={mode === 'login' ? 'Вход' : 'Продолжить'}
-          clickHandler={loginClickHandler}
+          text={mode === 'login' ? 'Войти' : 'Продолжить'}
+          clickHandler={
+            mode === 'login' ? loginClickHandler : registrationClickHandler
+          }
         />
       </StyledAuthButtonsWrapper>
     </StyledAuthModal>

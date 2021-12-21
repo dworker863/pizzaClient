@@ -9,6 +9,7 @@ import Hamburger from './Hamburger';
 import NavbarMobile from '../Navbar/NavbarMobile';
 import Navbar from '../Navbar/Navbar';
 import NavbarTablet from '../Navbar/NavbarTablet';
+import AuthModal from '../Modals/AuthModal';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -18,24 +19,41 @@ const StyledTopLine = styled.div`
 
 const TopLine: FC = () => {
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
+  const [modal, setModal] = useState<boolean>(false);
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1280 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
+  const hamburgerClickHandler = (event: MouseEvent<HTMLDivElement>): void => {
     sethamburgerActive(!hamburgerActive);
+  };
+
+  const modalClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
+    setModal(!modal);
   };
 
   return (
     <StyledTopLine>
-      {isMobile && <NavbarMobile isActive={hamburgerActive ? true : false} />}
+      {modal && <AuthModal closeButtonClickHandler={modalClickHandler} />}
+      {isMobile && (
+        <NavbarMobile
+          isActive={hamburgerActive ? true : false}
+          clickHandler={modalClickHandler}
+        />
+      )}
       <Container>
         <LogoWrapper />
-        {isDesktopOrLaptop && hamburgerActive ? <Navbar /> : <AddressButton />}
-        {isTablet && hamburgerActive && <NavbarTablet />}
+        {isDesktopOrLaptop && hamburgerActive ? (
+          <Navbar clickHandler={modalClickHandler} />
+        ) : (
+          <AddressButton />
+        )}
+        {isTablet && hamburgerActive && (
+          <NavbarTablet clickHandler={modalClickHandler} />
+        )}
         <Hamburger
-          clickHandler={clickHandler}
+          clickHandler={hamburgerClickHandler}
           hamburgerActive={hamburgerActive}
         />
       </Container>

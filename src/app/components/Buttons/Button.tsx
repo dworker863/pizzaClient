@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
@@ -51,11 +51,14 @@ const StyledButton = styled.button`
 interface ButtonProps {
   text: string;
   inverse?: boolean;
+  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button: FC<ButtonProps> = ({ text, inverse = false }) => {
+const Button: FC<ButtonProps> = ({ text, clickHandler, inverse = false }) => {
   return (
-    <StyledButton className={inverse ? 'inverse' : ''}>{text}</StyledButton>
+    <StyledButton className={inverse ? 'inverse' : ''} onClick={clickHandler}>
+      {text}
+    </StyledButton>
   );
 };
 

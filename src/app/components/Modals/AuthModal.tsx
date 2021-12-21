@@ -1,19 +1,24 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
 
 const StyledAuthModal = styled.div`
   ${tw`
+    z-20
+    absolute
+    
     text-sm
-    relative    
     px-5
     py-8
     rounded-xl
   `}
 
+  top: 72px;
+  right: 165px;
   width: 340px;
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
+  background-color: #fff;
   font-family: Roboto, sans-serif;
 `;
 
@@ -105,11 +110,19 @@ const StyledRegistrationAnchor = styled.a`
   color: #50a684;
 `;
 
-const AuthModal: FC = () => {
+interface IAuthModalProps {
+  closeButtonClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const AuthModal: FC<IAuthModalProps> = ({ closeButtonClickHandler }) => {
+  const loginClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
+    console.log('Registration');
+  };
+
   return (
     <StyledAuthModal>
       <StyledCloseButtonWrapper>
-        <StyledCloseButton />
+        <StyledCloseButton onClick={closeButtonClickHandler} />
       </StyledCloseButtonWrapper>
       <StyledLabel htmlFor="tel">Номер Телефона</StyledLabel>
       <StyledInput type="tel" id="tel" />
@@ -126,7 +139,7 @@ const AuthModal: FC = () => {
         >
           Регистрация
         </StyledRegistrationAnchor>
-        <Button text="Войти" />
+        <Button text="Войти" clickHandler={loginClickHandler} />
       </StyledAuthButtonsWrapper>
     </StyledAuthModal>
   );

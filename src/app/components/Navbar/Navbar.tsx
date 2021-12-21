@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
@@ -20,13 +20,17 @@ const StyledMenu = styled.ul`
   `}
 `;
 
-const Navbar: FC = () => {
+interface INavbarProps {
+  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const Navbar: FC<INavbarProps> = ({ clickHandler }) => {
   return (
     <StyledNavbar>
       <StyledMenu>
         <MenuItem />
       </StyledMenu>
-      <Button text="ВХОД" inverse={true} />
+      <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
     </StyledNavbar>
   );
 };

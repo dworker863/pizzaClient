@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -64,13 +64,17 @@ const StyledTelIcon = styled.span`
   color: #70544f;
 `;
 
-const NavbarTablet: FC = () => {
+interface INavbarTablet {
+  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const NavbarTablet: FC<INavbarTablet> = ({ clickHandler }) => {
   return (
     <NavbarTabletWrapper>
       <StyledNavbarTablet>
         <NavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} />
+          <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
         </NavbarItem>
         <NavbarItem>
           <MenuItem />

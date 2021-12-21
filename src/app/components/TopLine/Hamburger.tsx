@@ -22,7 +22,7 @@ const HamburgerWrapper = styled.div`
 
 const StyledHamburger = styled.div`
   ${tw`
-    z-20 
+    z-10 
     relative
     w-6
     h-1
@@ -64,7 +64,7 @@ const StyledHamburger = styled.div`
 
 interface HamburgerProps {
   hamburgerActive: boolean;
-  clickHandler: (event: React.MouseEvent<HTMLDivElement>) => void;
+  clickHandler: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 const Hamburger: FC<HamburgerProps> = ({ clickHandler, hamburgerActive }) => {

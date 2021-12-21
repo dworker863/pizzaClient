@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, MouseEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -87,15 +87,16 @@ const StyledTelIcon = styled.span`
 
 interface NavbarMobileProps {
   isActive: boolean;
+  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
-const NavbarMobile: FC<NavbarMobileProps> = ({ isActive }) => {
+const NavbarMobile: FC<NavbarMobileProps> = ({ isActive, clickHandler }) => {
   return (
     <NavbarMobileWrapper className={isActive ? 'active' : ''}>
       <StyledNavbarMobile>
         <StyledNavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} />
+          <Button text="ВХОД" inverse={true} clickHandler={clickHandler} />
         </StyledNavbarItem>
         <StyledNavbarItem>
           <MenuItem />

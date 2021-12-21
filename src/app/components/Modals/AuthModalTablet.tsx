@@ -6,16 +6,16 @@ import Button from '../Buttons/Button';
 const StyledAuthModal = styled.div`
   ${tw`
     z-20
-    absolute    
+    absolute
+    w-96
+    p-8
+    pt-16
+    rounded-lg
     text-sm
-    px-5
-    py-8
-    rounded-xl
   `}
 
-  top: 52px;
-  right: 140px;
-  width: 340px;
+  right: 40px;
+  padding-top: 68px;
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
   background-color: #fff;
   font-family: Roboto, sans-serif;

@@ -10,6 +10,7 @@ import NavbarMobile from '../Navbar/NavbarMobile';
 import Navbar from '../Navbar/Navbar';
 import NavbarTablet from '../Navbar/NavbarTablet';
 import AuthModal from '../Modals/AuthModal';
+import AuthModalTablet from '../Modals/AuthModalTablet';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -35,7 +36,6 @@ const TopLine: FC = () => {
 
   return (
     <StyledTopLine>
-      {modal && <AuthModal closeButtonClickHandler={modalClickHandler} />}
       {isMobile && (
         <NavbarMobile
           isActive={hamburgerActive ? true : false}
@@ -43,6 +43,12 @@ const TopLine: FC = () => {
         />
       )}
       <Container>
+        {isDesktopOrLaptop && modal && (
+          <AuthModal closeButtonClickHandler={modalClickHandler} />
+        )}
+        {isTablet && modal && (
+          <AuthModalTablet closeButtonClickHandler={modalClickHandler} />
+        )}
         <LogoWrapper />
         {isDesktopOrLaptop && hamburgerActive ? (
           <Navbar clickHandler={modalClickHandler} />

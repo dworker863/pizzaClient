@@ -12,7 +12,7 @@ const StyledItem = styled.li`
   ${tw`
     inline-block
     font-semibold
-    ml-4
+    mr-4
     hover:text-green-600
     `}
 

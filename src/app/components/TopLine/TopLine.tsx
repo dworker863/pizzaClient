@@ -75,7 +75,6 @@ const TopLine: FC = () => {
               address
             />
           </div>
-          // <AddressButon />
         )}
         {isTablet && hamburgerActive && (
           <NavbarTablet modalClickHandler={modalClickHandler} />

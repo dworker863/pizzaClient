@@ -18,7 +18,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
     font-bold
     `}
 
-  background-color: #50a684;
+  background-color: ${(props) => props.theme.colors.primary};
 
   &:before {
     z-index: -1;
@@ -44,7 +44,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
     css`
       font-family: Montserrat, sans-serif;
       letter-spacing: 0.08rem;
-      color: #50a684;
+      color: ${(props) => props.theme.colors.primary};
     `}
 
   ${({ address }) =>
@@ -59,13 +59,9 @@ export const StyledButton = styled.button<IStyledButtonProps>`
   ${({ inverse }) =>
     inverse &&
     css`
-      color: #059689
-      background-color: #e0f7f5;
-
-      &:before {
-      background-color: #e0f7f5;
-    }
-  `}
+      color: ${(props) => props.theme.colors.primary};
+      background-color: ${(props) => props.theme.colors.secondary};
+    `}
 `;
 
 export default StyledButton;

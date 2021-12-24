@@ -2,7 +2,6 @@ import { FC, useState, MouseEvent } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import AddressButton from '../Buttons/AddressButton';
 import Container from '../Container/Container';
 import LogoWrapper from './Logo';
 import Hamburger from './Hamburger';
@@ -12,6 +11,7 @@ import NavbarTablet from '../Navbar/NavbarTablet';
 import AuthModal from '../Modals/AuthModal';
 import AuthModalTablet from '../Modals/AuthModalTablet';
 import AuthModalMobile from '../Modals/AuthModalMobile';
+import Button from '../Buttons/Button';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -43,6 +43,9 @@ const TopLine: FC = () => {
           modalClickHandler={modalClickHandler}
         />
       )}
+      {isMobile && modal && (
+        <AuthModalMobile closeButtonClickHandler={modalClickHandler} />
+      )}
       <Container>
         {isDesktopOrLaptop && modal && (
           <AuthModal
@@ -59,14 +62,20 @@ const TopLine: FC = () => {
         {isTablet && modal && (
           <AuthModalTablet closeButtonClickHandler={modalClickHandler} />
         )}
-        {isMobile && modal && (
-          <AuthModalMobile closeButtonClickHandler={modalClickHandler} />
-        )}
         <LogoWrapper />
         {isDesktopOrLaptop && hamburgerActive ? (
           <Navbar modalClickHandler={modalClickHandler} />
         ) : (
-          <AddressButton />
+          <div>
+            <Button
+              text="Укажите свой адрес"
+              clickHandler={(event: MouseEvent<HTMLButtonElement>): void =>
+                console.log('Address')
+              }
+              address
+            />
+          </div>
+          // <AddressButon />
         )}
         {isTablet && hamburgerActive && (
           <NavbarTablet modalClickHandler={modalClickHandler} />

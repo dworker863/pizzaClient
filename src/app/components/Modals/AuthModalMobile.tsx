@@ -7,8 +7,8 @@ const StyledAuthModalMobile = styled.div`
   ${tw`
     z-20
     absolute
-    -top-5
-    -left-12
+    top-0
+    right-0
     w-screen
     h-screen
     p-8

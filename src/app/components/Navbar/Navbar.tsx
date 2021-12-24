@@ -30,7 +30,7 @@ const Navbar: FC<INavbarProps> = ({ modalClickHandler }) => {
       <StyledMenu>
         <MenuItem />
       </StyledMenu>
-      <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
+      <Button text="ВХОД" clickHandler={modalClickHandler} inverse login />
     </StyledNavbar>
   );
 };

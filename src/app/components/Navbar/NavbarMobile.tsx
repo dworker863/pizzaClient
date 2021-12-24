@@ -99,7 +99,7 @@ const NavbarMobile: FC<NavbarMobileProps> = ({
       <StyledNavbarMobile>
         <StyledNavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
+          <Button text="ВХОД" clickHandler={modalClickHandler} inverse login />
         </StyledNavbarItem>
         <StyledNavbarItem>
           <MenuItem />

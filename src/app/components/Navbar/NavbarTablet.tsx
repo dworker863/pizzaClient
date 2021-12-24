@@ -74,7 +74,7 @@ const NavbarTablet: FC<INavbarTablet> = ({ modalClickHandler }) => {
       <StyledNavbarTablet>
         <NavbarItem>
           <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
-          <Button text="ВХОД" inverse={true} clickHandler={modalClickHandler} />
+          <Button text="ВХОД" clickHandler={modalClickHandler} inverse login />
         </NavbarItem>
         <NavbarItem>
           <MenuItem />

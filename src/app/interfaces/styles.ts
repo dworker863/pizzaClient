@@ -13,5 +13,6 @@ export interface ITheme {
     large: string;
     medium: string;
     small: string;
+    extraSmall: string;
   };
 }

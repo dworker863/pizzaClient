@@ -11,9 +11,10 @@ export const commonTheme: ITheme = {
   },
 
   media: {
-    extraLarge: 'xl',
-    large: 'lg',
-    medium: 'md',
-    small: 'sm',
+    extraLarge: '(min-width: 1280px)',
+    large: '(min-width: 960px)',
+    medium: '(min-width: 768px)',
+    small: '(min-width: 576px)',
+    extraSmall: '(max-width: 576px)',
   },
 };

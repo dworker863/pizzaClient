@@ -1,18 +1,9 @@
-import React, { FC } from 'react';
+import { ErrorMessage, Field } from 'formik';
+import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-const StyledFormItem = styled.div`
-  ${tw`
-    mb-5
-  `}
-`;
-
-const StyledLabel = styled.label`
-  color: #a69895;
-`;
-
-const StyledInput = styled.input`
+const StyledField = styled(Field)`
   ${tw`
     rounded-lg    
     mt-1
@@ -24,17 +15,36 @@ const StyledInput = styled.input`
   background-color: #f8f8f8;
 `;
 
+const StyledErrorMessage = styled.div`
+  ${tw`
+    text-red-600
+  `}
+`;
+
+const StyledFormItem = styled.div`
+  ${tw`
+    mb-5
+  `}
+`;
+
+const StyledLabel = styled.label`
+  color: #a69895;
+`;
+
 interface IFormItem {
-  id: string;
+  name: string;
   labelText: string;
   type: string;
 }
 
-const FormItem: FC<IFormItem> = ({ id, labelText, type }) => {
+const FormItem: FC<IFormItem> = ({ name, labelText, type }) => {
   return (
     <StyledFormItem>
-      <StyledLabel htmlFor={id}>{labelText}</StyledLabel>
-      <StyledInput type={type} id={id} />
+      <StyledLabel htmlFor={name}>{labelText}</StyledLabel>
+      <StyledField type={type} name={name} />
+      <ErrorMessage name={name}>
+        {(msg) => <StyledErrorMessage>{msg}</StyledErrorMessage>}
+      </ErrorMessage>
     </StyledFormItem>
   );
 };

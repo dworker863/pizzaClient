@@ -33,12 +33,12 @@ const TopLine: FC = () => {
     setModal(!modal);
   };
 
-  const itemsList = [
-    ['tel', 'Номер телефона', 'tel'],
-    ['email', 'Email', 'email'],
-    ['name', 'Имя', 'text'],
+  const formFields: string[][] = [
+    ['tel', 'Телефон', 'tel'],
     ['password', 'Пароль', 'password'],
-    ['password', 'Подтвердите пароль', 'password'],
+    ['password', 'Подтвердите пароль', 'repeatPassword'],
+    ['name', 'Имя', 'text'],
+    ['email', 'Email', 'email'],
   ];
 
   return (
@@ -53,7 +53,7 @@ const TopLine: FC = () => {
       {isMobile && modal && (
         <AuthModal
           closeButtonClickHandler={modalClickHandler}
-          itemsList={itemsList}
+          formFields={formFields}
           screen="mobile"
         />
       )}
@@ -61,14 +61,14 @@ const TopLine: FC = () => {
         {isDesktopOrLaptop && modal && (
           <AuthModal
             closeButtonClickHandler={modalClickHandler}
-            itemsList={itemsList}
+            formFields={formFields}
             screen="desktop"
           />
         )}
         {isTablet && modal && (
           <AuthModal
             closeButtonClickHandler={modalClickHandler}
-            itemsList={itemsList}
+            formFields={formFields}
             screen="tablet"
           />
         )}

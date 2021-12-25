@@ -2,19 +2,19 @@ import { FC, MouseEvent, useState } from 'react';
 import Button from '../Buttons/Button';
 import ButtonClose from '../Buttons/ButtonClose';
 import Anchor from '../common/Anchor';
-import FormItem from '../common/FormItem';
+import AuthForm from '../common/AuthForm';
 import ConditionalAuthWrapper from './ConditionalAuthWrapper';
 import { StyledAuthButtonsWrapper } from './StyledAuth';
 
 interface IAuthModalProps {
-  itemsList: string[][];
+  formFields: string[][];
   closeButtonClickHandler: (event: MouseEvent<HTMLDivElement>) => void;
   screen: 'desktop' | 'tablet' | 'mobile';
 }
 
 const AuthModal: FC<IAuthModalProps> = ({
   closeButtonClickHandler,
-  itemsList,
+  formFields,
   screen,
 }) => {
   const [mode, setMode] = useState<string | null>('login');
@@ -34,20 +34,21 @@ const AuthModal: FC<IAuthModalProps> = ({
     setMode(mode === 'registration' ? 'registration continue' : null);
   };
 
-  itemsList = itemsList.filter(([id, labelText]) =>
+  formFields = formFields.filter(([name, labelText]) =>
     mode === 'login'
-      ? id !== 'email' && id !== 'name' && labelText !== 'Подтвердите пароль'
+      ? name !== 'email' &&
+        name !== 'name' &&
+        labelText !== 'Подтвердите пароль'
       : mode === 'registration'
-      ? id !== 'password'
-      : id === 'password',
+      ? name !== 'password'
+      : name === 'password',
   );
 
   return (
     <ConditionalAuthWrapper screen={screen}>
       <ButtonClose clickHandler={closeButtonClickHandler} />
-      {itemsList.map(([id, labelText, type]) => (
-        <FormItem id={id} labelText={labelText} type={type} />
-      ))}
+      <AuthForm formFields={formFields} />
+
       <Anchor
         text="Восстановить пароль"
         clickHandler={(event: MouseEvent<HTMLAnchorElement>): void =>

@@ -7,7 +7,7 @@ import {
 
 interface IConditionalAuthWrapperProps {
   screen: 'desktop' | 'tablet' | 'mobile';
-  children?: ReactNode;
+  children: ReactNode;
 }
 
 const ConditionalAuthWrapper: FC<IConditionalAuthWrapperProps> = ({

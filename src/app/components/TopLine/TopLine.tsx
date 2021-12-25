@@ -4,10 +4,8 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import Container from '../Container/Container';
 import LogoWrapper from './Logo';
-import Hamburger from './Hamburger';
-import NavbarMobile from '../Navbar/NavbarMobile';
+import Hamburger from './Hamburger/Hamburger';
 import Navbar from '../Navbar/Navbar';
-import NavbarTablet from '../Navbar/NavbarTablet';
 import AuthModal from '../Modals/AuthModal';
 import Button from '../Buttons/Button';
 
@@ -46,9 +44,10 @@ const TopLine: FC = () => {
   return (
     <StyledTopLine>
       {isMobile && (
-        <NavbarMobile
-          isActive={hamburgerActive ? true : false}
+        <Navbar
           modalClickHandler={modalClickHandler}
+          mobileIsActive={hamburgerActive ? true : false}
+          screen="mobile"
         />
       )}
       {isMobile && modal && (
@@ -75,7 +74,7 @@ const TopLine: FC = () => {
         )}
         <LogoWrapper />
         {isDesktopOrLaptop && hamburgerActive ? (
-          <Navbar modalClickHandler={modalClickHandler} />
+          <Navbar modalClickHandler={modalClickHandler} screen="desktop" />
         ) : (
           <div>
             <Button
@@ -88,7 +87,7 @@ const TopLine: FC = () => {
           </div>
         )}
         {isTablet && hamburgerActive && (
-          <NavbarTablet modalClickHandler={modalClickHandler} />
+          <Navbar modalClickHandler={modalClickHandler} screen="tablet" />
         )}
         <Hamburger
           clickHandler={hamburgerClickHandler}

@@ -2,6 +2,10 @@ export interface ITheme {
   colors: {
     primary: string;
     secondary: string;
+    grey: string;
+    brown: string;
+    lightGrey: string;
+    superLightGrey: string;
   };
 
   media: {

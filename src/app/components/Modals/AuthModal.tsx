@@ -1,10 +1,17 @@
 import { FC, MouseEvent, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import Button from '../Buttons/Button';
+import ButtonClose from '../Buttons/ButtonClose';
+import Anchor from '../common/Anchor';
 import FormItem from '../common/FormItem';
 
-const StyledAuthModal = styled.div`
+interface IStyledAuthModal {
+  tablet?: boolean;
+  mobile?: boolean;
+}
+
+const StyledAuthModal = styled.div<IStyledAuthModal>`
   ${tw`
     z-20
     absolute    
@@ -13,6 +20,8 @@ const StyledAuthModal = styled.div`
     py-8
     rounded-xl
   `}
+
+  ${({ tablet }) => tablet && css``}
 
   top: 52px;
   right: 140px;
@@ -23,77 +32,19 @@ const StyledAuthModal = styled.div`
   font-family: Roboto, sans-serif;
 `;
 
-const StyledCloseButtonWrapper = styled.div`
-  ${tw`
-    absolute
-    top-1
-    right-0
-    p-4
-    ml-auto
-  `}
-
-  &:hover {
-    cursor: pointer;
-
-    span {
-      background-color: #a69895;
-
-      &:after {
-        background-color: #a69895;
-      }
-    }
-  }
-`;
-
-const StyledCloseButton = styled.span`
-  ${tw`
-    relative
-    block
-    w-4
-  `}
-
-  background-color: rgba(191,183,182,.6);
-  height: 2px;
-  transform: rotate(45deg);
-  transition: all 0.2s;
-
-  &:after {
-    content: '';
-    display: block;
-    background-color: rgba(191, 183, 182, 0.6);
-    height: 2px;
-    transform: rotate(-90deg);
-    transition: all 0.2s;
-  }
-`;
-
-const StyledRestoreAnchor = styled.a`
-  ${tw`
-    mb-10
-  `}
-
-  color: #50a684;
-`;
-
 const StyledAuthButtonsWrapper = styled.div`
   ${tw`
     flex
     justify-between
     mt-10
   `}
-`;
 
-const StyledRegistrationAnchor = styled.a`
-  ${tw`
-    pt-2
-  `}
-
-  color: #50a684;
+  line-height: 44px;
 `;
 
 interface IAuthModalProps {
   itemsList: string[][];
-  closeButtonClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  closeButtonClickHandler: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
 const AuthModal: FC<IAuthModalProps> = ({
@@ -127,19 +78,21 @@ const AuthModal: FC<IAuthModalProps> = ({
 
   return (
     <StyledAuthModal>
-      <StyledCloseButtonWrapper>
-        <StyledCloseButton onClick={closeButtonClickHandler} />
-      </StyledCloseButtonWrapper>
+      <ButtonClose clickHandler={closeButtonClickHandler} />
       {itemsList.map(([id, labelText, type]) => (
         <FormItem id={id} labelText={labelText} type={type} />
       ))}
-      <StyledRestoreAnchor href="http://">
-        Восстановить пароль
-      </StyledRestoreAnchor>
+      <Anchor
+        text="Восстановить пароль"
+        clickHandler={(event: MouseEvent<HTMLAnchorElement>): void =>
+          console.log('Restore')
+        }
+      />
       <StyledAuthButtonsWrapper>
-        <StyledRegistrationAnchor href="http://" onClick={changeModeHandler}>
-          {mode === 'login' ? 'Регистрация' : 'Отмена'}
-        </StyledRegistrationAnchor>
+        <Anchor
+          text={mode === 'login' ? 'Регистрация' : 'Отмена'}
+          clickHandler={changeModeHandler}
+        />
         <Button
           text={mode === 'login' ? 'Войти' : 'Продолжить'}
           clickHandler={

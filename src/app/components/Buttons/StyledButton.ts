@@ -44,7 +44,7 @@ export const StyledButton = styled.button<IStyledButtonProps>`
     css`
       font-family: Montserrat, sans-serif;
       letter-spacing: 0.08rem;
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.grey};
     `}
 
   ${({ address }) =>

@@ -13,13 +13,17 @@ const StyledItem = styled.li`
     inline-block
     font-semibold
     mr-4
-    hover:text-green-600
+    
     `}
 
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   letter-spacing: 0.08rem;
-  color: #70544f;
+  color: ${(props) => props.theme.colors.brown};
+
+  &:hover {
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 const MenuItem: FC = () => {

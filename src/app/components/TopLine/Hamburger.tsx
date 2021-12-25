@@ -13,9 +13,9 @@ const HamburgerWrapper = styled.div`
     div {
       &:before,
       &:after {
-        background-color: rgba(5, 150, 105);
+        background-color: ${(props) => props.theme.colors.primary};
       }
-      background-color: rgba(5, 150, 105);
+      background-color: ${(props) => props.theme.colors.primary};
     }
   }
 `;
@@ -36,7 +36,7 @@ const StyledHamburger = styled.div`
     display: block;
     width: 24px;
     height: 4px;
-    background-color: rgba(156, 163, 175);
+    background-color: ${(props) => props.theme.colors.grey};
     transition: all 0.15s;
   }
 

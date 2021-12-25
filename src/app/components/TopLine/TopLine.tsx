@@ -31,7 +31,9 @@ const TopLine: FC = () => {
     sethamburgerActive(!hamburgerActive);
   };
 
-  const modalClickHandler = (event: MouseEvent<HTMLButtonElement>): void => {
+  const modalClickHandler = (
+    event: MouseEvent<HTMLButtonElement | HTMLDivElement>,
+  ): void => {
     setModal(!modal);
   };
 

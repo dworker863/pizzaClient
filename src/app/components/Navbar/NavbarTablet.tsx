@@ -38,7 +38,7 @@ const StyledText = styled.p`
     font-normal
   `}
 
-  color: #a69895;
+  color: ${(props) => props.theme.colors.lightGrey};
 `;
 
 const StyledTel = styled.p`
@@ -48,7 +48,7 @@ const StyledTel = styled.p`
   `}
 
   font-family: Montserrat, sans-serif;
-  color: #70544f;
+  color: ${(props) => props.theme.colors.brown};
 `;
 
 const StyledTelIcon = styled.span`
@@ -60,8 +60,8 @@ const StyledTelIcon = styled.span`
   `}
 
   font-family: Montserrat, sans-serif;
-  border: 1px solid #70544f;
-  color: #70544f;
+  border: 1px solid ${(props) => props.theme.colors.brown};
+  color: ${(props) => props.theme.colors.brown};
 `;
 
 interface INavbarTablet {

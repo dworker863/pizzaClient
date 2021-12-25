@@ -10,8 +10,9 @@ const StyledNavbarItem = styled.li`
     py-4
     px-2
     border-t
-    border-gray-200
   `}
+
+  border-color: rgba(${(props) => props.theme.colors.lightGrey}, .5);
 
   &:nth-child(2) {
     justify-content: flex-end;

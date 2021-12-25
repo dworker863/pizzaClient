@@ -35,10 +35,10 @@ const StyledCloseButtonWrapper = styled.div`
     cursor: pointer;
 
     span {
-      background-color: #a69895;
+      background-color: ${(props) => props.theme.colors.lightGrey};
 
       &:after {
-        background-color: #a69895;
+        background-color: ${(props) => props.theme.colors.lightGrey};
       }
     }
   }
@@ -51,7 +51,7 @@ const StyledCloseButton = styled.span`
     w-4
   `}
 
-  background-color: rgba(191,183,182,.6);
+  background-color: ${(props) => props.theme.colors.superLightGrey};
   height: 2px;
   transform: rotate(45deg);
   transition: all 0.2s;
@@ -59,7 +59,7 @@ const StyledCloseButton = styled.span`
   &:after {
     content: '';
     display: block;
-    background-color: rgba(191, 183, 182, 0.6);
+    background-color: ${(props) => props.theme.colors.superLightGrey};
     height: 2px;
     transform: rotate(-90deg);
     transition: all 0.2s;
@@ -78,7 +78,7 @@ const StyledInput = styled.input`
 
   width: 100%;
   height: 49px;
-  color: #70544f;
+  color: ${(props) => props.theme.colors.brown};
   background-color: #f8f8f8;
 
   &:nth-child(3) {
@@ -91,7 +91,7 @@ const StyledRestoreAnchor = styled.a`
     mb-10
   `}
 
-  color: #50a684;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 const StyledAuthButtonsWrapper = styled.div`
@@ -107,7 +107,7 @@ const StyledRegistrationAnchor = styled.a`
     pt-2
   `}
 
-  color: #50a684;
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 interface IAuthModalMobileProps {

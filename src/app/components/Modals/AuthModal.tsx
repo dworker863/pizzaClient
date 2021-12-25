@@ -1,55 +1,21 @@
 import { FC, MouseEvent, useState } from 'react';
-import styled, { css } from 'styled-components';
-import tw from 'twin.macro';
 import Button from '../Buttons/Button';
 import ButtonClose from '../Buttons/ButtonClose';
 import Anchor from '../common/Anchor';
 import FormItem from '../common/FormItem';
-
-interface IStyledAuthModal {
-  tablet?: boolean;
-  mobile?: boolean;
-}
-
-const StyledAuthModal = styled.div<IStyledAuthModal>`
-  ${tw`
-    z-20
-    absolute    
-    text-sm
-    px-5
-    py-8
-    rounded-xl
-  `}
-
-  ${({ tablet }) => tablet && css``}
-
-  top: 52px;
-  right: 140px;
-  width: 340px;
-  padding-top: 48px;
-  box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
-  background-color: #fff;
-  font-family: Roboto, sans-serif;
-`;
-
-const StyledAuthButtonsWrapper = styled.div`
-  ${tw`
-    flex
-    justify-between
-    mt-10
-  `}
-
-  line-height: 44px;
-`;
+import ConditionalAuthWrapper from './ConditionalAuthWrapper';
+import { StyledAuthButtonsWrapper } from './StyledAuth';
 
 interface IAuthModalProps {
   itemsList: string[][];
   closeButtonClickHandler: (event: MouseEvent<HTMLDivElement>) => void;
+  screen: 'desktop' | 'tablet' | 'mobile';
 }
 
 const AuthModal: FC<IAuthModalProps> = ({
   closeButtonClickHandler,
   itemsList,
+  screen,
 }) => {
   const [mode, setMode] = useState<string | null>('login');
 
@@ -77,7 +43,7 @@ const AuthModal: FC<IAuthModalProps> = ({
   );
 
   return (
-    <StyledAuthModal>
+    <ConditionalAuthWrapper screen={screen}>
       <ButtonClose clickHandler={closeButtonClickHandler} />
       {itemsList.map(([id, labelText, type]) => (
         <FormItem id={id} labelText={labelText} type={type} />
@@ -100,7 +66,7 @@ const AuthModal: FC<IAuthModalProps> = ({
           }
         />
       </StyledAuthButtonsWrapper>
-    </StyledAuthModal>
+    </ConditionalAuthWrapper>
   );
 };
 

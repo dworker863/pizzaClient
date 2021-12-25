@@ -9,8 +9,6 @@ import NavbarMobile from '../Navbar/NavbarMobile';
 import Navbar from '../Navbar/Navbar';
 import NavbarTablet from '../Navbar/NavbarTablet';
 import AuthModal from '../Modals/AuthModal';
-import AuthModalTablet from '../Modals/AuthModalTablet';
-import AuthModalMobile from '../Modals/AuthModalMobile';
 import Button from '../Buttons/Button';
 
 const StyledTopLine = styled.div`
@@ -37,6 +35,14 @@ const TopLine: FC = () => {
     setModal(!modal);
   };
 
+  const itemsList = [
+    ['tel', 'Номер телефона', 'tel'],
+    ['email', 'Email', 'email'],
+    ['name', 'Имя', 'text'],
+    ['password', 'Пароль', 'password'],
+    ['password', 'Подтвердите пароль', 'password'],
+  ];
+
   return (
     <StyledTopLine>
       {isMobile && (
@@ -46,23 +52,26 @@ const TopLine: FC = () => {
         />
       )}
       {isMobile && modal && (
-        <AuthModalMobile closeButtonClickHandler={modalClickHandler} />
+        <AuthModal
+          closeButtonClickHandler={modalClickHandler}
+          itemsList={itemsList}
+          screen="mobile"
+        />
       )}
       <Container>
         {isDesktopOrLaptop && modal && (
           <AuthModal
             closeButtonClickHandler={modalClickHandler}
-            itemsList={[
-              ['tel', 'Номер телефона', 'tel'],
-              ['email', 'Email', 'email'],
-              ['name', 'Имя', 'text'],
-              ['password', 'Пароль', 'password'],
-              ['password', 'Подтвердите пароль', 'password'],
-            ]}
+            itemsList={itemsList}
+            screen="desktop"
           />
         )}
         {isTablet && modal && (
-          <AuthModalTablet closeButtonClickHandler={modalClickHandler} />
+          <AuthModal
+            closeButtonClickHandler={modalClickHandler}
+            itemsList={itemsList}
+            screen="tablet"
+          />
         )}
         <LogoWrapper />
         {isDesktopOrLaptop && hamburgerActive ? (

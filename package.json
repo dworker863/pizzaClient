@@ -23,6 +23,7 @@
     "react-redux": "^7.2.0",
     "react-responsive": "^9.0.0-beta.5",
     "react-scripts": "4.0.3",
+    "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
     "twin.macro": "^2.8.1",
     "typeface-roboto": "^1.1.13",

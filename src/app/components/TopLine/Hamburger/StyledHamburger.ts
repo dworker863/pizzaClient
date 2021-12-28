@@ -54,7 +54,7 @@ export const StyledHamburger = styled.div<IStyledHamburgerProps>`
   ${({ isActive }) =>
     isActive &&
     css`
-      &.active {
+      & {
         transform: rotate(45deg);
 
         &:before {

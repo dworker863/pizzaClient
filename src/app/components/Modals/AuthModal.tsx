@@ -34,14 +34,14 @@ const AuthModal: FC<IAuthModalProps> = ({
     setMode(mode === 'registration' ? 'registration continue' : null);
   };
 
-  formFields = formFields.filter(([name, labelText]) =>
+  formFields = formFields.filter(([name, labelText, type]) =>
     mode === 'login'
       ? name !== 'email' &&
         name !== 'name' &&
         labelText !== 'Подтвердите пароль'
       : mode === 'registration'
-      ? name !== 'password'
-      : name === 'password',
+      ? type !== 'password'
+      : type === 'password',
   );
 
   return (

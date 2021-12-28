@@ -35,13 +35,14 @@ interface IFormItem {
   name: string;
   labelText: string;
   type: string;
+  placeholder?: string;
 }
 
-const FormItem: FC<IFormItem> = ({ name, labelText, type }) => {
+const FormItem: FC<IFormItem> = ({ name, labelText, type, placeholder }) => {
   return (
     <StyledFormItem>
       <StyledLabel htmlFor={name}>{labelText}</StyledLabel>
-      <StyledField type={type} name={name} />
+      <StyledField type={type} name={name} placeholder={placeholder} />
       <ErrorMessage name={name}>
         {(msg) => <StyledErrorMessage>{msg}</StyledErrorMessage>}
       </ErrorMessage>

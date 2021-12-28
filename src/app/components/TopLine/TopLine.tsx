@@ -34,9 +34,9 @@ const TopLine: FC = () => {
   };
 
   const formFields: string[][] = [
-    ['tel', 'Телефон', 'tel'],
+    ['tel', 'Телефон', 'tel', '+7 777 619 61 90'],
     ['password', 'Пароль', 'password'],
-    ['password', 'Подтвердите пароль', 'repeatPassword'],
+    ['passwordConfirmation', 'Подтвердите пароль', 'password'],
     ['name', 'Имя', 'text'],
     ['email', 'Email', 'email'],
   ];

@@ -1,12 +1,12 @@
 import { FC, MouseEvent } from 'react';
 import { HamburgerWrapper, StyledHamburger } from './StyledHamburger';
 
-interface HamburgerProps {
+interface IHamburgerProps {
   hamburgerActive: boolean;
   clickHandler: (event: MouseEvent<HTMLDivElement>) => void;
 }
 
-const Hamburger: FC<HamburgerProps> = ({ clickHandler, hamburgerActive }) => {
+const Hamburger: FC<IHamburgerProps> = ({ clickHandler, hamburgerActive }) => {
   return (
     <HamburgerWrapper onClick={clickHandler}>
       <StyledHamburger isActive={hamburgerActive} />

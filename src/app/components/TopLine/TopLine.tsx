@@ -1,4 +1,6 @@
 import { FC, useState, MouseEvent } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import tw from 'twin.macro';
@@ -8,6 +10,7 @@ import Hamburger from './Hamburger/Hamburger';
 import Navbar from '../Navbar/Navbar';
 import AuthModal from '../Modals/AuthModal';
 import Button from '../Buttons/Button';
+import { IUsersState } from '../../redux/reducers/usersReducer/userTypes';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -16,6 +19,10 @@ const StyledTopLine = styled.div`
 `;
 
 const TopLine: FC = () => {
+  const users: IUsersState = useSelector((state: RootState): IUsersState => {
+    return state.users;
+  });
+
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);
 
@@ -34,7 +41,7 @@ const TopLine: FC = () => {
   };
 
   const formFields: string[][] = [
-    ['tel', 'Телефон', 'tel', '+7 777 619 61 90'],
+    ['tel', 'Телефон', 'tel', '+7 777 777 77 77'],
     ['password', 'Пароль', 'password'],
     ['passwordConfirmation', 'Подтвердите пароль', 'password'],
     ['name', 'Имя', 'text'],

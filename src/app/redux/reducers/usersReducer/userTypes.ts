@@ -1,30 +1,38 @@
-export enum EFetchUsers {
-  FETCH_USERS = 'FETCH_USERS',
-  FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
-  FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
+export enum ESetUsers {
+  SET_USERS = 'SET_USERS',
+  SET_USERS_SUCCESS = 'SET_USERS_SUCCESS',
+  SET_USERS_ERROR = 'SET_USERS_ERROR',
 }
 
-export interface IUserState {
+export interface IUsersState {
   users: any[];
   loading: boolean;
   error: null | string;
 }
 
-interface IFetchUserAction {
-  type: EFetchUsers.FETCH_USERS;
+export interface ISetUsersAction {
+  type: ESetUsers.SET_USERS;
 }
 
-interface IFetchUserSuccessAction {
-  type: EFetchUsers.FETCH_USERS_SUCCESS;
-  payload: any[];
+export interface ISetUsersSuccessAction {
+  type: ESetUsers.SET_USERS_SUCCESS;
+  payload: IUser[];
 }
 
-interface IFetchUserErrorAction {
-  type: EFetchUsers.FETCH_USERS_ERROR;
+export interface ISetUsersErrorAction {
+  type: ESetUsers.SET_USERS_ERROR;
   payload: string;
 }
 
-export type ActionTypes =
-  | IFetchUserAction
-  | IFetchUserSuccessAction
-  | IFetchUserErrorAction;
+export type UserActionTypes =
+  | ISetUsersAction
+  | ISetUsersSuccessAction
+  | ISetUsersErrorAction;
+
+export interface IUser {
+  name: string;
+  tel: string;
+  email: string;
+  password: string;
+  role: 'Admin' | 'User';
+}

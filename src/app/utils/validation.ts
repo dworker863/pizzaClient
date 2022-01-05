@@ -7,7 +7,16 @@ export const authValidation = Yup.object({
     .matches(phoneRegExp, 'Некорректный номер телефона')
     .required('Укажите номер телефона'),
   password: Yup.string()
-    .min(5, 'Пароль должен быть не меньше 5 символов')
+    .min(4, 'Пароль должен быть не меньше 4 символов')
+    .required('Введите пароль'),
+});
+
+export const registrationValidation = Yup.object({
+  tel: Yup.string()
+    .matches(phoneRegExp, 'Некорректный номер телефона')
+    .required('Укажите номер телефона'),
+  password: Yup.string()
+    .min(4, 'Пароль должен быть не меньше 4 символов')
     .required('Введите пароль'),
   passwordConfirmation: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Пароли не совпадают')

@@ -1,3 +1,5 @@
+import { IUser } from '../../../interfaces/user';
+
 export enum ESetUsers {
   SET_USERS = 'SET_USERS',
   SET_USERS_SUCCESS = 'SET_USERS_SUCCESS',
@@ -28,11 +30,3 @@ export type UserActionTypes =
   | ISetUsersAction
   | ISetUsersSuccessAction
   | ISetUsersErrorAction;
-
-export interface IUser {
-  name: string;
-  tel: string;
-  email: string;
-  password: string;
-  role: 'Admin' | 'User';
-}

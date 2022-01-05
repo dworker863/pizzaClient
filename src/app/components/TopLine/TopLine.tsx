@@ -1,5 +1,5 @@
-import { FC, useState, MouseEvent } from 'react';
-import { useSelector } from 'react-redux';
+import { FC, useState, MouseEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
@@ -10,7 +10,7 @@ import Hamburger from './Hamburger/Hamburger';
 import Navbar from '../Navbar/Navbar';
 import AuthModal from '../Modals/AuthModal';
 import Button from '../Buttons/Button';
-import { IUsersState } from '../../redux/reducers/usersReducer/userTypes';
+import { getUsers } from '../../redux/reducers/usersReducer/users';
 
 const StyledTopLine = styled.div`
   ${tw`
@@ -19,9 +19,13 @@ const StyledTopLine = styled.div`
 `;
 
 const TopLine: FC = () => {
-  const users: IUsersState = useSelector((state: RootState): IUsersState => {
-    return state.users;
-  });
+  const users = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect((): void => {
+    dispatch(getUsers());
+    console.log(users);
+  }, [dispatch]);
 
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);

@@ -52,8 +52,8 @@ interface IButtonCloseProps {
 
 const ButtonClose: FC<IButtonCloseProps> = ({ clickHandler }) => {
   return (
-    <StyledCloseButtonWrapper>
-      <StyledCloseButton onClick={clickHandler} />
+    <StyledCloseButtonWrapper onClick={clickHandler}>
+      <StyledCloseButton />
     </StyledCloseButtonWrapper>
   );
 };

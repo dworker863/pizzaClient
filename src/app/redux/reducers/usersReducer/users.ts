@@ -2,10 +2,10 @@ import { Dispatch } from 'react';
 import { AnyAction } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { fetchUsers } from '../../../api/api';
+import { IUser } from '../../../interfaces/user';
 import {
   UserActionTypes,
   ESetUsers,
-  IUser,
   IUsersState,
   ISetUsersAction,
   ISetUsersSuccessAction,

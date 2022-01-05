@@ -1,6 +1,8 @@
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, MouseEvent } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 import Button from '../Buttons/Button';
 import ConditionalNavbarWrapper from './ConditionalNavbarWrapper';
 import MenuItem from './MenuItem';
@@ -24,6 +26,8 @@ const Navbar: FC<INavbarProps> = ({
   mobileIsActive,
   screen,
 }) => {
+  const auth = useSelector((state: RootState) => state.auth);
+
   return (
     <ConditionalNavbarWrapper mobileIsActive={mobileIsActive} screen={screen}>
       {screen === 'desktop' && (
@@ -31,7 +35,16 @@ const Navbar: FC<INavbarProps> = ({
           <StyledMenu>
             <MenuItem />
           </StyledMenu>
-          <Button text="ВХОД" clickHandler={modalClickHandler} inverse login />
+          {auth.auth ? (
+            auth.username
+          ) : (
+            <Button
+              text="ВХОД"
+              clickHandler={modalClickHandler}
+              inverse
+              login
+            />
+          )}
         </>
       )}
       {(screen === 'tablet' || screen === 'mobile') && (

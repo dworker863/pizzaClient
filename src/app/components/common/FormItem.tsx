@@ -11,6 +11,7 @@ const StyledField = styled(Field)`
 
   width: 100%;
   height: 49px;
+  padding: 15px;
   color: #70544f;
   background-color: #f8f8f8;
 `;

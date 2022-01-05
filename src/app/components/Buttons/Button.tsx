@@ -5,7 +5,8 @@ import StyledButton from './StyledButton';
 
 interface IButtonProps {
   text: string;
-  clickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
+  clickHandler?: (event: MouseEvent<HTMLButtonElement>) => void;
+  type?: 'button' | 'submit' | 'reset';
   inverse?: boolean;
   login?: boolean;
   address?: boolean;
@@ -14,6 +15,7 @@ interface IButtonProps {
 const Button: FC<IButtonProps> = ({
   text,
   clickHandler,
+  type,
   inverse,
   login,
   address,
@@ -21,6 +23,7 @@ const Button: FC<IButtonProps> = ({
   return (
     <StyledButton
       onClick={clickHandler}
+      type={type}
       inverse={inverse}
       login={login}
       address={address}

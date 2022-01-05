@@ -73,9 +73,10 @@ export const getRegistration =
     tel: string,
     email: string,
     password: string,
+    role: string,
   ): ThunkAction<void, IAuthState, unknown, AnyAction> =>
   (dispatch: Dispatch<any>): void => {
-    registration(name, tel, email, password).then((user) => {
+    registration(name, tel, email, password, role).then((user) => {
       dispatch(setRegistration(user.name));
     });
   };

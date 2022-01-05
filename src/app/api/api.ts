@@ -22,12 +22,13 @@ export const registration = (
   tel: string,
   email: string,
   password: string,
+  role: string,
 ): Promise<IUser> => {
   return instance
-    .post(`auth/registration`, { name, tel, email, password })
+    .post(`auth/registration`, { name, tel, email, password, role })
     .then((res) => {
       localStorage.setItem('token', res.data.token);
       console.log(localStorage.getItem('token'));
-      return res.data;
+      return res.data.dataValues;
     });
 };

@@ -6,18 +6,20 @@ import ConditionalAuthWrapper from './ConditionalAuthWrapper';
 interface IAuthModalProps {
   formFields: string[][];
   closeButtonClickHandler: (event: MouseEvent<HTMLDivElement>) => void;
+  setModal: () => void;
   screen: 'desktop' | 'tablet' | 'mobile';
 }
 
 const AuthModal: FC<IAuthModalProps> = ({
-  closeButtonClickHandler,
   formFields,
+  setModal,
+  closeButtonClickHandler,
   screen,
 }) => {
   return (
     <ConditionalAuthWrapper screen={screen}>
       <ButtonClose clickHandler={closeButtonClickHandler} />
-      <AuthFormContainer formFields={formFields} />
+      <AuthFormContainer formFields={formFields} setModal={setModal} />
     </ConditionalAuthWrapper>
   );
 };

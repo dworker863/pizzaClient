@@ -6,8 +6,9 @@ import {
 } from '../../redux/reducers/authReducer/auth';
 import AuthForm from './AuthForm';
 
-interface IAuthFormContainer {
+interface IAuthFormContainerProps {
   formFields: string[][];
+  setModal: () => void;
 }
 
 export interface IAuthFormValues {
@@ -22,7 +23,10 @@ export type TAnchorText = 'Регистрация' | 'Отмена';
 
 export type TMode = 'login' | 'registration' | 'password';
 
-const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
+const AuthFormContainer: FC<IAuthFormContainerProps> = ({
+  formFields,
+  setModal,
+}) => {
   const [registrationValues, setRegistrationValues] = useState({
     tel: '',
     password: '',
@@ -42,22 +46,9 @@ const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
     setMode(anchorText === 'Регистрация' ? 'registration' : 'login');
   };
 
-  const changeModeHandler = (
-    event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ): void => {
-    event.preventDefault();
-    if (mode === 'login') {
-      setMode('registration');
-    } else if (mode === 'registration') {
-      setMode('password');
-    } else {
-      setMode('login');
-    }
-    console.log(mode);
-  };
-
   const loginClickHandler = (tel: string, password: string): void => {
     dispatch(getLogin(tel, password));
+    setModal();
   };
 
   const registrationClickHandler = (
@@ -68,6 +59,7 @@ const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
     role: string,
   ): void => {
     dispatch(getRegistration(name, tel, email, password, role));
+    setModal();
   };
 
   const submitClickHandler = (values: IAuthFormValues) => {

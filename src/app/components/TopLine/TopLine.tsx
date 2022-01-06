@@ -38,9 +38,7 @@ const TopLine: FC = () => {
     sethamburgerActive(!hamburgerActive);
   };
 
-  const modalClickHandler = (
-    event: MouseEvent<HTMLButtonElement | HTMLDivElement>,
-  ): void => {
+  const modalClickHandler = (): void => {
     setModal(!modal);
   };
 
@@ -63,23 +61,26 @@ const TopLine: FC = () => {
       )}
       {isMobile && modal && (
         <AuthModal
-          closeButtonClickHandler={modalClickHandler}
           formFields={formFields}
+          setModal={modalClickHandler}
+          closeButtonClickHandler={modalClickHandler}
           screen="mobile"
         />
       )}
       <Container>
         {isDesktopOrLaptop && modal && (
           <AuthModal
-            closeButtonClickHandler={modalClickHandler}
             formFields={formFields}
+            setModal={modalClickHandler}
+            closeButtonClickHandler={modalClickHandler}
             screen="desktop"
           />
         )}
         {isTablet && modal && (
           <AuthModal
-            closeButtonClickHandler={modalClickHandler}
             formFields={formFields}
+            setModal={modalClickHandler}
+            closeButtonClickHandler={modalClickHandler}
             screen="tablet"
           />
         )}

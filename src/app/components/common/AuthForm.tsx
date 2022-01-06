@@ -9,22 +9,22 @@ import {
 import Button from '../Buttons/Button';
 import { StyledAuthButtonsWrapper } from '../Modals/StyledAuth';
 import Anchor from './Anchor';
-import { IAuthFormValues, TMode } from './AuthFormContainer';
+import { IAuthFormValues, TAnchorText, TMode } from './AuthFormContainer';
 import FormItem from './FormItem';
 
 interface IAuthFormProps {
   formFields: string[][];
   mode: TMode;
-  changeModeHandler: (
-    event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
-  ) => void;
+  anchorText: TAnchorText;
+  toggleAnchorText: (event: MouseEvent<HTMLAnchorElement>) => void;
   submitClickHandler: (values: IAuthFormValues) => void;
 }
 
 const AuthForm: FC<IAuthFormProps> = ({
   formFields,
   mode,
-  changeModeHandler,
+  anchorText,
+  toggleAnchorText,
   submitClickHandler,
 }) => {
   const initialValues: IAuthFormValues = {
@@ -66,10 +66,7 @@ const AuthForm: FC<IAuthFormProps> = ({
           }
         />
         <StyledAuthButtonsWrapper>
-          <Anchor
-            text={mode === 'login' ? 'Регистрация' : 'Отмена'}
-            clickHandler={changeModeHandler}
-          />
+          <Anchor text={anchorText} clickHandler={toggleAnchorText} />
           <Button
             text={mode === 'login' ? 'Войти' : 'Продолжить'}
             type="submit"

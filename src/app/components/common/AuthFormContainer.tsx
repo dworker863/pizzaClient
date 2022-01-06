@@ -18,6 +18,8 @@ export interface IAuthFormValues {
   email: string;
 }
 
+export type TAnchorText = 'Регистрация' | 'Отмена';
+
 export type TMode = 'login' | 'registration' | 'password';
 
 const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
@@ -30,8 +32,15 @@ const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
   });
 
   const [mode, setMode] = useState<TMode>('login');
+  const [anchorText, setAnchorText] = useState<TAnchorText>('Регистрация');
 
   const dispatch = useDispatch();
+
+  const toggleAnchorText = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setAnchorText(anchorText === 'Регистрация' ? 'Отмена' : 'Регистрация');
+    setMode(anchorText === 'Регистрация' ? 'registration' : 'login');
+  };
 
   const changeModeHandler = (
     event: MouseEvent<HTMLButtonElement | HTMLAnchorElement>,
@@ -101,7 +110,8 @@ const AuthFormContainer: FC<IAuthFormContainer> = ({ formFields }) => {
     <AuthForm
       formFields={formFields}
       mode={mode}
-      changeModeHandler={changeModeHandler}
+      anchorText={anchorText}
+      toggleAnchorText={toggleAnchorText}
       submitClickHandler={submitClickHandler}
     />
   );

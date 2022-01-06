@@ -7,7 +7,6 @@ import {
 import AuthForm from './AuthForm';
 
 interface IAuthFormContainerProps {
-  formFields: string[][];
   setModal: () => void;
 }
 
@@ -23,10 +22,7 @@ export type TAnchorText = 'Регистрация' | 'Отмена';
 
 export type TMode = 'login' | 'registration' | 'password';
 
-const AuthFormContainer: FC<IAuthFormContainerProps> = ({
-  formFields,
-  setModal,
-}) => {
+const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
   const [registrationValues, setRegistrationValues] = useState({
     tel: '',
     password: '',
@@ -87,6 +83,14 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({
       );
     }
   };
+
+  let formFields: string[][] = [
+    ['tel', 'Телефон', 'tel', '+7 777 777 77 77'],
+    ['password', 'Пароль', 'password'],
+    ['passwordConfirmation', 'Подтвердите пароль', 'password'],
+    ['name', 'Имя', 'text'],
+    ['email', 'Email', 'email'],
+  ];
 
   formFields = formFields.filter(([name, labelText, type]) =>
     mode === 'login'

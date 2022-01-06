@@ -42,14 +42,6 @@ const TopLine: FC = () => {
     setModal(!modal);
   };
 
-  const formFields: string[][] = [
-    ['tel', 'Телефон', 'tel', '+7 777 777 77 77'],
-    ['password', 'Пароль', 'password'],
-    ['passwordConfirmation', 'Подтвердите пароль', 'password'],
-    ['name', 'Имя', 'text'],
-    ['email', 'Email', 'email'],
-  ];
-
   return (
     <StyledTopLine>
       {isMobile && (
@@ -61,7 +53,6 @@ const TopLine: FC = () => {
       )}
       {isMobile && modal && (
         <AuthModal
-          formFields={formFields}
           setModal={modalClickHandler}
           closeButtonClickHandler={modalClickHandler}
           screen="mobile"
@@ -70,7 +61,6 @@ const TopLine: FC = () => {
       <Container>
         {isDesktopOrLaptop && modal && (
           <AuthModal
-            formFields={formFields}
             setModal={modalClickHandler}
             closeButtonClickHandler={modalClickHandler}
             screen="desktop"
@@ -78,7 +68,6 @@ const TopLine: FC = () => {
         )}
         {isTablet && modal && (
           <AuthModal
-            formFields={formFields}
             setModal={modalClickHandler}
             closeButtonClickHandler={modalClickHandler}
             screen="tablet"

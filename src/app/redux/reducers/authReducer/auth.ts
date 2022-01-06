@@ -43,7 +43,7 @@ export const auth = (
       return { username: action.payload, auth: true };
 
     case ESetAuth.LOGOUT:
-      return { ...state, auth: false };
+      return { username: '', auth: false };
 
     case ESetAuth.REGISTRATION:
       return { username: action.payload, auth: true };
@@ -91,3 +91,13 @@ export const getLogin =
       dispatch(setLogin(user.name));
     });
   };
+
+export const getLogout =
+  (): ThunkAction<void, IAuthState, unknown, AnyAction> =>
+  (dispatch: Dispatch<any>): void => {
+    localStorage.setItem('token', '');
+    dispatch(setLogout());
+    console.log('sdfs');
+  };
+
+export default auth;

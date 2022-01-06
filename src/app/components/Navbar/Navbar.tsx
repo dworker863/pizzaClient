@@ -1,7 +1,8 @@
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC, MouseEvent } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getLogout } from '../../redux/reducers/authReducer/auth';
 import { RootState } from '../../store';
 import Button from '../Buttons/Button';
 import ConditionalNavbarWrapper from './ConditionalNavbarWrapper';
@@ -27,6 +28,13 @@ const Navbar: FC<INavbarProps> = ({
   screen,
 }) => {
   const auth = useSelector((state: RootState) => state.auth);
+  const dispatch = useDispatch();
+
+  const logoutClickHandler = () => {
+    dispatch(getLogout());
+  };
+
+  console.log(auth);
 
   return (
     <ConditionalNavbarWrapper mobileIsActive={mobileIsActive} screen={screen}>
@@ -35,16 +43,12 @@ const Navbar: FC<INavbarProps> = ({
           <StyledMenu>
             <MenuItem />
           </StyledMenu>
-          {auth.auth ? (
-            auth.username
-          ) : (
-            <Button
-              text="ВХОД"
-              clickHandler={modalClickHandler}
-              inverse
-              login
-            />
-          )}
+          <Button
+            text={auth.auth ? auth.username + ' LOGOUT' : 'ВХОД'}
+            clickHandler={auth.auth ? logoutClickHandler : modalClickHandler}
+            inverse
+            login
+          />
         </>
       )}
       {(screen === 'tablet' || screen === 'mobile') && (
@@ -53,8 +57,10 @@ const Navbar: FC<INavbarProps> = ({
             <NavbarItem>
               <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
               <Button
-                text="ВХОД"
-                clickHandler={modalClickHandler}
+                text={auth.auth ? auth.username + ' LOGOUT' : 'ВХОД'}
+                clickHandler={
+                  auth.auth ? logoutClickHandler : modalClickHandler
+                }
                 inverse
                 login
               />

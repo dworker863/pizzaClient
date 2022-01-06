@@ -28,7 +28,6 @@ export const registration = (
     .post(`auth/registration`, { name, tel, email, password, role })
     .then((res) => {
       localStorage.setItem('token', res.data.token);
-      console.log(localStorage.getItem('token'));
       return res.data.dataValues;
     });
 };

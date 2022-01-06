@@ -1,6 +1,6 @@
 import { FC, MouseEvent } from 'react';
 import ButtonClose from '../Buttons/ButtonClose';
-import AuthForm from '../common/AuthForm';
+import AuthFormContainer from '../common/AuthFormContainer';
 import ConditionalAuthWrapper from './ConditionalAuthWrapper';
 
 interface IAuthModalProps {
@@ -17,7 +17,7 @@ const AuthModal: FC<IAuthModalProps> = ({
   return (
     <ConditionalAuthWrapper screen={screen}>
       <ButtonClose clickHandler={closeButtonClickHandler} />
-      <AuthForm formFields={formFields} />
+      <AuthFormContainer formFields={formFields} />
     </ConditionalAuthWrapper>
   );
 };

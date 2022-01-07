@@ -9,6 +9,7 @@ interface IStyledButtonProps {
 
 export const StyledButton = styled.button<IStyledButtonProps>`
   ${tw`
+    z-10
     relative
     py-3
     px-6

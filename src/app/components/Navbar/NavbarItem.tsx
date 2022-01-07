@@ -1,6 +1,7 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { NavbarItemProps } from '../../interfaces/navbar';
 
 const StyledNavbarItem = styled.li`
   ${tw`
@@ -18,10 +19,6 @@ const StyledNavbarItem = styled.li`
     justify-content: flex-end;
   }
 `;
-
-interface NavbarItemProps {
-  children?: ReactNode;
-}
 
 const NavbarItem: FC<NavbarItemProps> = ({ children }) => {
   return <StyledNavbarItem>{children}</StyledNavbarItem>;

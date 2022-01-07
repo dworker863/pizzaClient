@@ -1,9 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-
-interface IStyledHamburgerProps {
-  isActive: boolean;
-}
+import { IStyledHamburgerProps } from '../../../interfaces/topLine';
 
 export const HamburgerWrapper = styled.div`
   ${tw`

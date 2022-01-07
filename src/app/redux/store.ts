@@ -1,8 +1,8 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import auth from './redux/reducers/authReducer/auth';
-import category from './redux/reducers/category/category';
-import pizzas from './redux/reducers/Pizza/pizza';
-import users from './redux/reducers/usersReducer/users';
+import auth from './reducers/authReducer/auth';
+import category from './reducers/category/category';
+import pizzas from './reducers/Pizzas/pizzas';
+import users from './reducers/usersReducer/users';
 
 export const store = configureStore({
   reducer: {

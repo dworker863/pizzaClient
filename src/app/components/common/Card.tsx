@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { ICardProps } from '../../interfaces/card';
 import Button from '../Buttons/Button';
 
 const StyledCard = styled.div`
@@ -46,15 +47,6 @@ const StyledPrice = styled.span`
 
   line-height: 40px;
 `;
-
-interface ICardProps {
-  anchorAlt: string;
-  title: string;
-  description: string;
-  type?: string;
-  size?: string[];
-  price: string;
-}
 
 const Card: FC<ICardProps> = ({ anchorAlt, title, description, price }) => {
   return (

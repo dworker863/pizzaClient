@@ -9,7 +9,7 @@ import {
   IUsersState,
   ISetUsersAction,
   ISetUsersSuccessAction,
-} from './userTypes';
+} from '../../../interfaces/userReducer';
 
 const initialState: IUsersState = {
   users: [],

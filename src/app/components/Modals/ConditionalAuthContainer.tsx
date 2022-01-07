@@ -1,14 +1,10 @@
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
+import { IConditionalAuthContainerProps } from '../../interfaces/authModal';
 import {
   StyledAuthModal,
   StyledAuthModalMobile,
   StyledAuthModalTablet,
 } from './StyledAuth';
-
-interface IConditionalAuthContainerProps {
-  screen: 'desktop' | 'tablet' | 'mobile';
-  children: ReactNode;
-}
 
 const ConditionalAuthContainer: FC<IConditionalAuthContainerProps> = ({
   screen,

@@ -1,5 +1,6 @@
 import { Form, Formik } from 'formik';
 import { FC, MouseEvent } from 'react';
+import { IAuthFormProps, IAuthFormValues } from '../../interfaces/authForm';
 import {} from '../../redux/reducers/authReducer/auth';
 import {
   authValidation,
@@ -9,16 +10,7 @@ import {
 import Button from '../Buttons/Button';
 import { StyledAuthButtonsWrapper } from '../Modals/StyledAuth';
 import Anchor from './Anchor';
-import { IAuthFormValues, TAnchorText, TMode } from './AuthFormContainer';
 import FormItem from './FormItem';
-
-interface IAuthFormProps {
-  formFields: string[][];
-  mode: TMode;
-  anchorText: TAnchorText;
-  toggleAnchorText: (event: MouseEvent<HTMLAnchorElement>) => void;
-  submitClickHandler: (values: IAuthFormValues) => void;
-}
 
 const AuthForm: FC<IAuthFormProps> = ({
   formFields,

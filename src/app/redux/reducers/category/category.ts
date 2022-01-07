@@ -1,14 +1,8 @@
-enum ESetCategory {
-  SET_CATEGORY = 'SET_CATEGORY',
-}
-
-interface ICategoryState {
-  category: string[];
-}
-
-interface ISetCategory {
-  type: ESetCategory.SET_CATEGORY;
-}
+import {
+  ESetCategory,
+  ICategoryState,
+  ISetCategory,
+} from '../../../interfaces/categoryReducer';
 
 type TCategoryActionTypes = ISetCategory;
 

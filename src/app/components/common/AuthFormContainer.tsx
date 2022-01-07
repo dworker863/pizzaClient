@@ -1,26 +1,16 @@
 import { FC, useState, MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import {
+  IAuthFormContainerProps,
+  IAuthFormValues,
+  TAnchorText,
+  TMode,
+} from '../../interfaces/authForm';
+import {
   getLogin,
   getRegistration,
 } from '../../redux/reducers/authReducer/auth';
 import AuthForm from './AuthForm';
-
-interface IAuthFormContainerProps {
-  setModal: () => void;
-}
-
-export interface IAuthFormValues {
-  tel: string;
-  password: string;
-  passwordConfirmation: string;
-  name: string;
-  email: string;
-}
-
-export type TAnchorText = 'Регистрация' | 'Отмена';
-
-export type TMode = 'login' | 'registration' | 'password';
 
 const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
   const [registrationValues, setRegistrationValues] = useState({

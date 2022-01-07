@@ -1,6 +1,7 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { IButtonCloseProps } from '../../interfaces/button';
 
 const StyledCloseButtonWrapper = styled.div`
   ${tw`
@@ -45,10 +46,6 @@ const StyledCloseButton = styled.span`
     transition: all 0.2s;
   }
 `;
-
-interface IButtonCloseProps {
-  clickHandler: (event: MouseEvent<HTMLDivElement>) => void;
-}
 
 const ButtonClose: FC<IButtonCloseProps> = ({ clickHandler }) => {
   return (

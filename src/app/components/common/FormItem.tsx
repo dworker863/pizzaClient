@@ -2,6 +2,7 @@ import { ErrorMessage, Field } from 'formik';
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { IFormItem } from '../../interfaces/authForm';
 
 const StyledField = styled(Field)`
   ${tw`
@@ -31,13 +32,6 @@ const StyledFormItem = styled.div`
 const StyledLabel = styled.label`
   color: #a69895;
 `;
-
-interface IFormItem {
-  name: string;
-  labelText: string;
-  type: string;
-  placeholder?: string;
-}
 
 const FormItem: FC<IFormItem> = ({ name, labelText, type, placeholder }) => {
   return (

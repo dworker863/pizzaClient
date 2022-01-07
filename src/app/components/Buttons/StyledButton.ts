@@ -1,11 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-
-interface IStyledButtonProps {
-  inverse?: boolean;
-  login?: boolean;
-  address?: boolean;
-}
+import { IStyledButtonProps } from '../../interfaces/button';
 
 export const StyledButton = styled.button<IStyledButtonProps>`
   ${tw`

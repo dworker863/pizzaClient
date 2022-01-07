@@ -1,6 +1,7 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { IAnchorProps } from '../../interfaces/authForm';
 
 const StyledAnchor = styled.a`
   ${tw`
@@ -9,11 +10,6 @@ const StyledAnchor = styled.a`
 
   color: ${(props) => props.theme.colors.primary};
 `;
-
-interface IAnchorProps {
-  text: string;
-  clickHandler: (event: MouseEvent<HTMLAnchorElement>) => void;
-}
 
 const Anchor: FC<IAnchorProps> = ({ text, clickHandler }) => {
   return (

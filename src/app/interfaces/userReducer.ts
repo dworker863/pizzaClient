@@ -1,4 +1,4 @@
-import { IUser } from '../../../interfaces/user';
+import { IUser } from './user';
 
 export enum ESetUsers {
   SET_USERS = 'SET_USERS',

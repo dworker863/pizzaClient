@@ -1,16 +1,8 @@
-import { IPizza } from '../../../interfaces/pizza';
-
-enum ESetPizzas {
-  SET_PIZZAS = 'SET_PIZZAS',
-}
-
-interface IPizzas {
-  pizzas: IPizza[];
-}
-
-interface ISetPizzas {
-  type: ESetPizzas.SET_PIZZAS;
-}
+import {
+  ESetPizzas,
+  IPizzas,
+  ISetPizzas,
+} from '../../../interfaces/pizzaReducer';
 
 type TPizzaActionTypes = ISetPizzas;
 

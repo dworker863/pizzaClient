@@ -1,33 +1,14 @@
 import { login, registration } from './../../../api/api';
 import { Dispatch } from 'react';
 import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
-
-enum ESetAuth {
-  LOGIN = 'LOGIN',
-  LOGOUT = 'LOGOUT',
-  REGISTRATION = 'REGISTRATION',
-}
-
-interface IAuthState {
-  username: string;
-  auth: boolean;
-}
-
-interface ILogin {
-  type: ESetAuth.LOGIN;
-  payload: string;
-}
-
-interface ILogout {
-  type: ESetAuth.LOGOUT;
-}
-
-interface IRegisration {
-  type: ESetAuth.REGISTRATION;
-  payload: string;
-}
-
-type TAuthActionTypes = ILogin | ILogout | IRegisration;
+import {
+  ESetAuth,
+  IAuthState,
+  ILogin,
+  ILogout,
+  IRegisration,
+  TAuthActionTypes,
+} from '../../../interfaces/authReducer';
 
 const initialState: IAuthState = {
   username: '',

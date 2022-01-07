@@ -2,7 +2,8 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { RootState } from '../../store';
+import { ICategoryProps } from '../../interfaces/category';
+import { RootState } from '../../redux/store';
 import Card from '../common/Card';
 import Container from '../Container/Container';
 
@@ -23,10 +24,6 @@ const StyledPizzasWrapper = styled.div`
     flex
   `}
 `;
-
-interface ICategoryProps {
-  title: string;
-}
 
 const Category: FC<ICategoryProps> = ({ title }) => {
   const pizzas = useSelector((state: RootState) => state.pizzas);

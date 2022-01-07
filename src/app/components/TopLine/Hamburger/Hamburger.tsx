@@ -1,10 +1,6 @@
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
+import { IHamburgerProps } from '../../../interfaces/topLine';
 import { HamburgerWrapper, StyledHamburger } from './StyledHamburger';
-
-interface IHamburgerProps {
-  hamburgerActive: boolean;
-  clickHandler: (event: MouseEvent<HTMLDivElement>) => void;
-}
 
 const Hamburger: FC<IHamburgerProps> = ({ clickHandler, hamburgerActive }) => {
   return (

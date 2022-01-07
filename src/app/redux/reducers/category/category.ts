@@ -2,7 +2,7 @@ enum ESetCategory {
   SET_CATEGORY = 'SET_CATEGORY',
 }
 
-interface ICategory {
+interface ICategoryState {
   category: string[];
 }
 
@@ -12,14 +12,14 @@ interface ISetCategory {
 
 type TCategoryActionTypes = ISetCategory;
 
-const initialState: ICategory = {
+const initialState: ICategoryState = {
   category: ['Пицца', 'Закуски', 'Салаты', 'Десерты', 'Напитки', 'Горячее'],
 };
 
 const category = (
   state = initialState,
   action: TCategoryActionTypes,
-): ICategory => {
+): ICategoryState => {
   switch (action.type) {
     case ESetCategory.SET_CATEGORY:
       return { ...state };

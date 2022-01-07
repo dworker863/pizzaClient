@@ -1,6 +1,8 @@
 import { FC } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import tw from 'twin.macro';
+import { RootState } from '../../store';
 import Card from '../common/Card';
 import Container from '../Container/Container';
 
@@ -26,48 +28,15 @@ interface ICategoryProps {
   title: string;
 }
 
-interface IPizza {
-  name: string;
-  description: string;
-  type: 'Традиционное' | 'Тонкое';
-  size: string[];
-  price: string;
-}
-
 const Category: FC<ICategoryProps> = ({ title }) => {
-  const Pizzas: IPizza[] = [
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-    },
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-    },
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-    },
-  ];
+  const pizzas = useSelector((state: RootState) => state.pizzas);
 
   return (
     <div>
       <Container>
         <StyledCategory>{title}</StyledCategory>
         <StyledPizzasWrapper>
-          {Pizzas.map((pizza) => (
+          {pizzas.pizzas.map((pizza) => (
             <Card
               anchorAlt={`Пицца ${pizza.name}`}
               title={pizza.name}

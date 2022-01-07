@@ -34,10 +34,7 @@ const initialState: IAuthState = {
   auth: false,
 };
 
-export const auth = (
-  state = initialState,
-  action: TAuthActionTypes,
-): IAuthState => {
+const auth = (state = initialState, action: TAuthActionTypes): IAuthState => {
   switch (action.type) {
     case ESetAuth.LOGIN:
       return { username: action.payload, auth: true };

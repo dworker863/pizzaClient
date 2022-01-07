@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { IAuthModalProps } from '../../interfaces/authModal';
 import ButtonClose from '../Buttons/ButtonClose';
 import AuthFormContainer from '../common/AuthFormContainer';
-import ConditionalAuthWrapper from './ConditionalAuthWrapper';
+import ConditionalAuthContainer from './ConditionalAuthContainer';
 
 const AuthModal: FC<IAuthModalProps> = ({
   setModal,
@@ -10,10 +10,10 @@ const AuthModal: FC<IAuthModalProps> = ({
   screen,
 }) => {
   return (
-    <ConditionalAuthWrapper screen={screen}>
+    <ConditionalAuthContainer screen={screen}>
       <ButtonClose clickHandler={closeButtonClickHandler} />
       <AuthFormContainer setModal={setModal} />
-    </ConditionalAuthWrapper>
+    </ConditionalAuthContainer>
   );
 };
 

@@ -10,7 +10,7 @@ const initialState: ICategoryState = {
   category: ['Пицца', 'Закуски', 'Салаты', 'Десерты', 'Напитки', 'Горячее'],
 };
 
-const category = (
+const categories = (
   state = initialState,
   action: TCategoryActionTypes,
 ): ICategoryState => {
@@ -23,4 +23,4 @@ const category = (
   }
 };
 
-export default category;
+export default categories;

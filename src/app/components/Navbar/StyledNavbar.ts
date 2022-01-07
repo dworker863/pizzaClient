@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { IStyledNavbarMobileContainer } from '../../interfaces/navbar';
+import { IStyledNavbarMobileWrapper } from '../../interfaces/navbar';
 
 export const StyledNavbar = styled.nav`
   ${tw`
@@ -18,7 +18,7 @@ export const StyledMenu = styled.ul`
   `}
 `;
 
-export const StyledNavbarTabletContainer = styled.nav`
+export const StyledNavbarTabletWrapper = styled.nav`
   ${tw`
     z-10
     absolute
@@ -42,7 +42,7 @@ export const StyledNavbarTabletMobile = styled.ul`
   `}
 `;
 
-export const StyledNavbarMobileContainer = styled.nav<IStyledNavbarMobileContainer>`
+export const StyledNavbarMobileWrapper = styled.nav<IStyledNavbarMobileWrapper>`
   ${tw`
     z-10
     absolute

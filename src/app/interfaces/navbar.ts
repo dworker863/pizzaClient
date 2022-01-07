@@ -8,7 +8,7 @@ export interface IConditionalNavbarContainerProps {
   children: ReactNode;
 }
 
-export interface IStyledNavbarMobileContainer {
+export interface IStyledNavbarMobileWrapper {
   isActive?: boolean;
 }
 

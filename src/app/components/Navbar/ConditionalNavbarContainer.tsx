@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { IConditionalNavbarContainerProps } from '../../interfaces/navbar';
 import {
   StyledNavbar,
-  StyledNavbarMobileContainer,
-  StyledNavbarTabletContainer,
+  StyledNavbarMobileWrapper,
+  StyledNavbarTabletWrapper,
 } from './StyledNavbar';
 
 const ConditionalNavbarContainer: FC<IConditionalNavbarContainerProps> = ({
@@ -15,12 +15,12 @@ const ConditionalNavbarContainer: FC<IConditionalNavbarContainerProps> = ({
     <>
       {screen === 'desktop' && <StyledNavbar>{children}</StyledNavbar>}
       {screen === 'tablet' && (
-        <StyledNavbarTabletContainer>{children}</StyledNavbarTabletContainer>
+        <StyledNavbarTabletWrapper>{children}</StyledNavbarTabletWrapper>
       )}
       {screen === 'mobile' && (
-        <StyledNavbarMobileContainer isActive={mobileIsActive}>
+        <StyledNavbarMobileWrapper isActive={mobileIsActive}>
           {children}
-        </StyledNavbarMobileContainer>
+        </StyledNavbarMobileWrapper>
       )}
     </>
   );

@@ -7,6 +7,12 @@ import { RootState } from '../../redux/store';
 import Card from '../common/Card';
 import Container from '../Container/Container';
 
+const StyledCategoryWrapper = styled.div`
+  ${tw`
+    mb-24
+  `}
+`;
+
 const StyledCategory = styled.h2`
   ${tw`
     min-w-full
@@ -29,7 +35,7 @@ const Category: FC<ICategoryProps> = ({ title }) => {
   const pizzas = useSelector((state: RootState) => state.pizzas);
 
   return (
-    <div>
+    <StyledCategoryWrapper>
       <Container>
         <StyledCategory>{title}</StyledCategory>
         <StyledPizzasWrapper>
@@ -45,7 +51,7 @@ const Category: FC<ICategoryProps> = ({ title }) => {
           ))}
         </StyledPizzasWrapper>
       </Container>
-    </div>
+    </StyledCategoryWrapper>
   );
 };
 

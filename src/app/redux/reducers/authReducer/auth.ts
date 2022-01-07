@@ -27,7 +27,7 @@ interface IRegisration {
   payload: string;
 }
 
-type AuthActionTypes = ILogin | ILogout | IRegisration;
+type TAuthActionTypes = ILogin | ILogout | IRegisration;
 
 const initialState: IAuthState = {
   username: '',
@@ -36,7 +36,7 @@ const initialState: IAuthState = {
 
 export const auth = (
   state = initialState,
-  action: AuthActionTypes,
+  action: TAuthActionTypes,
 ): IAuthState => {
   switch (action.type) {
     case ESetAuth.LOGIN:

@@ -37,6 +37,7 @@ const TopLine: FC = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   const hamburgerClickHandler = (event: MouseEvent<HTMLDivElement>): void => {
+    hamburgerActive && setModal(false);
     sethamburgerActive(!hamburgerActive);
   };
 

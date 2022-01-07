@@ -14,7 +14,9 @@ import { getUsers } from '../../redux/reducers/usersReducer/users';
 
 const StyledTopLine = styled.div`
   ${tw`
-    pt-5
+  bg-white
+    pt-4
+    pb-2
   `}
 `;
 

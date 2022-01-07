@@ -3,9 +3,10 @@ export interface ITheme {
     primary: string;
     secondary: string;
     grey: string;
-    brown: string;
     lightGrey: string;
     superLightGrey: string;
+    brown: string;
+    lightBrown: string;
   };
 
   media: {

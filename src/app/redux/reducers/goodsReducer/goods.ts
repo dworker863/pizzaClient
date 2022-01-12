@@ -1,12 +1,24 @@
-import {
-  ESetPizzas,
-  IPizzas,
-  ISetPizzas,
-} from '../../../interfaces/pizzaReducer';
+import { ISalad } from './../../../interfaces/salad';
+import { IPizza } from '../../../interfaces/pizza';
 
-type TPizzaActionTypes = ISetPizzas;
+enum ESetGoods {
+  SET_GOODS = 'SET_GOODS',
+}
 
-const initialState: IPizzas = {
+type TGoodsType = IPizza | ISalad;
+
+interface IGoodsState {
+  pizzas: TGoodsType[];
+  salads: TGoodsType[];
+}
+
+interface ISetGoodsAction {
+  type: ESetGoods.SET_GOODS;
+}
+
+type TGoodsActionTypes = ISetGoodsAction;
+
+const initialState: IGoodsState = {
   pizzas: [
     {
       name: 'Чеддер чикен клаб',
@@ -15,6 +27,7 @@ const initialState: IPizzas = {
       type: 'Традиционное',
       size: ['23см', '30см', '35см', '40см'],
       price: '2350тг',
+      category: 'pizzas',
     },
     {
       name: 'Чеддер чикен клаб',
@@ -23,6 +36,7 @@ const initialState: IPizzas = {
       type: 'Традиционное',
       size: ['23см', '30см', '35см', '40см'],
       price: '2350тг',
+      category: 'pizzas',
     },
     {
       name: 'Чеддер чикен клаб',
@@ -31,13 +45,33 @@ const initialState: IPizzas = {
       type: 'Традиционное',
       size: ['23см', '30см', '35см', '40см'],
       price: '2350тг',
+      category: 'pizzas',
+    },
+  ],
+  salads: [
+    {
+      name: 'Салат «Греческий»',
+      description:
+        'Айсберг, Томаты, Огурцы, Красный и желтый перец, Черные оливки, Фета, Оливковое масло',
+      price: '1600тг',
+      category: 'salads',
+    },
+    {
+      name: 'Салат «Цезарь»',
+      description:
+        'Запечённое куриное филе, Пармезан, Черри, Айсберг, Сухарики, Соус «Цезарь»',
+      price: '1600тг',
+      category: 'salads',
     },
   ],
 };
 
-const pizzas = (state = initialState, action: TPizzaActionTypes): IPizzas => {
+const goods = (
+  state = initialState,
+  action: TGoodsActionTypes,
+): IGoodsState => {
   switch (action.type) {
-    case ESetPizzas.SET_PIZZAS:
+    case ESetGoods.SET_GOODS:
       return { ...state };
 
     default:
@@ -45,4 +79,4 @@ const pizzas = (state = initialState, action: TPizzaActionTypes): IPizzas => {
   }
 };
 
-export default pizzas;
+export default goods;

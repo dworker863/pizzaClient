@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { ICategoryProps } from '../../interfaces/category';
+import { ICategoryProps } from '../../interfaces/categoryComponent';
 import { RootState } from '../../redux/store';
 import Card from '../common/Card';
 import Container from '../Container/Container';
@@ -25,31 +25,29 @@ const StyledCategory = styled.h2`
   color: ${(props) => props.theme.colors.brown};
 `;
 
-const StyledPizzasWrapper = styled.div`
+const StyledGoodsWrapper = styled.div`
   ${tw`
     flex
   `}
 `;
 
-const Category: FC<ICategoryProps> = ({ title }) => {
-  const pizzas = useSelector((state: RootState) => state.pizzas);
+const Category: FC<ICategoryProps> = ({ title, name }) => {
+  const goods = useSelector((state: RootState) => state.goods);
 
   return (
     <StyledCategoryWrapper>
       <Container>
         <StyledCategory>{title}</StyledCategory>
-        <StyledPizzasWrapper>
-          {pizzas.pizzas.map((pizza) => (
+        <StyledGoodsWrapper>
+          {goods[name as keyof typeof goods].map((good) => (
             <Card
-              anchorAlt={`Пицца ${pizza.name}`}
-              title={pizza.name}
-              description={pizza.description}
-              type={pizza.type}
-              size={pizza.size}
-              price={pizza.price}
+              anchorAlt={`${title} ${good.name}`}
+              title={good.name}
+              description={good.description}
+              price={good.price}
             />
           ))}
-        </StyledPizzasWrapper>
+        </StyledGoodsWrapper>
       </Container>
     </StyledCategoryWrapper>
   );

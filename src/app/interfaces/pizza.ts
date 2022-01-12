@@ -6,4 +6,5 @@ export interface IPizza {
   type: TpizzaType;
   size: string[];
   price: string;
+  category: 'pizzas';
 }

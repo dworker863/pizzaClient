@@ -6,13 +6,15 @@ import { useSelector } from 'react-redux';
 import { RootState } from './app/redux/store';
 
 function App() {
-  const category = useSelector((state: RootState) => state.categories);
+  const categories = useSelector((state: RootState) => state.categories);
+
+  console.log(categories);
 
   return (
     <ThemeProvider theme={commonTheme}>
       <Header />
-      {category.category.map((category) => (
-        <Category title={category} />
+      {categories.items.map((category) => (
+        <Category title={category.title} name={category.name} />
       ))}
     </ThemeProvider>
   );

@@ -1,69 +1,28 @@
-import { ISalad } from './../../../interfaces/salad';
+import { fetchGoods } from './../../../api/api';
+import { Dispatch } from 'react';
+import { AnyAction } from 'redux';
+import { ThunkAction } from 'redux-thunk';
 import { IPizza } from '../../../interfaces/pizza';
 
 enum ESetGoods {
   SET_GOODS = 'SET_GOODS',
 }
 
-type TGoodsType = IPizza | ISalad;
+type TGoodsType = IPizza;
 
-interface IGoodsState {
+export interface IGoodsState {
   pizzas: TGoodsType[];
-  salads: TGoodsType[];
 }
 
 interface ISetGoodsAction {
   type: ESetGoods.SET_GOODS;
+  payload?: any;
 }
 
 type TGoodsActionTypes = ISetGoodsAction;
 
 const initialState: IGoodsState = {
-  pizzas: [
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-      category: 'pizzas',
-    },
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-      category: 'pizzas',
-    },
-    {
-      name: 'Чеддер чикен клаб',
-      description:
-        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
-      type: 'Традиционное',
-      size: ['23см', '30см', '35см', '40см'],
-      price: '2350тг',
-      category: 'pizzas',
-    },
-  ],
-  salads: [
-    {
-      name: 'Салат «Греческий»',
-      description:
-        'Айсберг, Томаты, Огурцы, Красный и желтый перец, Черные оливки, Фета, Оливковое масло',
-      price: '1600тг',
-      category: 'salads',
-    },
-    {
-      name: 'Салат «Цезарь»',
-      description:
-        'Запечённое куриное филе, Пармезан, Черри, Айсберг, Сухарики, Соус «Цезарь»',
-      price: '1600тг',
-      category: 'salads',
-    },
-  ],
+  pizzas: [],
 };
 
 const goods = (
@@ -72,11 +31,24 @@ const goods = (
 ): IGoodsState => {
   switch (action.type) {
     case ESetGoods.SET_GOODS:
-      return { ...state };
+      return { ...action.payload };
 
     default:
       return state;
   }
 };
+
+export const setGoods = (goods: IGoodsState): ISetGoodsAction => ({
+  type: ESetGoods.SET_GOODS,
+  payload: goods,
+});
+
+export const getGoods =
+  (): ThunkAction<void, IGoodsState, unknown, AnyAction> =>
+  (dispatch: Dispatch<any>): void => {
+    fetchGoods().then((goods: IGoodsState): void => {
+      dispatch(setGoods(goods));
+    });
+  };
 
 export default goods;

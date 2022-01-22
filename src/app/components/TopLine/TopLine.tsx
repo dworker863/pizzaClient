@@ -1,6 +1,5 @@
 import { FC, useState, MouseEvent, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
+import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
 import tw from 'twin.macro';
@@ -21,12 +20,10 @@ const StyledTopLine = styled.div`
 `;
 
 const TopLine: FC = () => {
-  const users = useSelector((state: RootState) => state.users);
   const dispatch = useDispatch();
 
   useEffect((): void => {
     dispatch(getUsers());
-    console.log(users);
   }, [dispatch]);
 
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);

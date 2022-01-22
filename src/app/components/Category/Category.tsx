@@ -1,8 +1,9 @@
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
+import { FC, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { ICategoryProps } from '../../interfaces/categoryComponent';
+import { getGoods } from '../../redux/reducers/goodsReducer/goods';
 import { RootState } from '../../redux/store';
 import Card from '../common/Card';
 import Container from '../Container/Container';
@@ -33,20 +34,26 @@ const StyledGoodsWrapper = styled.div`
 
 const Category: FC<ICategoryProps> = ({ title, name }) => {
   const goods = useSelector((state: RootState) => state.goods);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getGoods());
+  }, [dispatch]);
 
   return (
     <StyledCategoryWrapper>
       <Container>
         <StyledCategory>{title}</StyledCategory>
         <StyledGoodsWrapper>
-          {goods[name as keyof typeof goods].map((good) => (
-            <Card
-              anchorAlt={`${title} ${good.name}`}
-              title={good.name}
-              description={good.description}
-              price={good.price}
-            />
-          ))}
+          {goods[name as keyof typeof goods] &&
+            goods[name as keyof typeof goods].map((good) => (
+              <Card
+                anchorAlt={`${title} ${good.name}`}
+                title={good.name}
+                description={good.description}
+                price={good.price}
+              />
+            ))}
         </StyledGoodsWrapper>
       </Container>
     </StyledCategoryWrapper>

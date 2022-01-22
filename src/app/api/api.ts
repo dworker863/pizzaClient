@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { IUser } from '../interfaces/user';
+import { IGoodsState } from '../redux/reducers/goodsReducer/goods';
 
 export const instance = axios.create({
   baseURL: 'http://localhost:5000/',
@@ -30,4 +31,10 @@ export const registration = (
       localStorage.setItem('token', res.data.token);
       return res.data.dataValues;
     });
+};
+
+export const fetchGoods = (): Promise<IGoodsState> => {
+  return instance.get(`goods`).then((res) => {
+    return res.data;
+  });
 };

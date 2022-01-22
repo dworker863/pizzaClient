@@ -11,6 +11,11 @@ import {
 
 const initialState: IGoodsState = {
   pizzas: [],
+  snacks: [],
+  salads: [],
+  desserts: [],
+  // drinks: [],
+  hots: [],
 };
 
 const goods = (

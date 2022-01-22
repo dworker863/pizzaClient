@@ -1,8 +1,8 @@
 export interface ICardProps {
   anchorAlt: string;
   title: string;
-  description: string;
+  description?: string | null;
   type?: string;
-  size?: string[];
+  size?: string;
   price: string;
 }

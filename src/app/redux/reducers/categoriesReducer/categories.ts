@@ -7,11 +7,11 @@ import {
 const initialState: ICategoriesState = {
   items: [
     { title: 'Пицца', name: 'pizzas' },
-    // { title: 'Закуски', name: 'snacks' },
+    { title: 'Закуски', name: 'snacks' },
     { title: 'Салаты', name: 'salads' },
-    // { title: 'Десерты', name: 'desserts' },
-    // { title: 'Напитки', name: 'drinks' },
-    // { title: 'Горячее', name: 'hot dish' },
+    { title: 'Десерты', name: 'desserts' },
+    { title: 'Напитки', name: 'drinks' },
+    { title: 'Горячее', name: 'hots' },
   ],
 };
 

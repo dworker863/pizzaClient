@@ -4,9 +4,9 @@ import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 import {
   ESetAuth,
   IAuthState,
-  ILogin,
-  ILogout,
-  IRegisration,
+  ILoginAction,
+  ILogoutAction,
+  IRegisrationAction,
   TAuthActionTypes,
 } from '../../../interfaces/authReducer';
 
@@ -31,16 +31,16 @@ const auth = (state = initialState, action: TAuthActionTypes): IAuthState => {
   }
 };
 
-export const setLogin = (user: string): ILogin => ({
+export const setLogin = (user: string): ILoginAction => ({
   type: ESetAuth.LOGIN,
   payload: user,
 });
 
-export const setLogout = (): ILogout => ({
+export const setLogout = (): ILogoutAction => ({
   type: ESetAuth.LOGOUT,
 });
 
-export const setRegistration = (user: string): IRegisration => ({
+export const setRegistration = (user: string): IRegisrationAction => ({
   type: ESetAuth.REGISTRATION,
   payload: user,
 });

@@ -18,6 +18,6 @@ export interface INavbarProps {
   screen: 'desktop' | 'tablet' | 'mobile';
 }
 
-export interface NavbarItemProps {
+export interface INavbarItemProps {
   children?: ReactNode;
 }

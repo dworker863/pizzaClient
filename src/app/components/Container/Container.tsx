@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { ContainerProps } from '../../interfaces/container';
+import { IContainerProps } from '../../interfaces/container';
 
 const StyledContainer = styled.div`
   ${tw`
@@ -16,7 +16,7 @@ const StyledContainer = styled.div`
   `}
 `;
 
-const Container: FC<ContainerProps> = ({ children }) => {
+const Container: FC<IContainerProps> = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
 

@@ -1,4 +1,4 @@
-import { ICategory } from './categories';
+import { ICategory } from './category';
 
 export enum ESetCategory {
   SET_CATEGORY = 'SET_CATEGORY',

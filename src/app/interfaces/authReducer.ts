@@ -9,18 +9,21 @@ export interface IAuthState {
   auth: boolean;
 }
 
-export interface ILogin {
+export interface ILoginAction {
   type: ESetAuth.LOGIN;
   payload: string;
 }
 
-export interface ILogout {
+export interface ILogoutAction {
   type: ESetAuth.LOGOUT;
 }
 
-export interface IRegisration {
+export interface IRegisrationAction {
   type: ESetAuth.REGISTRATION;
   payload: string;
 }
 
-export type TAuthActionTypes = ILogin | ILogout | IRegisration;
+export type TAuthActionTypes =
+  | ILoginAction
+  | ILogoutAction
+  | IRegisrationAction;

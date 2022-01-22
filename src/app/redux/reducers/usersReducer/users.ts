@@ -4,7 +4,7 @@ import { ThunkAction } from 'redux-thunk';
 import { fetchUsers } from '../../../api/api';
 import { IUser } from '../../../interfaces/user';
 import {
-  UserActionTypes,
+  TUserActionTypes,
   ESetUsers,
   IUsersState,
   ISetUsersAction,
@@ -17,7 +17,7 @@ const initialState: IUsersState = {
   error: null,
 };
 
-const users = (state = initialState, action: UserActionTypes): IUsersState => {
+const users = (state = initialState, action: TUserActionTypes): IUsersState => {
   switch (action.type) {
     case ESetUsers.SET_USERS:
       return { ...state, loading: true };

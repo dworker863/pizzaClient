@@ -1,4 +1,4 @@
 export interface ICategoryProps {
   title: string;
-  name: any;
+  name: string;
 }

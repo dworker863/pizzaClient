@@ -26,7 +26,7 @@ export interface ISetUsersErrorAction {
   payload: string;
 }
 
-export type UserActionTypes =
+export type TUserActionTypes =
   | ISetUsersAction
   | ISetUsersSuccessAction
   | ISetUsersErrorAction;

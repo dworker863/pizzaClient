@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { IGoodsState } from '../interfaces/goodsReducer';
 import { IUser } from '../interfaces/user';
-import { IGoodsState } from '../redux/reducers/goodsReducer/goods';
 
 export const instance = axios.create({
   baseURL: 'http://localhost:5000/',

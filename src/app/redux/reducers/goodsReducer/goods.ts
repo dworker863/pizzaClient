@@ -2,24 +2,12 @@ import { fetchGoods } from './../../../api/api';
 import { Dispatch } from 'react';
 import { AnyAction } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-import { IPizza } from '../../../interfaces/pizza';
-
-enum ESetGoods {
-  SET_GOODS = 'SET_GOODS',
-}
-
-type TGoodsType = IPizza;
-
-export interface IGoodsState {
-  pizzas: TGoodsType[];
-}
-
-interface ISetGoodsAction {
-  type: ESetGoods.SET_GOODS;
-  payload?: any;
-}
-
-type TGoodsActionTypes = ISetGoodsAction;
+import {
+  ESetGoods,
+  IGoodsState,
+  ISetGoodsAction,
+  TGoodsActionTypes,
+} from '../../../interfaces/goodsReducer';
 
 const initialState: IGoodsState = {
   pizzas: [],
@@ -31,7 +19,7 @@ const goods = (
 ): IGoodsState => {
   switch (action.type) {
     case ESetGoods.SET_GOODS:
-      return { ...action.payload };
+      return { ...state, ...action.payload };
 
     default:
       return state;

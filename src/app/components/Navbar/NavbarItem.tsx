@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { NavbarItemProps } from '../../interfaces/navbar';
+import { INavbarItemProps } from '../../interfaces/navbar';
 
 const StyledNavbarItem = styled.li`
   ${tw`
@@ -20,7 +20,7 @@ const StyledNavbarItem = styled.li`
   }
 `;
 
-const NavbarItem: FC<NavbarItemProps> = ({ children }) => {
+const NavbarItem: FC<INavbarItemProps> = ({ children }) => {
   return <StyledNavbarItem>{children}</StyledNavbarItem>;
 };
 

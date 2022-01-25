@@ -1,4 +1,4 @@
-import { ITheme } from '../interfaces/styles';
+import { ITheme } from './IStyles';
 
 export const commonTheme: ITheme = {
   colors: {

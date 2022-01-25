@@ -1,0 +1,46 @@
+import styled from 'styled-components';
+import tw from 'twin.macro';
+
+export const StyledCard = styled.div`
+  ${tw`
+    bg-white
+    ml-5
+    rounded-xl
+    p-4
+  `}
+
+  font-family: Montserrat, sans-serif;
+  color: ${(props) => props.theme.colors.lightBrown};
+`;
+
+export const StyledTitle = styled.h3`
+  ${tw`
+    font-bold
+    text-lg
+    mb-2
+  `}
+
+  color: ${(props) => props.theme.colors.brown};
+  letter-spacing: 0.04px;
+`;
+
+export const StyledDescription = styled.p`
+  ${tw`
+    text-sm
+    mb-10
+  `}
+`;
+
+export const StyledOrder = styled.div`
+  ${tw`
+    flex
+    justify-between
+  `}
+`;
+
+export const StyledPrice = styled.span`
+  ${tw`
+  `}
+
+  line-height: 40px;
+`;

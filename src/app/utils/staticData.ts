@@ -1,4 +1,4 @@
-import { ICategory } from './../interfaces/category';
+import { ICategory } from '../components/Sections/Category/ICategory';
 
 export const categories: ICategory[] = [
   { title: 'Пицца', name: 'pizzas' },

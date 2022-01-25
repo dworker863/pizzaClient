@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { commonTheme } from './app/commonStyles/theme';
-import Header from './app/components/Header/Header';
-import Category from './app/components/Category/Category';
+import Header from './app/components/Sections/Header/Header';
+import Category from './app/components/Sections/Category/Category';
 import { categories } from './app/utils/staticData';
 
 function App() {

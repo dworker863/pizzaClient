@@ -15,9 +15,9 @@ const Category: FC<ICategory> = ({ title, name }) => {
   const goods = useSelector((state: RootState) => state.goods);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getGoods());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getGoods());
+  // }, [dispatch]);
 
   return (
     <StyledCategoryWrapper>
@@ -29,9 +29,9 @@ const Category: FC<ICategory> = ({ title, name }) => {
               <Card
                 anchorAlt={`${title} ${good.name}`}
                 title={good.name}
-                size={good.size ? good.size : undefined}
+                sizes={good.sizes ? good.sizes : undefined}
                 description={good.description ? good.description : undefined}
-                price={good.price}
+                prices={good.prices}
               />
             ))}
         </StyledGoodsWrapper>

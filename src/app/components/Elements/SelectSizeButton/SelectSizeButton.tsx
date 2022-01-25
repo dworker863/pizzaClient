@@ -1,21 +1,18 @@
-import { useState, FC } from 'react';
+import { FC } from 'react';
 import SelectSizeItem from '../SelectSizeItem/SelectSizeItem';
+import { ISelectSizeButtonProps } from './ISelectSizeButton';
 import { StyledSelectSizeItemsWrapper } from './StyledSelectSizeButton';
 
-const SelectSizeButton: FC = () => {
-  const [activeElement, setActiveElement] = useState(0);
-  const items = ['Традиционное', 'Тонкое'];
+const SelectSizeButton: FC<ISelectSizeButtonProps> = ({ id, clickHandler }) => {
+  const sizes = ['23 см', '30 см', '35 см', '40 см'];
 
-  const itemClickHandler = (index: number): void => {
-    setActiveElement(index);
-  };
   return (
     <StyledSelectSizeItemsWrapper>
-      {items.map((item, index) => (
+      {sizes.map((size, index) => (
         <SelectSizeItem
-          text={item}
-          isActive={index === activeElement ? true : false}
-          clickHandler={() => itemClickHandler(index)}
+          size={size}
+          isActive={index === id ? true : false}
+          clickHandler={() => clickHandler(index)}
         />
       ))}
     </StyledSelectSizeItemsWrapper>

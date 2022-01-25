@@ -1,5 +1,5 @@
 export interface ISelectItemProps {
-  text: string;
+  size: string;
   isActive: boolean;
   clickHandler: () => void;
 }

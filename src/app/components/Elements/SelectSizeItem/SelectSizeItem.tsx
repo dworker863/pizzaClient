@@ -3,13 +3,13 @@ import { ISelectItemProps } from './ISelectSizeItem';
 import { StyledSelectSizeItem } from './StyledSelectSizeItem';
 
 const SelectSizeItem: FC<ISelectItemProps> = ({
-  text,
+  size,
   isActive,
   clickHandler,
 }) => {
   return (
     <StyledSelectSizeItem onClick={clickHandler} isActive={isActive}>
-      {text}
+      {size}
     </StyledSelectSizeItem>
   );
 };

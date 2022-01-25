@@ -10,7 +10,15 @@ import {
 } from './IGoodsReducer';
 
 const initialState: IGoodsState = {
-  pizzas: [],
+  pizzas: [
+    {
+      name: 'Чеддер чикен клаб',
+      description:
+        'Фирменные томатный соус "Папа Джонс", куриная грудка, сыр моцарелла, сыр чеддер, томаты, соус',
+      sizes: ['23 см', '30 см', '35 см', '40 см'],
+      prices: ['2350 тг', '3550 тг', '4550 тг', '5750 тг'],
+    },
+  ],
   // snacks: [],
   // salads: [],
   // desserts: [],

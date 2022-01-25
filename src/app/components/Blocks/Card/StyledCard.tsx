@@ -40,7 +40,10 @@ export const StyledOrder = styled.div`
 
 export const StyledPrice = styled.span`
   ${tw`
+    text-xl
   `}
 
   line-height: 40px;
+  color: ${(props) => props.theme.colors.brown};
+  font-weight: 600;
 `;

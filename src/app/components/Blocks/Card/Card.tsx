@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Button from '../../Elements/Button/Button';
 import SelectSizeButton from '../../Elements/SelectSizeButton/SelectSizeButton';
 import { ICardProps } from './ICard';
@@ -14,20 +14,26 @@ const Card: FC<ICardProps> = ({
   anchorAlt,
   title,
   description,
-  type,
-  size,
-  price,
+  sizes,
+  prices,
 }) => {
+  const [activeElement, setActiveElement] = useState(0);
+
+  const clickHandler = (index: number): void => {
+    setActiveElement(index);
+  };
+
   return (
     <StyledCard>
       <img src="" alt={anchorAlt} />
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
-      {type && <SelectSizeButton />}
-      {size && <SelectSizeButton />}
+      {sizes && (
+        <SelectSizeButton id={activeElement} clickHandler={clickHandler} />
+      )}
       <StyledOrder>
         <Button text="В Корзину" />
-        <StyledPrice>{price}</StyledPrice>
+        <StyledPrice>{prices[activeElement]}</StyledPrice>
       </StyledOrder>
     </StyledCard>
   );

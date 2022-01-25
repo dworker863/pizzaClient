@@ -50,7 +50,8 @@ const Category: FC<ICategoryProps> = ({ title, name }) => {
               <Card
                 anchorAlt={`${title} ${good.name}`}
                 title={good.name}
-                description={good.description}
+                size={good.size ? good.size : undefined}
+                description={good.description ? good.description : undefined}
                 price={good.price}
               />
             ))}

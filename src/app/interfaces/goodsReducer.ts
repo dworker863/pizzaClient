@@ -1,23 +1,16 @@
-import { ISalad } from './salad';
-import { IPizza } from './pizza';
-import { ISnack } from './snack';
-import { IDessert } from './dessert';
-// import { IDrink } from './drink';
-import { IHot } from './hot';
+import { IGood } from './pizza';
 
 export enum ESetGoods {
   SET_GOODS = 'SET_GOODS',
 }
 
-export type TGoodsType = IPizza | ISnack | ISalad | IDessert | IHot;
-
 export interface IGoodsState {
-  pizzas: TGoodsType[];
-  snacks: TGoodsType[];
-  salads: TGoodsType[];
-  desserts: TGoodsType[];
-  // drinks: TGoodsType[];
-  hots: TGoodsType[];
+  pizzas: IGood[];
+  snacks: IGood[];
+  salads: IGood[];
+  desserts: IGood[];
+  drinks: IGood[];
+  hots: IGood[];
 }
 
 export interface ISetGoodsAction {

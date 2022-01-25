@@ -14,7 +14,7 @@ const initialState: IGoodsState = {
   snacks: [],
   salads: [],
   desserts: [],
-  // drinks: [],
+  drinks: [],
   hots: [],
 };
 

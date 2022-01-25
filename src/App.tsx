@@ -2,18 +2,13 @@ import { ThemeProvider } from 'styled-components';
 import { commonTheme } from './app/commonStyles/theme';
 import Header from './app/components/Header/Header';
 import Category from './app/components/Category/Category';
-import { useSelector } from 'react-redux';
-import { RootState } from './app/redux/store';
+import { categories } from './app/utils/staticData';
 
 function App() {
-  const categories = useSelector((state: RootState) => state.categories);
-
-  console.log(categories);
-
   return (
     <ThemeProvider theme={commonTheme}>
       <Header />
-      {categories.items.map((category) => (
+      {categories.map((category) => (
         <Category title={category.title} name={category.name} />
       ))}
     </ThemeProvider>

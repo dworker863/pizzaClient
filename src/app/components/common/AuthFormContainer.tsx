@@ -10,6 +10,7 @@ import {
   getLogin,
   getRegistration,
 } from '../../redux/reducers/authReducer/auth';
+import { formFields } from '../../utils/staticData';
 import AuthForm from './AuthForm';
 
 const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
@@ -74,15 +75,7 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
     }
   };
 
-  let formFields: string[][] = [
-    ['tel', 'Телефон', 'tel', '+7 777 777 77 77'],
-    ['password', 'Пароль', 'password'],
-    ['passwordConfirmation', 'Подтвердите пароль', 'password'],
-    ['name', 'Имя', 'text'],
-    ['email', 'Email', 'email'],
-  ];
-
-  formFields = formFields.filter(([name, labelText, type]) =>
+  let fields = formFields.filter(([name, labelText, type]) =>
     mode === 'login'
       ? name !== 'email' &&
         name !== 'name' &&
@@ -94,7 +87,7 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
 
   return (
     <AuthForm
-      formFields={formFields}
+      formFields={fields}
       mode={mode}
       anchorText={anchorText}
       toggleAnchorText={toggleAnchorText}

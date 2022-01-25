@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import StyledButton from './StyledButton';
-import { IButtonProps } from '../../interfaces/button';
+import { IButtonProps } from '../../../interfaces/button';
 
 const Button: FC<IButtonProps> = ({
   text,

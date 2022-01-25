@@ -2,7 +2,8 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { ICardProps } from '../../interfaces/card';
-import Button from '../Buttons/Button';
+import Button from '../Buttons/Button/Button';
+import SelectType from '../Buttons/SelectTypeButton/SelectTypeButton';
 
 const StyledCard = styled.div`
   ${tw`
@@ -30,7 +31,7 @@ const StyledTitle = styled.h3`
 const StyledDescription = styled.p`
   ${tw`
     text-sm
-    mb-20
+    mb-10
   `}
 `;
 
@@ -48,12 +49,21 @@ const StyledPrice = styled.span`
   line-height: 40px;
 `;
 
-const Card: FC<ICardProps> = ({ anchorAlt, title, description, price }) => {
+const Card: FC<ICardProps> = ({
+  anchorAlt,
+  title,
+  description,
+  type,
+  size,
+  price,
+}) => {
   return (
     <StyledCard>
       <img src="" alt={anchorAlt} />
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
+      {type && <SelectType />}
+      {size && <SelectType />}
       <StyledOrder>
         <Button text="В Корзину" />
         <StyledPrice>{price}</StyledPrice>

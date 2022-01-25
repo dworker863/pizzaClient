@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IAuthModalProps } from '../../interfaces/authModal';
-import ButtonClose from '../Buttons/ButtonClose';
+import ButtonClose from '../Buttons/CloseButton/CloseButton';
 import AuthFormContainer from '../common/AuthFormContainer';
 import ConditionalAuthContainer from './ConditionalAuthContainer';
 

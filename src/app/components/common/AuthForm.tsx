@@ -7,7 +7,7 @@ import {
   passwordValidation,
   registrationValidation,
 } from '../../utils/validation';
-import Button from '../Buttons/Button';
+import Button from '../Buttons/Button/Button';
 import { StyledAuthButtonsWrapper } from '../Modals/StyledAuth';
 import Anchor from './Anchor';
 import FormItem from './FormItem';

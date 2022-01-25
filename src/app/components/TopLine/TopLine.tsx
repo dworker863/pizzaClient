@@ -8,8 +8,8 @@ import LogoWrapper from './Logo';
 import Hamburger from './Hamburger/Hamburger';
 import Navbar from '../Navbar/Navbar';
 import AuthModal from '../Modals/AuthModal';
-import Button from '../Buttons/Button';
 import { getUsers } from '../../redux/reducers/usersReducer/users';
+import Button from '../Buttons/Button/Button';
 
 const StyledTopLine = styled.div`
   ${tw`

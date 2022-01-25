@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { IStyledButtonProps } from '../../interfaces/button';
+import { IStyledButtonProps } from '../../../interfaces/button';
 
 export const StyledButton = styled.button<IStyledButtonProps>`
   ${tw`

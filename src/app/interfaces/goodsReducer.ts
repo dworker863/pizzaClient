@@ -1,4 +1,4 @@
-import { IGood } from './pizza';
+import { IGood } from './good';
 
 export enum ESetGoods {
   SET_GOODS = 'SET_GOODS',

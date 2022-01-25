@@ -1,11 +1,11 @@
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { INavbarProps } from '../../interfaces/navbar';
 import { getLogout } from '../../redux/reducers/authReducer/auth';
 import { RootState } from '../../redux/store';
-import Button from '../Buttons/Button';
+import Button from '../Buttons/Button/Button';
 import ConditionalNavbarContainer from './ConditionalNavbarContainer';
 import MenuItem from './MenuItem';
 import NavbarItem from './NavbarItem';

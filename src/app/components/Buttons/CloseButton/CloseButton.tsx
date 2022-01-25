@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
-import { IButtonCloseProps } from '../../interfaces/button';
+import { ICloseButtonProps } from '../../../interfaces/button';
 
 const StyledCloseButtonWrapper = styled.div`
   ${tw`
@@ -47,7 +47,7 @@ const StyledCloseButton = styled.span`
   }
 `;
 
-const ButtonClose: FC<IButtonCloseProps> = ({ clickHandler }) => {
+const CloseButton: FC<ICloseButtonProps> = ({ clickHandler }) => {
   return (
     <StyledCloseButtonWrapper onClick={clickHandler}>
       <StyledCloseButton />
@@ -55,4 +55,4 @@ const ButtonClose: FC<IButtonCloseProps> = ({ clickHandler }) => {
   );
 };
 
-export default ButtonClose;
+export default CloseButton;

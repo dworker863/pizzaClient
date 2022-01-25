@@ -9,7 +9,7 @@ export interface IButtonProps {
   address?: boolean;
 }
 
-export interface IButtonCloseProps {
+export interface ICloseButtonProps {
   clickHandler: (event: MouseEvent<HTMLDivElement>) => void;
 }
 

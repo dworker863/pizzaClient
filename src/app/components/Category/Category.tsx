@@ -5,7 +5,7 @@ import tw from 'twin.macro';
 import { ICategoryProps } from '../../interfaces/categoryComponent';
 import { getGoods } from '../../redux/reducers/goodsReducer/goods';
 import { RootState } from '../../redux/store';
-import Card from '../common/Card';
+import Card from '../Card/Card';
 import Container from '../Container/Container';
 
 const StyledCategoryWrapper = styled.div`

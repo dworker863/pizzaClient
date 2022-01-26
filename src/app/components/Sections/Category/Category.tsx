@@ -15,9 +15,9 @@ const Category: FC<ICategory> = ({ title, name }) => {
   const goods = useSelector((state: RootState) => state.goods);
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getGoods());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getGoods());
+  }, [dispatch]);
 
   return (
     <StyledCategoryWrapper>
@@ -32,6 +32,7 @@ const Category: FC<ICategory> = ({ title, name }) => {
                 sizes={good.sizes ? good.sizes : undefined}
                 description={good.description ? good.description : undefined}
                 prices={good.prices}
+                image={good.image}
               />
             ))}
         </StyledGoodsWrapper>

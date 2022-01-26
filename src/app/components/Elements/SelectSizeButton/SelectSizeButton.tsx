@@ -3,9 +3,11 @@ import SelectSizeItem from '../SelectSizeItem/SelectSizeItem';
 import { ISelectSizeButtonProps } from './ISelectSizeButton';
 import { StyledSelectSizeItemsWrapper } from './StyledSelectSizeButton';
 
-const SelectSizeButton: FC<ISelectSizeButtonProps> = ({ id, clickHandler }) => {
-  const sizes = ['23 см', '30 см', '35 см', '40 см'];
-
+const SelectSizeButton: FC<ISelectSizeButtonProps> = ({
+  id,
+  sizes,
+  clickHandler,
+}) => {
   return (
     <StyledSelectSizeItemsWrapper>
       {sizes.map((size, index) => (

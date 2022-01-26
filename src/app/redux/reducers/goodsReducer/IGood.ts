@@ -3,4 +3,5 @@ export interface IGood {
   description?: string;
   sizes?: string[];
   prices: string[];
+  image: string
 }

@@ -16,6 +16,7 @@ const Card: FC<ICardProps> = ({
   description,
   sizes,
   prices,
+  image,
 }) => {
   const [activeElement, setActiveElement] = useState(0);
 
@@ -25,11 +26,15 @@ const Card: FC<ICardProps> = ({
 
   return (
     <StyledCard>
-      <img src="" alt={anchorAlt} />
+      <img src={image} alt={anchorAlt} />
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
       {sizes && (
-        <SelectSizeButton id={activeElement} clickHandler={clickHandler} />
+        <SelectSizeButton
+          id={activeElement}
+          sizes={sizes}
+          clickHandler={clickHandler}
+        />
       )}
       <StyledOrder>
         <Button text="В Корзину" />

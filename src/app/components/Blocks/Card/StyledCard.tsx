@@ -4,11 +4,12 @@ import tw from 'twin.macro';
 export const StyledCard = styled.div`
   ${tw`
     bg-white
-    ml-5
     rounded-xl
     p-4
+    mb-14
   `}
 
+  width: 32%;
   font-family: Montserrat, sans-serif;
   color: ${(props) => props.theme.colors.lightBrown};
 `;

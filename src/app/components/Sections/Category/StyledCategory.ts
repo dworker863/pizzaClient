@@ -22,5 +22,7 @@ export const StyledCategory = styled.h2`
 export const StyledGoodsWrapper = styled.div`
   ${tw`
     flex
+    flex-wrap
+    gap-2
   `}
 `;

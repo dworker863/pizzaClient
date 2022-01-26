@@ -4,4 +4,5 @@ export interface ICardProps {
   description?: string | null;
   sizes?: string[];
   prices: string[];
+  image: string;
 }

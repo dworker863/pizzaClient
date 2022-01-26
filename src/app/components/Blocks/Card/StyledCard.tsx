@@ -3,6 +3,8 @@ import tw from 'twin.macro';
 
 export const StyledCard = styled.div`
   ${tw`
+    flex
+    flex-col
     bg-white
     rounded-xl
     p-4
@@ -19,6 +21,7 @@ export const StyledTitle = styled.h3`
     font-bold
     text-lg
     mb-2
+    mt-5
   `}
 
   color: ${(props) => props.theme.colors.brown};
@@ -36,6 +39,7 @@ export const StyledOrder = styled.div`
   ${tw`
     flex
     justify-between
+    mt-auto
   `}
 `;
 

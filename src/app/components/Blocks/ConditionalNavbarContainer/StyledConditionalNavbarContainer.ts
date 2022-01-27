@@ -26,14 +26,14 @@ export const StyledNavbarMobileWrapper = styled.nav<IStyledActiveComponent>`
   `}
 
   box-shadow: 0 2px 12px 0 rgb(41 44 51 / 20%);
-  transition: all 1s ease-in-out;
+  transition: all 0.15s ease-in-out;
   ${({ isActive }) =>
     isActive
       ? css`
-          transform: translate(0);
+          opacity: 1;
         `
       : css`
-          transform: translate(90vh);
+          opacity: 0;
         `}
 `;
 

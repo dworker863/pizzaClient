@@ -52,6 +52,18 @@ export const StyledCartCircle = styled.div`
   }
 `;
 
+export const StyledCartIcon = styled.span`
+  ${tw`
+    relative
+    flex
+    text-3xl
+  `}
+
+  width: 100%;
+  height: 100%;
+  color: ${(props) => props.theme.colors.red};
+`;
+
 export const StyledCartTopLine = styled.div`
   ${tw`
     relative

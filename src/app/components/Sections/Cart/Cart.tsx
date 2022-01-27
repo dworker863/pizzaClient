@@ -1,8 +1,11 @@
 import { FC, MouseEvent, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { StyledToggleButton } from '../../Elements/ToggleButton/StyledToggleButton';
 import {
   StyledCart,
   StyledCartCircle,
+  StyledCartIcon,
   StyledCartLine,
   StyledCartTitle,
   StyledCartToggler,
@@ -19,7 +22,14 @@ const Cart: FC = () => {
   return (
     <StyledCart>
       <StyledCartLine></StyledCartLine>
-      <StyledCartCircle></StyledCartCircle>
+      <StyledCartCircle>
+        <StyledCartIcon>
+          <FontAwesomeIcon
+            icon={faShoppingCart}
+            className="absolute top-6 left-9"
+          />
+        </StyledCartIcon>
+      </StyledCartCircle>
       <StyledCartTopLine>
         <StyledCartToggler onClick={clickHandler}>
           <StyledCartTitle>Cart</StyledCartTitle>

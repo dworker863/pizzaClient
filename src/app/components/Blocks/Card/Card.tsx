@@ -4,6 +4,7 @@ import SelectSizeButton from '../../Elements/SelectSizeButton/SelectSizeButton';
 import { ICardProps } from './ICard';
 import {
   StyledCard,
+  StyledOrderWrapper,
   StyledDescription,
   StyledOrder,
   StyledPrice,
@@ -29,17 +30,19 @@ const Card: FC<ICardProps> = ({
       <img src={image} alt={anchorAlt} />
       <StyledTitle>{title}</StyledTitle>
       <StyledDescription>{description}</StyledDescription>
-      {sizes && (
-        <SelectSizeButton
-          id={activeElement}
-          sizes={sizes}
-          clickHandler={clickHandler}
-        />
-      )}
-      <StyledOrder>
-        <Button text="В Корзину" />
-        <StyledPrice>{prices[activeElement]}</StyledPrice>
-      </StyledOrder>
+      <StyledOrderWrapper>
+        {sizes && (
+          <SelectSizeButton
+            id={activeElement}
+            sizes={sizes}
+            clickHandler={clickHandler}
+          />
+        )}
+        <StyledOrder>
+          <Button text="В Корзину" />
+          <StyledPrice>{prices[activeElement]}</StyledPrice>
+        </StyledOrder>
+      </StyledOrderWrapper>
     </StyledCard>
   );
 };

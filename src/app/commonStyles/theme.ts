@@ -9,6 +9,7 @@ export const commonTheme: ITheme = {
     superLightGrey: '#bfb7b699',
     brown: '#70544f',
     lightBrown: '#a69895',
+    red: '#C21313',
   },
 
   media: {

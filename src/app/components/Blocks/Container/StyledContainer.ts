@@ -5,7 +5,6 @@ export const StyledContainer = styled.div`
   ${tw`
     relative
     flex
-    flex-wrap
     container
     mx-auto
     px-5

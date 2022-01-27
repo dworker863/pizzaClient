@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
+export const StyledCategoryContainer = styled.div`
+  ${tw`
+    w-3/4
+  `}
+`;
+
 export const StyledCategoryWrapper = styled.div`
   ${tw`
     mb-24
@@ -9,7 +15,6 @@ export const StyledCategoryWrapper = styled.div`
 
 export const StyledCategory = styled.h2`
   ${tw`
-    min-w-full
     pb-10
     text-2xl
     font-bold

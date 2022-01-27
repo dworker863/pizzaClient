@@ -7,6 +7,7 @@ export interface ITheme {
     superLightGrey: string;
     brown: string;
     lightBrown: string;
+    red: string;
   };
 
   media: {

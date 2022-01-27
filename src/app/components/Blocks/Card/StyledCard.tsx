@@ -39,7 +39,6 @@ export const StyledOrder = styled.div`
   ${tw`
     flex
     justify-between
-    mt-auto
   `}
 `;
 
@@ -51,4 +50,10 @@ export const StyledPrice = styled.span`
   line-height: 40px;
   color: ${(props) => props.theme.colors.brown};
   font-weight: 600;
+`;
+
+export const StyledOrderWrapper = styled.div`
+  ${tw`
+    mt-auto
+  `}
 `;

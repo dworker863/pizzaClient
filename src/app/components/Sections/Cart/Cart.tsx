@@ -7,6 +7,7 @@ import {
   StyledCartCircle,
   StyledCartIcon,
   StyledCartLine,
+  StyledCartTContent,
   StyledCartTitle,
   StyledCartToggler,
   StyledCartTopLine,
@@ -36,6 +37,9 @@ const Cart: FC = () => {
           <StyledToggleButton isActive={isActive} />
         </StyledCartToggler>
       </StyledCartTopLine>
+      <StyledCartTContent isActive={isActive}>
+        Корзина пуста. Выберите пиццу из меню
+      </StyledCartTContent>
     </StyledCart>
   );
 };

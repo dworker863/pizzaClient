@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import { IStyledCart } from './ICard';
 
 export const StyledCart = styled.div`
   ${tw`
     relative
     w-80
-    h-96
+    h-8
   `}
 
   margin-top: 72px;
@@ -87,4 +88,21 @@ export const StyledCartTitle = styled.h2`
   ${tw`
     mr-2
   `}
+`;
+
+export const StyledCartTContent = styled.p<IStyledCart>`
+  ${tw`
+    px-5
+    h-80
+  `}
+
+  overflow: hidden;
+  background-color: #fff;
+  transition: all 0.4s;
+
+  ${({ isActive }) =>
+    !isActive &&
+    css`
+      height: 0px;
+    `}
 `;

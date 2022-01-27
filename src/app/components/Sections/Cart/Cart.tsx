@@ -16,7 +16,7 @@ import {
 const Cart: FC = () => {
   const [isActive, setIsActive] = useState(true);
 
-  const clickHandler = (event: MouseEvent<HTMLDivElement>) => {
+  const toggleCartclickHandler = (event: MouseEvent<HTMLDivElement>) => {
     setIsActive(!isActive);
   };
 
@@ -32,7 +32,7 @@ const Cart: FC = () => {
         </StyledCartIcon>
       </StyledCartCircle>
       <StyledCartTopLine>
-        <StyledCartToggler onClick={clickHandler}>
+        <StyledCartToggler onClick={toggleCartclickHandler}>
           <StyledCartTitle>Cart</StyledCartTitle>
           <StyledToggleButton isActive={isActive} />
         </StyledCartToggler>

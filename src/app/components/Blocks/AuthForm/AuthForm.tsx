@@ -7,10 +7,10 @@ import {
 } from '../../../utils/validation';
 import Button from '../../Elements/Button/Button';
 import Anchor from '../../Elements/Anchor/Anchor';
-import { IAuthFormValues } from '../AuthFormContainer/IAuthContainer';
 import { IAuthFormProps } from './IAuthForm';
 import { StyledAuthButtonsWrapper } from './StyledAuthForm';
 import FormItem from '../../Elements/FormItem/FormItem';
+import { initialValues } from '../../../utils/staticData';
 
 const AuthForm: FC<IAuthFormProps> = ({
   formFields,
@@ -19,14 +19,6 @@ const AuthForm: FC<IAuthFormProps> = ({
   toggleAnchorText,
   submitClickHandler,
 }) => {
-  const initialValues: IAuthFormValues = {
-    tel: '',
-    password: '',
-    passwordConfirmation: '',
-    name: '',
-    email: '',
-  };
-
   return (
     <Formik
       initialValues={initialValues}

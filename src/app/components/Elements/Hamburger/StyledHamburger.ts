@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { IStyledHamburgerProps } from './IHamburger';
+import { IStyledActiveComponent } from '../../../commonInterfaces/IStyledActiveComponent';
 
 export const HamburgerWrapper = styled.div`
   ${tw`
@@ -20,9 +20,9 @@ export const HamburgerWrapper = styled.div`
   }
 `;
 
-export const StyledHamburger = styled.div<IStyledHamburgerProps>`
+export const StyledHamburger = styled.div<IStyledActiveComponent>`
   ${tw`
-    z-10 
+    z-30 
     relative
     w-6
     h-1

@@ -1,3 +1,4 @@
+import { IAuthFormValues } from '../components/Blocks/AuthFormContainer/IAuthContainer';
 import { ICategory } from '../components/Sections/Category/ICategory';
 
 export const categories: ICategory[] = [
@@ -16,3 +17,11 @@ export let formFields: string[][] = [
   ['name', 'Имя', 'text'],
   ['email', 'Email', 'email'],
 ];
+
+export const initialValues: IAuthFormValues = {
+  tel: '',
+  password: '',
+  passwordConfirmation: '',
+  name: '',
+  email: '',
+};

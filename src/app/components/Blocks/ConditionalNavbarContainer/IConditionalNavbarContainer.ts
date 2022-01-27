@@ -7,7 +7,3 @@ export interface IConditionalNavbarContainerProps {
   screen: TScreen;
   children: ReactNode;
 }
-
-export interface IStyledNavbarMobileWrapper {
-  isActive?: boolean;
-}

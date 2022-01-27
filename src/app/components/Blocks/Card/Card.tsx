@@ -21,7 +21,7 @@ const Card: FC<ICardProps> = ({
 }) => {
   const [activeElement, setActiveElement] = useState(0);
 
-  const clickHandler = (index: number): void => {
+  const setActiveElementclickHandler = (index: number): void => {
     setActiveElement(index);
   };
 
@@ -35,7 +35,7 @@ const Card: FC<ICardProps> = ({
           <SelectSizeButton
             id={activeElement}
             sizes={sizes}
-            clickHandler={clickHandler}
+            clickHandler={setActiveElementclickHandler}
           />
         )}
         <StyledOrder>

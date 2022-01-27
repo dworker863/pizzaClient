@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 
 export const StyledAuthModalMobile = styled.div`
   ${tw`
-    z-20
+    z-40
     absolute
     top-0
     right-0
@@ -22,7 +22,7 @@ export const StyledAuthModalMobile = styled.div`
 
 export const StyledAuthModalTablet = styled.div`
   ${tw`
-    z-20
+    z-40
     right-0
     absolute
     w-96
@@ -41,7 +41,7 @@ export const StyledAuthModalTablet = styled.div`
 
 export const StyledAuthModal = styled.div`
   ${tw`
-    z-20
+    z-40
     absolute    
     text-sm
     px-5

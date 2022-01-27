@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { IToggleButton } from './IToggleButton';
+import { IStyledActiveComponent } from '../../../commonInterfaces/IStyledActiveComponent';
 import { StyledToggleButton } from './StyledToggleButton';
 
-const ToggleButton: FC<IToggleButton> = ({ isActive }) => {
+const ToggleButton: FC<IStyledActiveComponent> = ({ isActive }) => {
   return <StyledToggleButton isActive={isActive}></StyledToggleButton>;
 };
 

@@ -69,13 +69,15 @@ const TopLine: FC = () => {
           <Navbar modalClickHandler={modalClickHandler} screen="desktop" />
         ) : (
           <div>
-            <Button
-              text="Укажите свой адрес"
-              clickHandler={(event: MouseEvent<HTMLButtonElement>): void =>
-                console.log('Address')
-              }
-              address
-            />
+            {isTablet && (
+              <Button
+                text="Укажите свой адрес"
+                clickHandler={(event: MouseEvent<HTMLButtonElement>): void =>
+                  console.log('Address')
+                }
+                address
+              />
+            )}
           </div>
         )}
         {isTablet && hamburgerActive && (

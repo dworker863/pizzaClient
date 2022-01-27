@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
-import { IStyledCart } from './ICard';
+import { IStyledActiveComponent } from '../../../commonInterfaces/IStyledActiveComponent';
 
 export const StyledCart = styled.div`
   ${tw`
@@ -90,7 +90,7 @@ export const StyledCartTitle = styled.h2`
   `}
 `;
 
-export const StyledCartTContent = styled.p<IStyledCart>`
+export const StyledCartTContent = styled.p<IStyledActiveComponent>`
   ${tw`
     px-5
     h-80

@@ -6,12 +6,13 @@ export const StyledContainer = styled.div`
     relative
     flex
     flex-wrap
-    flex-row-reverse
+    flex-row
     container
     mx-auto
     px-5
     justify-between
     lg:px-14
-    xl:flex-nowrap flex-row
+    xl:flex-nowrap
+    xl:flex-row-reverse
   `}
 `;

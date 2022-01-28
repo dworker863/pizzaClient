@@ -6,10 +6,10 @@ export const StyledCart = styled.div`
   ${tw`
     relative
     w-72
-    h-auto
+    h-auto    
     mb-8
     rounded-b-lg
-
+    xl:h-16
   `}
 
   margin-top: 72px;

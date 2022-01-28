@@ -1,4 +1,7 @@
 import { FC, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCart } from '../../../redux/reducers/cartReducer/cartReducer';
+import { RootState } from '../../../redux/store';
 import Button from '../../Elements/Button/Button';
 import SelectSizeButton from '../../Elements/SelectSizeButton/SelectSizeButton';
 import { ICardProps } from './ICard';
@@ -20,9 +23,20 @@ const Card: FC<ICardProps> = ({
   image,
 }) => {
   const [activeElement, setActiveElement] = useState(0);
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
 
   const setActiveElementclickHandler = (index: number): void => {
     setActiveElement(index);
+  };
+
+  const addGoodToCartClickHandler = () => {
+    dispatch(
+      setCart({
+        ...cart,
+        goods: [...cart.goods, { name: title, price: prices[activeElement] }],
+      }),
+    );
   };
 
   return (
@@ -39,7 +53,7 @@ const Card: FC<ICardProps> = ({
           />
         )}
         <StyledOrder>
-          <Button text="В Корзину" />
+          <Button text="В Корзину" clickHandler={addGoodToCartClickHandler} />
           <StyledPrice>{prices[activeElement]}</StyledPrice>
         </StyledOrder>
       </StyledOrderWrapper>

@@ -12,9 +12,12 @@ import {
   StyledCartToggler,
   StyledCartTopLine,
 } from './StyledCart';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../redux/store';
 
 const Cart: FC = () => {
   const [isActive, setIsActive] = useState(true);
+  const cart = useSelector((state: RootState) => state.cart);
 
   const toggleCartclickHandler = (event: MouseEvent<HTMLDivElement>) => {
     setIsActive(!isActive);
@@ -38,7 +41,15 @@ const Cart: FC = () => {
         </StyledCartToggler>
       </StyledCartTopLine>
       <StyledCartTContent isActive={isActive}>
-        Корзина пуста. Выберите пиццу из меню
+        {cart.goods.length ? (
+          cart.goods.map((good) => (
+            <p>
+              {good.name} {good.price}
+            </p>
+          ))
+        ) : (
+          <p>Корзина пуста. Выберите пиццу из меню</p>
+        )}
       </StyledCartTContent>
     </StyledCart>
   );

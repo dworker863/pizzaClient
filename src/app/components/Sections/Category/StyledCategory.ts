@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 
 export const StyledCategoryContainer = styled.div`
-  ${tw`
-    w-3/4
+  ${tw`    
+    xl:w-3/4
   `}
 `;
 
 export const StyledCategoryWrapper = styled.div`
   ${tw`
-    mb-24
   `}
 `;
 

@@ -8,12 +8,20 @@ export const StyledCard = styled.div`
     bg-white
     rounded-xl
     p-4
-    mb-14
+    mb-8
   `}
 
   width: 32%;
   font-family: Montserrat, sans-serif;
   color: ${(props) => props.theme.colors.lightBrown};
+
+  @media (max-width: 1024px) {
+    width: 49%;
+  }
+
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `;
 
 export const StyledTitle = styled.h3`

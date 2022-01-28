@@ -5,8 +5,11 @@ import { IStyledActiveComponent } from '../../../commonInterfaces/IStyledActiveC
 export const StyledCart = styled.div`
   ${tw`
     relative
-    w-80
-    h-8
+    w-72
+    h-auto
+    mb-8
+    rounded-b-lg
+
   `}
 
   margin-top: 72px;
@@ -69,6 +72,7 @@ export const StyledCartTopLine = styled.div`
   ${tw`
     relative
     p-5
+    rounded-b-lg
   `}
 
   top: 4px;
@@ -92,8 +96,9 @@ export const StyledCartTitle = styled.h2`
 
 export const StyledCartTContent = styled.p<IStyledActiveComponent>`
   ${tw`
-    px-5
     h-80
+    px-5
+    rounded-b-lg
   `}
 
   overflow: hidden;

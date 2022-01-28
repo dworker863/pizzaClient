@@ -12,12 +12,12 @@ function App() {
     <ThemeProvider theme={commonTheme}>
       <Header />
       <Container>
+        <Cart />
         <StyledCategoryContainer>
           {categories.map((category) => (
             <Category title={category.title} name={category.name} />
           ))}
         </StyledCategoryContainer>
-        <Cart />
       </Container>
     </ThemeProvider>
   );

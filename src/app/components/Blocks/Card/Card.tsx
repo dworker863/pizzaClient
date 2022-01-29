@@ -34,7 +34,10 @@ const Card: FC<ICardProps> = ({
     dispatch(
       setCart({
         ...cart,
-        goods: [...cart.goods, { name: title, price: prices[activeElement] }],
+        goods: [
+          ...cart.goods,
+          { name: title, price: prices[activeElement], image },
+        ],
       }),
     );
   };

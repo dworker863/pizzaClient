@@ -5,6 +5,7 @@ export enum ESetCart {
 export interface ICartGood {
   name: string;
   price: string;
+  image: string;
 }
 
 export interface ICartState {

@@ -7,10 +7,12 @@ export interface IButtonProps {
   inverse?: boolean;
   login?: boolean;
   address?: boolean;
+  circle?: boolean;
 }
 
 export interface IStyledButtonProps {
   inverse?: boolean;
   login?: boolean;
   address?: boolean;
+  circle?: boolean;
 }

@@ -12,15 +12,27 @@ import {
   StyledCartToggler,
   StyledCartTopLine,
 } from './StyledCart';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
+import CartItem from '../../Elements/CartItem/CartItem';
+import { setCart } from '../../../redux/reducers/cartReducer/cartReducer';
 
 const Cart: FC = () => {
   const [isActive, setIsActive] = useState(true);
   const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
 
   const toggleCartclickHandler = (event: MouseEvent<HTMLDivElement>) => {
     setIsActive(!isActive);
+  };
+
+  const setActiveElementclickHandler = (name: string): void => {
+    dispatch(
+      setCart({
+        ...cart,
+        goods: cart.goods.filter((good) => good.name !== name),
+      }),
+    );
   };
 
   return (
@@ -43,9 +55,12 @@ const Cart: FC = () => {
       <StyledCartTContent isActive={isActive}>
         {cart.goods.length ? (
           cart.goods.map((good) => (
-            <p>
-              {good.name} {good.price}
-            </p>
+            <CartItem
+              name={good.name}
+              price={good.price}
+              image={good.image}
+              clickHandler={() => setActiveElementclickHandler(good.name)}
+            />
           ))
         ) : (
           <p>Корзина пуста. Выберите пиццу из меню</p>

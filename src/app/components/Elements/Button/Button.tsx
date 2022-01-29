@@ -11,6 +11,7 @@ const Button: FC<IButtonProps> = ({
   inverse,
   login,
   address,
+  circle,
 }) => {
   return (
     <StyledButton
@@ -19,6 +20,7 @@ const Button: FC<IButtonProps> = ({
       inverse={inverse}
       login={login}
       address={address}
+      circle={circle}
     >
       {address && <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />}
       {text}

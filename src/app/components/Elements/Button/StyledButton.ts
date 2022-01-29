@@ -58,4 +58,20 @@ export const StyledButton = styled.button<IStyledButtonProps>`
       color: ${(props) => props.theme.colors.primary};
       background-color: ${(props) => props.theme.colors.secondary};
     `}
+
+  ${({ circle }) =>
+    circle &&
+    css`
+      ${tw`
+      p-0 
+      
+    `}
+      display: inline-block;
+      border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      vertical-align: middle;
+      line-height: 25px;
+    `}
 `;

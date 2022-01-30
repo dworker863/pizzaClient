@@ -14,8 +14,12 @@ function App() {
       <Container>
         <Cart />
         <StyledCategoryContainer>
-          {categories.map((category) => (
-            <Category title={category.title} name={category.name} />
+          {categories.map((category, index) => (
+            <Category
+              key={index + category.name}
+              title={category.title}
+              name={category.name}
+            />
           ))}
         </StyledCategoryContainer>
       </Container>

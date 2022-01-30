@@ -20,7 +20,7 @@ const initialState: IGoodsState = {
 
 const goods = (
   state = initialState,
-  action: TGoodsActionTypes,
+  action: TGoodsActionTypes | any,
 ): IGoodsState => {
   switch (action.type) {
     case ESetGoods.SET_GOODS:

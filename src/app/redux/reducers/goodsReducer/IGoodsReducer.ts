@@ -15,7 +15,7 @@ export interface IGoodsState {
 
 export interface ISetGoodsAction {
   type: ESetGoods.SET_GOODS;
-  payload?: IGoodsState;
+  payload: IGoodsState;
 }
 
 export type TGoodsActionTypes = ISetGoodsAction;

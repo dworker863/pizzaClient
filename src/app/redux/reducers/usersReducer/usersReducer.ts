@@ -17,7 +17,10 @@ const initialState: IUsersState = {
   error: null,
 };
 
-const users = (state = initialState, action: TUserActionTypes): IUsersState => {
+const users = (
+  state = initialState,
+  action: TUserActionTypes | any,
+): IUsersState => {
   switch (action.type) {
     case ESetUsers.SET_USERS:
       return { ...state, loading: true };

@@ -23,8 +23,9 @@ const Category: FC<ICategory> = ({ title, name }) => {
       <StyledCategory>{title}</StyledCategory>
       <StyledGoodsWrapper>
         {goods[name as keyof typeof goods] &&
-          goods[name as keyof typeof goods].map((good) => (
+          goods[name as keyof typeof goods].map((good, index) => (
             <Card
+              key={index + good.name}
               anchorAlt={`${title} ${good.name}`}
               title={good.name}
               sizes={good.sizes ? good.sizes : undefined}

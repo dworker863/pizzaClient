@@ -12,6 +12,7 @@ const SelectSizeButton: FC<ISelectSizeButtonProps> = ({
     <StyledSelectSizeItemsWrapper>
       {sizes.map((size, index) => (
         <SelectSizeItem
+          key={index + size}
           size={size}
           isActive={index === id ? true : false}
           clickHandler={() => clickHandler(index)}

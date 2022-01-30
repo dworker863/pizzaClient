@@ -3,6 +3,7 @@ import {
   ICartGood,
   ICartState,
   ISetCartGoodsAction,
+  ISetCartGoodsCountAction,
   ISetCartTotalPriceAction,
   TCartActionTypes,
 } from './ICartReducer';
@@ -12,13 +13,21 @@ const initialState: ICartState = {
   totalPrice: 0,
 };
 
-const cart = (state = initialState, action: TCartActionTypes) => {
+const cart = (
+  state = initialState,
+  action: TCartActionTypes | any,
+): ICartState => {
   switch (action.type) {
     case ESetCart.SET_CART_GOODS:
       return { ...state, goods: action.payload };
 
+    case ESetCart.SET_CART_GOODS_COUNT:
+      return {
+        ...state,
+        goods: [...state.goods, action.payload],
+      };
+
     case ESetCart.SET_CART_TOTALPRICE: {
-      console.log(state.totalPrice);
       return { ...state, totalPrice: action.payload };
     }
 
@@ -30,6 +39,14 @@ const cart = (state = initialState, action: TCartActionTypes) => {
 export const setCartGoods = (goods: ICartGood[]): ISetCartGoodsAction => ({
   type: ESetCart.SET_CART_GOODS,
   payload: goods,
+});
+
+export const setCartGoodsCount = (
+  goodsCount: number,
+  good: ICartGood,
+): ISetCartGoodsCountAction => ({
+  type: ESetCart.SET_CART_GOODS_COUNT,
+  payload: { ...good, goodsCount },
 });
 
 export const setCartTotalPrice = (price: number): ISetCartTotalPriceAction => ({

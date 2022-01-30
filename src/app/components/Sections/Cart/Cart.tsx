@@ -63,8 +63,9 @@ const Cart: FC = () => {
       </StyledCartTopLine>
       <StyledCartTContent isActive={isActive}>
         {cart.goods && cart.goods.length ? (
-          cart.goods.map((good) => (
+          cart.goods.map((good, index) => (
             <CartItem
+              key={good && index + good.name}
               name={good.name}
               price={good.price}
               image={good.image}

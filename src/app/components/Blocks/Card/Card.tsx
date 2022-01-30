@@ -42,7 +42,7 @@ const Card: FC<ICardProps> = ({
       dispatch(
         setCartGoods([
           ...cart.goods,
-          { name: title, price: prices[activeElement], image },
+          { name: title, price: prices[activeElement], image, goodsCount: 1 },
         ]),
       );
       dispatch(setCartTotalPrice(cart.totalPrice + price));

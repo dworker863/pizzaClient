@@ -38,15 +38,13 @@ const Card: FC<ICardProps> = ({
   };
 
   const addGoodToCartClickHandler = () => {
-    if (cart.goods && cart.totalPrice !== undefined) {
-      dispatch(
-        setCartGoods([
-          ...cart.goods,
-          { name: title, price: prices[activeElement], image, goodsCount: 1 },
-        ]),
-      );
-      dispatch(setCartTotalPrice(cart.totalPrice + price));
-    }
+    dispatch(
+      setCartGoods([
+        ...cart.goods,
+        { name: title, price: prices[activeElement], image, goodsCount: 1 },
+      ]),
+    );
+    dispatch(setCartTotalPrice(cart.totalPrice + price));
   };
 
   return (

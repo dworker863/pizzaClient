@@ -22,18 +22,17 @@ const Category: FC<ICategory> = ({ title, name }) => {
     <StyledCategoryWrapper>
       <StyledCategory>{title}</StyledCategory>
       <StyledGoodsWrapper>
-        {goods[name as keyof typeof goods] &&
-          goods[name as keyof typeof goods].map((good, index) => (
-            <Card
-              key={index + good.name}
-              anchorAlt={`${title} ${good.name}`}
-              title={good.name}
-              sizes={good.sizes ? good.sizes : undefined}
-              description={good.description ? good.description : undefined}
-              prices={good.prices}
-              image={good.image}
-            />
-          ))}
+        {goods[name as keyof typeof goods].map((good, index) => (
+          <Card
+            key={index + good.name}
+            anchorAlt={`${title} ${good.name}`}
+            title={good.name}
+            sizes={good.sizes ? good.sizes : undefined}
+            description={good.description ? good.description : undefined}
+            prices={good.prices}
+            image={good.image}
+          />
+        ))}
       </StyledGoodsWrapper>
     </StyledCategoryWrapper>
   );

@@ -38,10 +38,7 @@ const Cart: FC = () => {
   };
 
   const setTotalPriceClickHandler = (price: number) => {
-    if (cart && cart.totalPrice !== undefined) {
-      console.log(cart.totalPrice);
-      dispatch(setCartTotalPrice(cart.totalPrice + price));
-    }
+    dispatch(setCartTotalPrice(cart.totalPrice + price));
   };
 
   return (
@@ -62,7 +59,7 @@ const Cart: FC = () => {
         </StyledCartToggler>
       </StyledCartTopLine>
       <StyledCartTContent isActive={isActive}>
-        {cart.goods && cart.goods.length ? (
+        {cart.goods.length ? (
           cart.goods.map((good, index) => (
             <CartItem
               key={good && index + good.name}
@@ -78,9 +75,7 @@ const Cart: FC = () => {
         ) : (
           <p>Корзина пуста. Выберите пиццу из меню</p>
         )}
-        {cart.goods && cart.goods.length
-          ? `Сумма заказа: ${cart.totalPrice}`
-          : null}
+        {cart.goods.length ? `Сумма заказа: ${cart.totalPrice}` : null}
       </StyledCartTContent>
     </StyledCart>
   );

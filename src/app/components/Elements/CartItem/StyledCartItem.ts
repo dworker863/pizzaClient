@@ -6,6 +6,8 @@ export const StyledCartItemWrapper = styled.div`
     relative
     mb-8
   `}
+
+  border-bottom: 1px solid ${(props) => props.theme.colors.superLightGrey};
 `;
 export const StyledCartItem = styled.div`
   ${tw`
@@ -35,6 +37,7 @@ export const StyledPriceWrapper = styled.span`
   ${tw`
     flex
     ml-2
+    mb-4
   `}
 `;
 

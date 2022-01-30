@@ -96,12 +96,12 @@ export const StyledCartTitle = styled.h2`
 
 export const StyledCartTContent = styled.p<IStyledActiveComponent>`
   ${tw`
-    h-80
     px-5
     rounded-b-lg
   `}
 
   overflow: hidden;
+  min-height: 320px;
   background-color: #fff;
   transition: all 0.4s;
 

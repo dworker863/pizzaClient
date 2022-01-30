@@ -1,6 +1,9 @@
 import { FC, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCart } from '../../../redux/reducers/cartReducer/cartReducer';
+import {
+  setCartGoods,
+  setCartTotalPrice,
+} from '../../../redux/reducers/cartReducer/cartReducer';
 import { RootState } from '../../../redux/store';
 import Button from '../../Elements/Button/Button';
 import SelectSizeButton from '../../Elements/SelectSizeButton/SelectSizeButton';
@@ -26,20 +29,24 @@ const Card: FC<ICardProps> = ({
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
+  const price = +(
+    prices[activeElement][0] + prices[activeElement].slice(2, -1)
+  );
+
   const setActiveElementclickHandler = (index: number): void => {
     setActiveElement(index);
   };
 
   const addGoodToCartClickHandler = () => {
-    dispatch(
-      setCart({
-        ...cart,
-        goods: [
+    if (cart.goods && cart.totalPrice !== undefined) {
+      dispatch(
+        setCartGoods([
           ...cart.goods,
           { name: title, price: prices[activeElement], image },
-        ],
-      }),
-    );
+        ]),
+      );
+      dispatch(setCartTotalPrice(cart.totalPrice + price));
+    }
   };
 
   return (

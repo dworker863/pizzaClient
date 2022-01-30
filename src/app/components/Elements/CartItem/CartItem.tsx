@@ -12,17 +12,25 @@ import {
   StyledPriceWrapper,
 } from './StyledCartItem';
 
-const CartItem: FC<ICartItemProps> = ({ name, price, image, clickHandler }) => {
+const CartItem: FC<ICartItemProps> = ({
+  name,
+  price,
+  image,
+  closeButtonClickHandler,
+  countButtonClickHandler,
+}) => {
   const [itemsCount, setItemsCount] = useState(1);
 
   const priceAmount = +(price[0] + price.slice(2, -1));
 
   const decrementCountClickHandler = (): void => {
     setItemsCount(itemsCount - 1);
+    countButtonClickHandler(priceAmount);
   };
 
   const incrementCountClickHandler = (): void => {
     setItemsCount(itemsCount + 1);
+    countButtonClickHandler(priceAmount);
   };
 
   return (
@@ -36,14 +44,16 @@ const CartItem: FC<ICartItemProps> = ({ name, price, image, clickHandler }) => {
         />
         <StyledItemTitle>{name}</StyledItemTitle>
         <StyledCartCloseButtonWrapper>
-          <CloseButton clickHandler={clickHandler} />
+          <CloseButton clickHandler={closeButtonClickHandler} />
         </StyledCartCloseButtonWrapper>
       </StyledCartItem>
       <StyledPriceWrapper>
         <Button text="-" clickHandler={decrementCountClickHandler} circle />
         <StyledItemsCount>{itemsCount}</StyledItemsCount>
         <Button text="+" clickHandler={incrementCountClickHandler} circle />
-        <StyledItemsPrice>{itemsCount * priceAmount}</StyledItemsPrice>
+        <StyledItemsPrice>
+          {priceAmount * itemsCount + ' ' + price[price.length - 1]}
+        </StyledItemsPrice>
       </StyledPriceWrapper>
     </StyledCartItemWrapper>
   );

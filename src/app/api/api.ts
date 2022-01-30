@@ -13,7 +13,6 @@ export const fetchUsers = (): Promise<IUser[]> => {
 export const login = (tel: string, password: string): Promise<IUser> => {
   return instance.post(`auth/login`, { tel, password }).then((res) => {
     localStorage.setItem('token', res.data.token);
-    console.log(localStorage.getItem('token'));
     return res.data.dataValues;
   });
 };

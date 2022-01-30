@@ -15,7 +15,10 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../redux/store';
 import CartItem from '../../Elements/CartItem/CartItem';
-import { setCart } from '../../../redux/reducers/cartReducer/cartReducer';
+import {
+  setCartGoods,
+  setCartTotalPrice,
+} from '../../../redux/reducers/cartReducer/cartReducer';
 
 const Cart: FC = () => {
   const [isActive, setIsActive] = useState(true);
@@ -27,12 +30,18 @@ const Cart: FC = () => {
   };
 
   const setActiveElementclickHandler = (name: string): void => {
-    dispatch(
-      setCart({
-        ...cart,
-        goods: cart.goods.filter((good) => good.name !== name),
-      }),
-    );
+    if (cart.goods) {
+      dispatch(
+        setCartGoods([...cart.goods.filter((good) => good.name !== name)]),
+      );
+    }
+  };
+
+  const setTotalPriceClickHandler = (price: number) => {
+    if (cart && cart.totalPrice !== undefined) {
+      console.log(cart.totalPrice);
+      dispatch(setCartTotalPrice(cart.totalPrice + price));
+    }
   };
 
   return (
@@ -53,18 +62,24 @@ const Cart: FC = () => {
         </StyledCartToggler>
       </StyledCartTopLine>
       <StyledCartTContent isActive={isActive}>
-        {cart.goods.length ? (
+        {cart.goods && cart.goods.length ? (
           cart.goods.map((good) => (
             <CartItem
               name={good.name}
               price={good.price}
               image={good.image}
-              clickHandler={() => setActiveElementclickHandler(good.name)}
+              closeButtonClickHandler={() =>
+                setActiveElementclickHandler(good.name)
+              }
+              countButtonClickHandler={setTotalPriceClickHandler}
             />
           ))
         ) : (
           <p>Корзина пуста. Выберите пиццу из меню</p>
         )}
+        {cart.goods && cart.goods.length
+          ? `Сумма заказа: ${cart.totalPrice}`
+          : null}
       </StyledCartTContent>
     </StyledCart>
   );

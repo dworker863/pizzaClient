@@ -2,5 +2,6 @@ export interface ICartItemProps {
   name: string;
   price: string;
   image: string;
-  clickHandler: () => void;
+  closeButtonClickHandler: () => void;
+  countButtonClickHandler: (price: number) => void;
 }

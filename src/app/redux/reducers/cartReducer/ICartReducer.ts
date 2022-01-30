@@ -1,5 +1,6 @@
 export enum ESetCart {
-  SET_CART = 'SET_CART',
+  SET_CART_GOODS = 'SET_CART_GOODS',
+  SET_CART_TOTALPRICE = 'SET_CART_TOTALPRICE',
 }
 
 export interface ICartGood {
@@ -9,12 +10,18 @@ export interface ICartGood {
 }
 
 export interface ICartState {
-  goods: ICartGood[];
+  goods?: ICartGood[];
+  totalPrice?: number;
 }
 
-export interface ISetCartAction {
-  type: ESetCart.SET_CART;
-  payload?: ICartState;
+export interface ISetCartGoodsAction {
+  type: ESetCart.SET_CART_GOODS;
+  payload?: ICartGood[];
 }
 
-export type TCartActionTypes = ISetCartAction;
+export interface ISetCartTotalPriceAction {
+  type: ESetCart.SET_CART_TOTALPRICE;
+  payload?: number;
+}
+
+export type TCartActionTypes = ISetCartGoodsAction | ISetCartTotalPriceAction;

@@ -24,10 +24,7 @@ const goods = (
 ): IGoodsState => {
   switch (action.type) {
     case ESetGoods.SET_GOODS:
-      const x: IGoodsState = { ...state, ...action.payload };
-      console.log(state);
-
-      return x;
+      return { ...state, ...action.payload };
 
     default:
       return state;

@@ -29,16 +29,13 @@ const Cart: FC = () => {
     setIsActive(!isActive);
   };
 
-  const setActiveElementclickHandler = (name: string): void => {
-    if (cart.goods) {
-      dispatch(
-        setCartGoods([...cart.goods.filter((good) => good.name !== name)]),
-      );
-    }
-  };
+  const closeButtonClickHandler = (name: string, price: number): void => {
+    const good = cart.goods.filter((good) => good.name === name)[0];
 
-  const setTotalPriceClickHandler = (price: number) => {
-    dispatch(setCartTotalPrice(cart.totalPrice + price));
+    dispatch(
+      setCartGoods([...cart.goods.filter((good) => good.name !== name)]),
+    );
+    dispatch(setCartTotalPrice(cart.totalPrice - good.goodsCount * price));
   };
 
   return (
@@ -63,13 +60,9 @@ const Cart: FC = () => {
           cart.goods.map((good, index) => (
             <CartItem
               key={good && index + good.name}
-              name={good.name}
-              price={good.price}
-              image={good.image}
-              closeButtonClickHandler={() =>
-                setActiveElementclickHandler(good.name)
-              }
-              countButtonClickHandler={setTotalPriceClickHandler}
+              good={good}
+              totalPrice={cart.totalPrice}
+              closeButtonClickHandler={closeButtonClickHandler}
             />
           ))
         ) : (

@@ -21,11 +21,17 @@ const cart = (
     case ESetCart.SET_CART_GOODS:
       return { ...state, goods: action.payload };
 
-    case ESetCart.SET_CART_GOODS_COUNT:
+    case ESetCart.SET_CART_GOODS_COUNT: {
+      const customGoods = [...state.goods];
       return {
         ...state,
-        goods: [...state.goods, action.payload],
+        goods: [
+          ...customGoods.map((good) =>
+            good.name === action.payload.name ? action.payload : good,
+          ),
+        ],
       };
+    }
 
     case ESetCart.SET_CART_TOTALPRICE: {
       return { ...state, totalPrice: action.payload };
@@ -42,8 +48,8 @@ export const setCartGoods = (goods: ICartGood[]): ISetCartGoodsAction => ({
 });
 
 export const setCartGoodsCount = (
-  goodsCount: number,
   good: ICartGood,
+  goodsCount: number,
 ): ISetCartGoodsCountAction => ({
   type: ESetCart.SET_CART_GOODS_COUNT,
   payload: { ...good, goodsCount },

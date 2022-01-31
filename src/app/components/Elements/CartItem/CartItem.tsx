@@ -1,4 +1,9 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  setCartGoodsCount,
+  setCartTotalPrice,
+} from '../../../redux/reducers/cartReducer/cartReducer';
 import Button from '../Button/Button';
 import CloseButton from '../CloseButton/CloseButton';
 import { ICartItemProps } from './ICartItem';
@@ -13,46 +18,47 @@ import {
 } from './StyledCartItem';
 
 const CartItem: FC<ICartItemProps> = ({
-  name,
-  price,
-  image,
+  good,
+  totalPrice,
   closeButtonClickHandler,
-  countButtonClickHandler,
 }) => {
-  const [itemsCount, setItemsCount] = useState(1);
+  const dispatch = useDispatch();
+  const goodPrice = +(good.price[0] + good.price.slice(2, -1));
 
-  const priceAmount = +(price[0] + price.slice(2, -1));
-
-  const decrementCountClickHandler = (): void => {
-    setItemsCount(itemsCount - 1);
-    countButtonClickHandler(priceAmount);
+  const incrementButtonClickHandler = () => {
+    dispatch(setCartGoodsCount(good, good.goodsCount + 1));
+    dispatch(setCartTotalPrice(totalPrice + goodPrice));
   };
 
-  const incrementCountClickHandler = (): void => {
-    setItemsCount(itemsCount + 1);
-    countButtonClickHandler(priceAmount);
+  const decrementButtonClickHandler = () => {
+    dispatch(setCartGoodsCount(good, good.goodsCount - 1));
+    dispatch(setCartTotalPrice(totalPrice - goodPrice));
   };
 
   return (
     <StyledCartItemWrapper>
       <StyledCartItem>
         <img
-          src={image}
-          alt={name}
+          src={good.image}
+          alt={good.name}
           width={50}
           style={{ display: 'inline-block' }}
         />
-        <StyledItemTitle>{name}</StyledItemTitle>
+        <StyledItemTitle>{good.name}</StyledItemTitle>
         <StyledCartCloseButtonWrapper>
-          <CloseButton clickHandler={closeButtonClickHandler} />
+          <CloseButton
+            clickHandler={() => closeButtonClickHandler(good.name, goodPrice)}
+          />
         </StyledCartCloseButtonWrapper>
       </StyledCartItem>
       <StyledPriceWrapper>
-        <Button text="-" clickHandler={decrementCountClickHandler} circle />
-        <StyledItemsCount>{itemsCount}</StyledItemsCount>
-        <Button text="+" clickHandler={incrementCountClickHandler} circle />
+        <Button text="-" clickHandler={decrementButtonClickHandler} circle />
+        <StyledItemsCount>{good.goodsCount}</StyledItemsCount>
+        <Button text="+" clickHandler={incrementButtonClickHandler} circle />
         <StyledItemsPrice>
-          {priceAmount * itemsCount + ' ' + price[price.length - 1]}
+          {goodPrice * good.goodsCount +
+            ' ' +
+            good.price[good.price.length - 1]}
         </StyledItemsPrice>
       </StyledPriceWrapper>
     </StyledCartItemWrapper>

@@ -1,7 +1,7 @@
+import { ICartGood } from '../../../redux/reducers/cartReducer/ICartReducer';
+
 export interface ICartItemProps {
-  name: string;
-  price: string;
-  image: string;
-  closeButtonClickHandler: () => void;
-  countButtonClickHandler: (price: number) => void;
+  good: ICartGood;
+  totalPrice: number;
+  closeButtonClickHandler: (name: string, price: number) => void;
 }

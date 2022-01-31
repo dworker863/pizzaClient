@@ -38,13 +38,15 @@ const Card: FC<ICardProps> = ({
   };
 
   const addGoodToCartClickHandler = () => {
-    dispatch(
-      setCartGoods([
-        ...cart.goods,
-        { name: title, price: prices[activeElement], image, goodsCount: 1 },
-      ]),
-    );
-    dispatch(setCartTotalPrice(cart.totalPrice + price));
+    if (!cart.goods.some((good) => good.name === title)) {
+      dispatch(
+        setCartGoods([
+          ...cart.goods,
+          { name: title, price: prices[activeElement], image, goodsCount: 1 },
+        ]),
+      );
+      dispatch(setCartTotalPrice(cart.totalPrice + price));
+    }
   };
 
   return (

@@ -49,7 +49,7 @@ const TopLine: FC = () => {
           screen="mobile"
         />
       )}
-      <Container>
+      <Container reverse>
         {isDesktopOrLaptop && modal && (
           <AuthModal
             setModal={modalClickHandler}
@@ -72,7 +72,7 @@ const TopLine: FC = () => {
           <Navbar modalClickHandler={modalClickHandler} screen="desktop" />
         ) : (
           <div>
-            {isTablet && (
+            {(isDesktopOrLaptop || isTablet) && (
               <Button
                 text="Укажите свой адрес"
                 clickHandler={(event: MouseEvent<HTMLButtonElement>): void =>

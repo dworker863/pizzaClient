@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
+import { IStyledContainerProps } from './IContainer';
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<IStyledContainerProps>`
   ${tw`
     relative
     flex
@@ -15,4 +16,12 @@ export const StyledContainer = styled.div`
     xl:flex-nowrap
     xl:flex-row-reverse
   `}
+
+  ${({ reverse }) =>
+    reverse &&
+    css`
+      ${tw`
+        flex-row-reverse
+      `}
+    `}
 `;

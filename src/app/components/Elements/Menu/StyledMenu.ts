@@ -4,10 +4,11 @@ import tw from 'twin.macro';
 
 export const StyledItem = styled.li`
   ${tw`
-        font-semibold
-        mr-4
-        
-        `}
+    mt-auto
+    font-semibold
+    mr-4
+    
+  `}
 
   font-family: Montserrat, sans-serif;
   font-size: 14px;
@@ -16,6 +17,14 @@ export const StyledItem = styled.li`
 
   &:hover {
     color: ${(props) => props.theme.colors.primary};
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  & img {
+    margin: 0 auto;
   }
 `;
 
@@ -31,7 +40,7 @@ export const StyledMenu = styled.ul<IStyledMenu>`
       ${tw`
         justify-around
         mt-10
-        py-3
+        p-3
         rounded-xl
       `}
 

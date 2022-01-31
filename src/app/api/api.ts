@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { ICategory } from '../components/Sections/Category/ICategory';
 import { IGoodsState } from '../redux/reducers/goodsReducer/IGoodsReducer';
 import { IUser } from '../redux/reducers/usersReducer/IUser';
 
@@ -33,7 +34,9 @@ export const registration = (
 };
 
 export const fetchGoods = (): Promise<IGoodsState> => {
-  return instance.get(`goods`).then((res) => {
-    return res.data;
-  });
+  return instance.get(`goods`).then((res) => res.data);
+};
+
+export const fetchCategories = (): Promise<ICategory[]> => {
+  return instance.get('categories').then((res) => res.data);
 };

@@ -6,7 +6,10 @@ const Menu: FC<IMenu> = ({ items, around }) => {
   return (
     <StyledMenu around={around}>
       {items.map((item) => (
-        <StyledItem>{typeof item === 'string' ? item : item.title}</StyledItem>
+        <StyledItem>
+          {item.image && <img src={item.image} alt={item.title} />}
+          {typeof item === 'string' ? item : item.title}
+        </StyledItem>
       ))}
     </StyledMenu>
   );

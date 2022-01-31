@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { categories } from '../../../utils/staticData';
 import Container from '../../Blocks/Container/Container';
 import TopLine from '../../Blocks/TopLine/TopLine';
 import Menu from '../../Elements/Menu/Menu';
+import { IHeader } from './IHeader';
 import { StyledHeader } from './StyledHeader';
 
-const Header: FC = () => {
+const Header: FC<IHeader> = ({ categories }) => {
   return (
     <StyledHeader>
       <TopLine />

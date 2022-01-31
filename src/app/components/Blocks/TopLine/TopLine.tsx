@@ -64,7 +64,10 @@ const TopLine: FC = () => {
             screen="tablet"
           />
         )}
-        <LogoWrapper />
+        <Hamburger
+          clickHandler={hamburgerClickHandler}
+          hamburgerActive={hamburgerActive}
+        />
         {isDesktopOrLaptop && hamburgerActive ? (
           <Navbar modalClickHandler={modalClickHandler} screen="desktop" />
         ) : (
@@ -83,10 +86,7 @@ const TopLine: FC = () => {
         {isTablet && hamburgerActive && (
           <Navbar modalClickHandler={modalClickHandler} screen="tablet" />
         )}
-        <Hamburger
-          clickHandler={hamburgerClickHandler}
-          hamburgerActive={hamburgerActive}
-        />
+        <LogoWrapper />
       </Container>
     </StyledTopLine>
   );

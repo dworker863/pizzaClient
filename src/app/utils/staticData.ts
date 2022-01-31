@@ -25,3 +25,5 @@ export const initialValues: IAuthFormValues = {
   name: '',
   email: '',
 };
+
+export const items = ['Меню', 'Контакты'];

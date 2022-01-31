@@ -4,8 +4,9 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogout } from '../../../redux/reducers/authReducer/authReducer';
 import { RootState } from '../../../redux/store';
+import { items } from '../../../utils/staticData';
 import Button from '../../Elements/Button/Button';
-import MenuItem from '../../Elements/MenuItem/MenuItem';
+import Menu from '../../Elements/Menu/Menu';
 import NavbarItem from '../../Elements/NavbarItem/NavbarItem';
 import ConditionalNavbarContainer from '../ConditionalNavbarContainer/ConditionalNavbarContainer';
 import { INavbarProps } from './INavbar';
@@ -36,7 +37,7 @@ const Navbar: FC<INavbarProps> = ({
       {screen === 'desktop' && (
         <>
           <StyledMenu>
-            <MenuItem />
+            <Menu items={items} />
           </StyledMenu>
           <Button
             text={auth.auth ? auth.username + ' LOGOUT' : 'ВХОД'}
@@ -61,7 +62,7 @@ const Navbar: FC<INavbarProps> = ({
               />
             </NavbarItem>
             <NavbarItem>
-              <MenuItem />
+              <Menu items={items} />
             </NavbarItem>
             <NavbarItem>
               <StyledTel>Телефон: 1234</StyledTel>

@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import CategoryMenu from '../../Blocks/CateroryMenu/CategoryMenu';
+import { categories } from '../../../utils/staticData';
 import Container from '../../Blocks/Container/Container';
 import TopLine from '../../Blocks/TopLine/TopLine';
+import Menu from '../../Elements/Menu/Menu';
 import { StyledHeader } from './StyledHeader';
 
 const Header: FC = () => {
@@ -9,7 +10,7 @@ const Header: FC = () => {
     <StyledHeader>
       <TopLine />
       <Container>
-        <CategoryMenu />
+        <Menu items={categories} around />
       </Container>
     </StyledHeader>
   );

@@ -8,7 +8,7 @@ import AuthModal from '../AuthModal/AuthModal';
 import { StyledTopLine } from './StyledTopLine';
 import Button from '../../Elements/Button/Button';
 import { getUsers } from '../../../redux/reducers/usersReducer/usersReducer';
-import Navbar from '../Navbar/Navbar';
+import ContactModal from '../ContactModal/ContactModal';
 
 const TopLine: FC = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,7 @@ const TopLine: FC = () => {
   return (
     <StyledTopLine>
       {isMobile && (
-        <Navbar
+        <ContactModal
           modalClickHandler={modalClickHandler}
           mobileIsActive={hamburgerActive ? true : false}
           screen="mobile"
@@ -69,7 +69,10 @@ const TopLine: FC = () => {
           hamburgerActive={hamburgerActive}
         />
         {isDesktopOrLaptop && hamburgerActive ? (
-          <Navbar modalClickHandler={modalClickHandler} screen="desktop" />
+          <ContactModal
+            modalClickHandler={modalClickHandler}
+            screen="desktop"
+          />
         ) : (
           <div>
             {(isDesktopOrLaptop || isTablet) && (
@@ -84,7 +87,7 @@ const TopLine: FC = () => {
           </div>
         )}
         {isTablet && hamburgerActive && (
-          <Navbar modalClickHandler={modalClickHandler} screen="tablet" />
+          <ContactModal modalClickHandler={modalClickHandler} screen="tablet" />
         )}
         <LogoWrapper />
       </Container>

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import tw from 'twin.macro';
 import { IStyledActiveComponent } from '../../../commonInterfaces/IStyledActiveComponent';
 
-export const StyledNavbar = styled.nav`
+export const StyledContactModal = styled.div`
   ${tw`
     z-20
     cursor-pointer
@@ -12,7 +12,7 @@ export const StyledNavbar = styled.nav`
   `}
 `;
 
-export const StyledNavbarMobileWrapper = styled.nav<IStyledActiveComponent>`
+export const StyledContactModalMobileWrapper = styled.div<IStyledActiveComponent>`
   ${tw`
     z-20
     absolute
@@ -37,7 +37,7 @@ export const StyledNavbarMobileWrapper = styled.nav<IStyledActiveComponent>`
         `}
 `;
 
-export const StyledNavbarTabletWrapper = styled.nav`
+export const StyledContactModalTabletWrapper = styled.div`
   ${tw`
     z-20
     absolute

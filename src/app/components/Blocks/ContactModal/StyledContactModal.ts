@@ -8,7 +8,7 @@ export const StyledMenu = styled.ul`
   `}
 `;
 
-export const StyledNavbarTabletMobile = styled.ul`
+export const StyledContactModalTabletMobile = styled.ul`
   ${tw`
     grid
     grid-rows-3
@@ -36,7 +36,7 @@ export const StyledTel = styled.p`
   color: ${(props) => props.theme.colors.brown};
 `;
 
-export const StyledTelIcon = styled.span`
+export const StyledTelIcon = styled.a`
   ${tw`
     flex
     w-12

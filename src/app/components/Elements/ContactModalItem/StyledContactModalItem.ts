@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import tw from 'twin.macro';
 
-export const StyledNavbarItem = styled.li`
+export const StyledContactModalItem = styled.li`
   ${tw`
     flex
     items-center
@@ -12,8 +12,4 @@ export const StyledNavbarItem = styled.li`
   `}
 
   border-color: rgba(${(props) => props.theme.colors.lightGrey}, .5);
-
-  &:nth-child(2) {
-    justify-content: flex-end;
-  }
 `;

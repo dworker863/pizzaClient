@@ -1,11 +1,7 @@
-import { MouseEvent, ReactNode } from 'react';
+import { MouseEvent } from 'react';
 
-export interface INavbarProps {
+export interface IContactModalProps {
   modalClickHandler: (event: MouseEvent<HTMLButtonElement>) => void;
   mobileIsActive?: boolean;
   screen: 'desktop' | 'tablet' | 'mobile';
-}
-
-export interface INavbarItemProps {
-  children?: ReactNode;
 }

@@ -4,21 +4,18 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLogout } from '../../../redux/reducers/authReducer/authReducer';
 import { RootState } from '../../../redux/store';
-import { items } from '../../../utils/staticData';
 import Button from '../../Elements/Button/Button';
-import Menu from '../Menu/Menu';
-import NavbarItem from '../../Elements/NavbarItem/NavbarItem';
-import ConditionalNavbarContainer from '../ConditionalNavbarContainer/ConditionalNavbarContainer';
-import { INavbarProps } from './INavbar';
+import ContactModalItem from '../../Elements/ContactModalItem/ContactModalItem';
+import ConditionalContactModalContainer from '../ConditionalContactModalContainer/ConditionalContactModalContainer';
+import { IContactModalProps } from './IContactModal';
 import {
-  StyledMenu,
-  StyledNavbarTabletMobile,
+  StyledContactModalTabletMobile,
   StyledTel,
   StyledTelIcon,
   StyledText,
-} from './StyledNavbar';
+} from './StyledContactModal';
 
-const Navbar: FC<INavbarProps> = ({
+const ContactModal: FC<IContactModalProps> = ({
   modalClickHandler,
   mobileIsActive,
   screen,
@@ -31,12 +28,12 @@ const Navbar: FC<INavbarProps> = ({
   };
 
   return (
-    <ConditionalNavbarContainer mobileIsActive={mobileIsActive} screen={screen}>
+    <ConditionalContactModalContainer
+      mobileIsActive={mobileIsActive}
+      screen={screen}
+    >
       {screen === 'desktop' && (
         <>
-          <StyledMenu>
-            <Menu items={items} />
-          </StyledMenu>
           <Button
             text={auth.auth ? auth.username + ' LOGOUT' : 'ВХОД'}
             clickHandler={auth.auth ? logoutClickHandler : modalClickHandler}
@@ -47,8 +44,8 @@ const Navbar: FC<INavbarProps> = ({
       )}
       {(screen === 'tablet' || screen === 'mobile') && (
         <>
-          <StyledNavbarTabletMobile>
-            <NavbarItem>
+          <StyledContactModalTabletMobile>
+            <ContactModalItem>
               <StyledText>Войдите чтобы получать бонусы и подарки</StyledText>
               <Button
                 text={auth.auth ? auth.username + ' LOGOUT' : 'ВХОД'}
@@ -58,21 +55,18 @@ const Navbar: FC<INavbarProps> = ({
                 inverse
                 login
               />
-            </NavbarItem>
-            <NavbarItem>
-              <Menu items={items} />
-            </NavbarItem>
-            <NavbarItem>
+            </ContactModalItem>
+            <ContactModalItem>
               <StyledTel>Телефон: 1234</StyledTel>
-              <StyledTelIcon>
+              <StyledTelIcon href="tel:1234">
                 <FontAwesomeIcon icon={faPhone} className="m-auto" />
               </StyledTelIcon>
-            </NavbarItem>
-          </StyledNavbarTabletMobile>
+            </ContactModalItem>
+          </StyledContactModalTabletMobile>
         </>
       )}
-    </ConditionalNavbarContainer>
+    </ConditionalContactModalContainer>
   );
 };
 
-export default Navbar;
+export default ContactModal;

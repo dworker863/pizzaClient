@@ -13,6 +13,7 @@ import { useEffect, useState } from 'react';
 import Scroll from 'react-scroll';
 import NavbarFixed from './app/components/Blocks/NavbarFixed/NavbarFixed';
 import Navbar from './app/components/Blocks/Navbar/Navbar';
+import Footer from './app/components/Sections/Footer/Footer';
 
 const Element = Scroll.Element;
 
@@ -58,6 +59,7 @@ function App() {
           ))}
         </StyledCategoryContainer>
       </Container>
+      <Footer />
     </ThemeProvider>
   );
 }

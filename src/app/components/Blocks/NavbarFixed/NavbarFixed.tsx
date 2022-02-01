@@ -5,14 +5,16 @@ import { INavbarFixed } from './INavbarFixed';
 import { StyledNavbarFixed } from './StyledNavbarFixed';
 import Scroll from 'react-scroll';
 import Container from '../Container/Container';
+import { useMediaQuery } from 'react-responsive';
 
 const Link = Scroll.Link;
 
 const NavbarFixed: FC<INavbarFixed> = ({ items, position }) => {
+  const isTabletOrLaptop = useMediaQuery({ minWidth: 768 });
+
   return (
     <StyledNavbarFixed isActive={position > 220 ? true : false}>
-      <Container>
-        <LogoWrapper />
+      <Container reverse>
         <StyledMenu>
           {items.map((item) => (
             <StyledNavbarItem>
@@ -23,6 +25,7 @@ const NavbarFixed: FC<INavbarFixed> = ({ items, position }) => {
             </StyledNavbarItem>
           ))}
         </StyledMenu>
+        {isTabletOrLaptop && <LogoWrapper />}
       </Container>
     </StyledNavbarFixed>
   );

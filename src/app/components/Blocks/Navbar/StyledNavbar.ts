@@ -24,11 +24,16 @@ export const StyledNavbarItem = styled.li`
   & img {
     margin: 0 auto;
   }
+
+  @media (max-width: 576px) {
+    font-size: 12px;
+  }
 `;
 
 export const StyledMenu = styled.ul`
   ${tw`
     flex
+    w-full
     justify-around
   `}
 `;
@@ -44,4 +49,8 @@ export const StyledNavbar = styled.nav`
   letter-spacing: 0.08rem;
   font-size: 18px;
   background-color: #fff;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

@@ -20,5 +20,18 @@ export const StyledNavbarFixed = styled.nav<IStyledActiveComponent>`
     css`
       top: 0px;
       opacity: 1;
+
+      & ul {
+        width: 80%;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          /* overflow-x: scroll; */
+        }
+      }
+
+      @media (max-width: 768px) {
+        overflow: scroll;
+      }
     `}
 `;

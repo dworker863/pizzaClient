@@ -1,11 +1,11 @@
 import { FC } from 'react';
-import { IMenu } from './INavbar';
+import { INavbar } from './INavbar';
 import { StyledNavbarItem, StyledMenu, StyledNavbar } from './StyledNavbar';
 import Scroll from 'react-scroll';
 
 const Link = Scroll.Link;
 
-const Navbar: FC<IMenu> = ({ items }) => {
+const Navbar: FC<INavbar> = ({ items }) => {
   return (
     <StyledNavbar>
       <StyledMenu>

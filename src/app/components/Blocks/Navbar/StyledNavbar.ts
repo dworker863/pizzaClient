@@ -37,7 +37,7 @@ export const StyledNavbar = styled.nav`
   ${tw`
     w-full
     rounded-xl
-    mt-10
+    mb-20
     `}
 
   font-family: Montserrat, sans-serif;

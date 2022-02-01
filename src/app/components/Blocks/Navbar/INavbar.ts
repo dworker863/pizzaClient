@@ -1,3 +1,3 @@
-export interface IMenu {
+export interface INavbar {
   items: any[];
 }

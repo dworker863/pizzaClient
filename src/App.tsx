@@ -9,12 +9,20 @@ import { StyledCategoryContainer } from './app/components/Sections/Category/Styl
 import { ICategory } from './app/components/Sections/Category/ICategory';
 import { RootState } from './app/redux/store';
 import { getCategories } from './app/redux/reducers/categoriesReducer/categoriesReducer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Scroll from 'react-scroll';
+import NavbarFixed from './app/components/Blocks/NavbarFixed/NavbarFixed';
+import Navbar from './app/components/Blocks/Navbar/Navbar';
 
 const Element = Scroll.Element;
 
 function App() {
+  const [scrollTop, setScrollTop] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollHandler);
+  }, []);
+
   const categories: ICategory[] = useSelector(
     (state: RootState) => state.categories,
   );
@@ -25,9 +33,17 @@ function App() {
     dispatch(getCategories());
   }, [dispatch]);
 
+  const scrollHandler = () => {
+    setScrollTop(document.documentElement.scrollTop);
+  };
+
   return (
     <ThemeProvider theme={commonTheme}>
-      <Header categories={categories} />
+      <NavbarFixed items={categories} position={scrollTop} />
+      <Header />
+      <Container>
+        <Navbar items={categories} />
+      </Container>
       <Container>
         <Cart />
         <StyledCategoryContainer>

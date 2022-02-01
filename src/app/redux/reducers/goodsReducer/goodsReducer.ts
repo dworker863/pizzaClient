@@ -3,7 +3,7 @@ import { Dispatch } from 'react';
 import { AnyAction } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import {
-  ESetGoods,
+  EGoods,
   IGoodsState,
   ISetGoodsAction,
   TGoodsActionTypes,
@@ -11,11 +11,11 @@ import {
 
 const initialState: IGoodsState = {
   pizzas: [],
-  // snacks: [],
-  // salads: [],
-  // desserts: [],
-  // drinks: [],
-  // hots: [],
+  snacks: [],
+  salads: [],
+  desserts: [],
+  drinks: [],
+  hots: [],
 };
 
 const goods = (
@@ -23,7 +23,7 @@ const goods = (
   action: TGoodsActionTypes | any,
 ): IGoodsState => {
   switch (action.type) {
-    case ESetGoods.SET_GOODS:
+    case EGoods.SET_GOODS:
       return { ...state, ...action.payload };
 
     default:
@@ -32,7 +32,7 @@ const goods = (
 };
 
 export const setGoods = (goods: IGoodsState): ISetGoodsAction => ({
-  type: ESetGoods.SET_GOODS,
+  type: EGoods.SET_GOODS,
   payload: goods,
 });
 

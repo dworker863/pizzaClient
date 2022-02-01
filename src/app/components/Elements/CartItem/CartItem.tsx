@@ -25,12 +25,12 @@ const CartItem: FC<ICartItemProps> = ({
   const dispatch = useDispatch();
   const goodPrice = +(good.price[0] + good.price.slice(2, -1));
 
-  const incrementButtonClickHandler = () => {
+  const incrementButtonClickHandler = (): void => {
     dispatch(setCartGoodsCount(good, good.goodsCount + 1));
     dispatch(setCartTotalPrice(totalPrice + goodPrice));
   };
 
-  const decrementButtonClickHandler = () => {
+  const decrementButtonClickHandler = (): void => {
     dispatch(setCartGoodsCount(good, good.goodsCount - 1));
     dispatch(setCartTotalPrice(totalPrice - goodPrice));
   };

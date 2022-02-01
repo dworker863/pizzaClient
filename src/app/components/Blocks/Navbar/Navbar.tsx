@@ -6,7 +6,7 @@ import { getLogout } from '../../../redux/reducers/authReducer/authReducer';
 import { RootState } from '../../../redux/store';
 import { items } from '../../../utils/staticData';
 import Button from '../../Elements/Button/Button';
-import Menu from '../../Elements/Menu/Menu';
+import Menu from '../Menu/Menu';
 import NavbarItem from '../../Elements/NavbarItem/NavbarItem';
 import ConditionalNavbarContainer from '../ConditionalNavbarContainer/ConditionalNavbarContainer';
 import { INavbarProps } from './INavbar';
@@ -26,11 +26,9 @@ const Navbar: FC<INavbarProps> = ({
   const auth = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
-  const logoutClickHandler = () => {
+  const logoutClickHandler = (): void => {
     dispatch(getLogout());
   };
-
-  console.log(auth);
 
   return (
     <ConditionalNavbarContainer mobileIsActive={mobileIsActive} screen={screen}>

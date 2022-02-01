@@ -1,5 +1,5 @@
 import {
-  ESetCart,
+  ECart,
   ICartGood,
   ICartState,
   ISetCartGoodsAction,
@@ -18,10 +18,10 @@ const cart = (
   action: TCartActionTypes | any,
 ): ICartState => {
   switch (action.type) {
-    case ESetCart.SET_CART_GOODS:
+    case ECart.SET_CART_GOODS:
       return { ...state, goods: action.payload };
 
-    case ESetCart.SET_CART_GOODS_COUNT: {
+    case ECart.SET_CART_GOODS_COUNT: {
       const customGoods = [...state.goods];
       return {
         ...state,
@@ -33,7 +33,7 @@ const cart = (
       };
     }
 
-    case ESetCart.SET_CART_TOTALPRICE: {
+    case ECart.SET_CART_TOTALPRICE: {
       return { ...state, totalPrice: action.payload };
     }
 
@@ -43,7 +43,7 @@ const cart = (
 };
 
 export const setCartGoods = (goods: ICartGood[]): ISetCartGoodsAction => ({
-  type: ESetCart.SET_CART_GOODS,
+  type: ECart.SET_CART_GOODS,
   payload: goods,
 });
 
@@ -51,12 +51,12 @@ export const setCartGoodsCount = (
   good: ICartGood,
   goodsCount: number,
 ): ISetCartGoodsCountAction => ({
-  type: ESetCart.SET_CART_GOODS_COUNT,
+  type: ECart.SET_CART_GOODS_COUNT,
   payload: { ...good, goodsCount },
 });
 
 export const setCartTotalPrice = (price: number): ISetCartTotalPriceAction => ({
-  type: ESetCart.SET_CART_TOTALPRICE,
+  type: ECart.SET_CART_TOTALPRICE,
   payload: price,
 });
 

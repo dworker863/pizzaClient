@@ -1,4 +1,4 @@
-export enum ESetAuth {
+export enum EAuth {
   LOGIN = 'LOGIN',
   LOGOUT = 'LOGOUT',
   REGISTRATION = 'REGISTRATION',
@@ -10,16 +10,16 @@ export interface IAuthState {
 }
 
 export interface ILoginAction {
-  type: ESetAuth.LOGIN;
+  type: EAuth.LOGIN;
   payload: string;
 }
 
 export interface ILogoutAction {
-  type: ESetAuth.LOGOUT;
+  type: EAuth.LOGOUT;
 }
 
 export interface IRegisrationAction {
-  type: ESetAuth.REGISTRATION;
+  type: EAuth.REGISTRATION;
   payload: string;
 }
 

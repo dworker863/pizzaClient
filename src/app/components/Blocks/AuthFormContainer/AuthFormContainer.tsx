@@ -27,7 +27,7 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
 
   const dispatch = useDispatch();
 
-  const toggleAnchorText = (event: MouseEvent<HTMLAnchorElement>) => {
+  const toggleAnchorText = (event: MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
     setAnchorText(anchorText === 'Регистрация' ? 'Отмена' : 'Регистрация');
     setMode(anchorText === 'Регистрация' ? 'registration' : 'login');
@@ -49,7 +49,7 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
     setModal();
   };
 
-  const submitClickHandler = (values: IAuthFormValues) => {
+  const submitClickHandler = (values: IAuthFormValues): void => {
     if (mode === 'login') {
       loginClickHandler(values.tel, values.password);
     } else if (mode === 'registration') {

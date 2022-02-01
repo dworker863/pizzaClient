@@ -25,7 +25,7 @@ const Cart: FC = () => {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
-  const toggleCartclickHandler = (event: MouseEvent<HTMLDivElement>) => {
+  const toggleCartclickHandler = (event: MouseEvent<HTMLDivElement>): void => {
     setIsActive(!isActive);
   };
 

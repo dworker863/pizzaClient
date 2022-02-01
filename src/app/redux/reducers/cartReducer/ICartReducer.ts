@@ -1,4 +1,4 @@
-export enum ESetCart {
+export enum ECart {
   SET_CART_GOODS = 'SET_CART_GOODS',
   SET_CART_TOTALPRICE = 'SET_CART_TOTALPRICE',
   SET_CART_GOODS_COUNT = 'SET_CART_GOODS_COUNT',
@@ -17,17 +17,17 @@ export interface ICartState {
 }
 
 export interface ISetCartGoodsAction {
-  type: ESetCart.SET_CART_GOODS;
+  type: ECart.SET_CART_GOODS;
   payload: ICartGood[];
 }
 
 export interface ISetCartTotalPriceAction {
-  type: ESetCart.SET_CART_TOTALPRICE;
+  type: ECart.SET_CART_TOTALPRICE;
   payload: number;
 }
 
 export interface ISetCartGoodsCountAction {
-  type: ESetCart.SET_CART_GOODS_COUNT;
+  type: ECart.SET_CART_GOODS_COUNT;
   payload: ICartGood;
 }
 

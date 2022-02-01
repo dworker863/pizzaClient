@@ -37,7 +37,7 @@ const Card: FC<ICardProps> = ({
     setActiveElement(index);
   };
 
-  const addGoodToCartClickHandler = () => {
+  const addGoodToCartClickHandler = (): void => {
     if (!cart.goods.some((good) => good.name === title)) {
       dispatch(
         setCartGoods([

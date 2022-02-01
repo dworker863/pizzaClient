@@ -2,7 +2,7 @@ import { login, registration } from '../../../api/api';
 import { Dispatch } from 'react';
 import { AnyAction, ThunkAction } from '@reduxjs/toolkit';
 import {
-  ESetAuth,
+  EAuth,
   IAuthState,
   ILoginAction,
   ILogoutAction,
@@ -20,13 +20,13 @@ const auth = (
   action: TAuthActionTypes | any,
 ): IAuthState => {
   switch (action.type) {
-    case ESetAuth.LOGIN:
+    case EAuth.LOGIN:
       return { username: action.payload, auth: true };
 
-    case ESetAuth.LOGOUT:
+    case EAuth.LOGOUT:
       return { username: '', auth: false };
 
-    case ESetAuth.REGISTRATION:
+    case EAuth.REGISTRATION:
       return { username: action.payload, auth: true };
 
     default:
@@ -35,16 +35,16 @@ const auth = (
 };
 
 export const setLogin = (user: string): ILoginAction => ({
-  type: ESetAuth.LOGIN,
+  type: EAuth.LOGIN,
   payload: user,
 });
 
 export const setLogout = (): ILogoutAction => ({
-  type: ESetAuth.LOGOUT,
+  type: EAuth.LOGOUT,
 });
 
 export const setRegistration = (user: string): IRegisrationAction => ({
-  type: ESetAuth.REGISTRATION,
+  type: EAuth.REGISTRATION,
   payload: user,
 });
 

@@ -10,6 +10,7 @@ export const StyledItem = styled.li`
     
   `}
 
+  cursor: pointer;
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   letter-spacing: 0.08rem;

@@ -10,6 +10,9 @@ import { ICategory } from './app/components/Sections/Category/ICategory';
 import { RootState } from './app/redux/store';
 import { getCategories } from './app/redux/reducers/categoriesReducer/categoriesReducer';
 import { useEffect } from 'react';
+import Scroll from 'react-scroll';
+
+const Element = Scroll.Element;
 
 function App() {
   const categories: ICategory[] = useSelector(
@@ -29,11 +32,13 @@ function App() {
         <Cart />
         <StyledCategoryContainer>
           {categories.map((category, index) => (
-            <Category
-              key={index + category.name}
-              title={category.title}
-              name={category.name}
-            />
+            <Element name={category.title}>
+              <Category
+                key={index + category.name}
+                title={category.title}
+                name={category.name}
+              />
+            </Element>
           ))}
         </StyledCategoryContainer>
       </Container>

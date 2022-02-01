@@ -18,14 +18,22 @@ const NavbarFixed: FC<INavbarFixed> = ({ items, position }) => {
         <StyledMenu>
           {items.map((item) => (
             <StyledNavbarItem>
-              {item.image && <img src={item.image} alt={item.title} />}
-              <Link to={item.title} spy={true} smooth={true} duration={500}>
+              <Link
+                activeClass="active"
+                to={item.title}
+                spy={true}
+                smooth={true}
+                duration={500}
+              >
+                {item.image && <img src={item.image} alt={item.title} />}
                 {typeof item === 'string' ? item : item.title}
               </Link>
             </StyledNavbarItem>
           ))}
         </StyledMenu>
-        {isTabletOrLaptop && <LogoWrapper />}
+        {isTabletOrLaptop && (
+          <LogoWrapper clickHandler={Scroll.animateScroll.scrollToTop} />
+        )}
       </Container>
     </StyledNavbarFixed>
   );

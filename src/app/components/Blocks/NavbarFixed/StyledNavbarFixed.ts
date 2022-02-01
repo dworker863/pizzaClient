@@ -26,7 +26,6 @@ export const StyledNavbarFixed = styled.nav<IStyledActiveComponent>`
 
         @media (max-width: 768px) {
           width: 100%;
-          /* overflow-x: scroll; */
         }
       }
 

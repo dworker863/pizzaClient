@@ -13,6 +13,7 @@ export const StyledNavbarItem = styled.li`
 
   color: ${(props) => props.theme.colors.brown};
 
+  & a.active,
   &:hover {
     color: ${(props) => props.theme.colors.primary};
   }

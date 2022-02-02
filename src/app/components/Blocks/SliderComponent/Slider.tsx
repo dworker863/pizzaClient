@@ -1,12 +1,17 @@
 import { FC } from 'react';
 import { Navigation, Pagination } from 'swiper';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import sliderPizza from '../../../../assets/images/sliderPizza.jpg';
+import sliderSnacks from '../../../../assets/images/sliderSnacks.jpg';
+import sliderHot from '../../../../assets/images/sliderHot.jpg';
 
 import 'swiper/swiper.scss';
 import 'swiper/modules/navigation/navigation.scss';
 import 'swiper/modules/pagination/pagination.scss';
-
-import sliderSnacks from '../../../../assets/images/sliderSnacks.jpg';
+import { StyledPaginationWrapper, StyledSliderButton } from './StyledSlider';
 
 const Slider: FC = () => {
   return (
@@ -18,21 +23,43 @@ const Slider: FC = () => {
       loop
       slideToClickedSlide
       centeredSlides
-      navigation
-      pagination={{ clickable: true }}
+      navigation={{
+        prevEl: '.prevButton',
+        nextEl: '.nextButton',
+      }}
+      pagination={{
+        clickable: true,
+        // el: '.paginationWrapper',
+        // renderBullet: (index, className) => {
+        //   return '<span class="' + className + '">' + (index + 1) + '</span>';
+        // },
+      }}
       effect="coverflow"
       autoplay={{ delay: 10000, disableOnInteraction: false }}
       coverflowEffect={{ stretch: 400, depth: 380 }}
     >
       <SwiperSlide className="left-10">
-        <img src={sliderSnacks} alt="Пицца" height={411} />
+        <img src={sliderPizza} alt="Пицца" height={411} />
       </SwiperSlide>
       <SwiperSlide className="left-10">
         <img src={sliderSnacks} alt="Закуски" height={411} />
       </SwiperSlide>
       <SwiperSlide className="left-10">
-        <img src={sliderSnacks} alt="Горячее" height={411} />
+        <img src={sliderHot} alt="Горячее" height={411} />
       </SwiperSlide>
+      <StyledSliderButton className="prevButton">
+        <FontAwesomeIcon
+          icon={faChevronLeft}
+          className="m-auto text-lg text-gray-500"
+        />
+      </StyledSliderButton>
+      <StyledSliderButton className="nextButton">
+        <FontAwesomeIcon
+          icon={faChevronRight}
+          className="m-auto text-lg text-gray-500"
+        />
+      </StyledSliderButton>
+      <StyledPaginationWrapper />
     </Swiper>
   );
 };

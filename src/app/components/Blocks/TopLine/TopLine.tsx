@@ -4,11 +4,11 @@ import { useMediaQuery } from 'react-responsive';
 import Container from '../Container/Container';
 import LogoWrapper from '../../Elements/Logo/Logo';
 import Hamburger from '../../Elements/Hamburger/Hamburger';
-import AuthModal from '../AuthModal/AuthModal';
+import AuthModal from '../../Sections/AuthModal/AuthModal';
 import { StyledTopLine } from './StyledTopLine';
 import Button from '../../Elements/Button/Button';
 import { getUsers } from '../../../redux/reducers/usersReducer/usersReducer';
-import ContactModal from '../ContactModal/ContactModal';
+import ContactModal from '../../Sections/ContactModal/ContactModal';
 
 const TopLine: FC = () => {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { IAuthModalProps } from './IAuthModal';
 import ButtonClose from '../../Elements/CloseButton/CloseButton';
-import AuthFormContainer from '../AuthFormContainer/AuthFormContainer';
-import ConditionalAuthContainer from '../ConditionalAuthContainer/ConditionalAuthContainer';
+import AuthFormContainer from '../../Blocks/AuthFormContainer/AuthFormContainer';
+import ConditionalAuthContainer from '../../Blocks/ConditionalAuthContainer/ConditionalAuthContainer';
 
 const AuthModal: FC<IAuthModalProps> = ({
   setModal,

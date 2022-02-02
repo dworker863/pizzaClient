@@ -6,7 +6,7 @@ import { getLogout } from '../../../redux/reducers/authReducer/authReducer';
 import { RootState } from '../../../redux/store';
 import Button from '../../Elements/Button/Button';
 import ContactModalItem from '../../Elements/ContactModalItem/ContactModalItem';
-import ConditionalContactModalContainer from '../ConditionalContactModalContainer/ConditionalContactModalContainer';
+import ConditionalContactModalContainer from '../../Blocks/ConditionalContactModalContainer/ConditionalContactModalContainer';
 import { IContactModalProps } from './IContactModal';
 import {
   StyledContactModalTabletMobile,

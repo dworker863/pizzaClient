@@ -1,5 +1,5 @@
 import { Form, Formik } from 'formik';
-import { FC, MouseEvent } from 'react';
+import { FC } from 'react';
 import {
   authValidation,
   passwordValidation,
@@ -43,12 +43,6 @@ const AuthForm: FC<IAuthFormProps> = ({
             placeholder={placeholder}
           />
         ))}
-        <Anchor
-          text="Восстановить пароль"
-          clickHandler={(event: MouseEvent<HTMLAnchorElement>): void =>
-            console.log('Restore')
-          }
-        />
         <StyledAuthButtonsWrapper>
           <Anchor text={anchorText} clickHandler={toggleAnchorText} />
           <Button

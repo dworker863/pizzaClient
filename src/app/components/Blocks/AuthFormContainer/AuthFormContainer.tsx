@@ -4,7 +4,7 @@ import {
   getLogin,
   getRegistration,
 } from '../../../redux/reducers/authReducer/authReducer';
-import { formFields } from '../../../utils/staticData';
+import { authFormFields } from '../../../utils/staticData';
 import AuthForm from '../AuthForm/AuthForm';
 import {
   IAuthFormContainerProps,
@@ -75,7 +75,7 @@ const AuthFormContainer: FC<IAuthFormContainerProps> = ({ setModal }) => {
     }
   };
 
-  let fields = formFields.filter(([name, labelText, type]) =>
+  let fields = authFormFields.filter(([name, labelText, type]) =>
     mode === 'login'
       ? name !== 'email' &&
         name !== 'name' &&

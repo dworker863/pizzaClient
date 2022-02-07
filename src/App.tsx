@@ -9,16 +9,20 @@ import { StyledCategoryContainer } from './app/components/Sections/Category/Styl
 import { ICategory } from './app/components/Sections/Category/ICategory';
 import { RootState } from './app/redux/store';
 import { getCategories } from './app/redux/reducers/categoriesReducer/categoriesReducer';
-import { useEffect, useRef, useState } from 'react';
+import { createContext, useEffect, useRef, useState } from 'react';
 import Scroll from 'react-scroll';
 import NavbarFixed from './app/components/Blocks/NavbarFixed/NavbarFixed';
 import Navbar from './app/components/Blocks/Navbar/Navbar';
 import Footer from './app/components/Sections/Footer/Footer';
+import AddressModal from './app/components/Sections/AddressModal/AddressModal';
 
 const Element = Scroll.Element;
+export const AddressModalContext = createContext<any>(null);
 
 function App() {
   const [scrollTop, setScrollTop] = useState(0);
+  const [addressModalActive, setAddressModalActive] = useState(false);
+
   const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -35,19 +39,27 @@ function App() {
     dispatch(getCategories());
   }, [dispatch]);
 
-  const scrollHandler = () => {
+  const scrollHandler = (): void => {
     setScrollTop(document.documentElement.scrollTop);
+  };
+
+  const addressButtonCLickHandler = (): void => {
+    console.log(1);
+    setAddressModalActive(!addressModalActive);
   };
 
   return (
     <ThemeProvider theme={commonTheme}>
+      <AddressModal isActive={addressModalActive} />
       <NavbarFixed
         items={categories}
         isActive={
           headerRef.current && headerRef.current.offsetHeight < scrollTop
         }
       />
-      <Header ref={headerRef} />
+      <AddressModalContext.Provider value={addressButtonCLickHandler}>
+        <Header ref={headerRef} />
+      </AddressModalContext.Provider>
       <Container>
         <Navbar items={categories} />
       </Container>

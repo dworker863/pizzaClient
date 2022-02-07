@@ -1,4 +1,4 @@
-import { FC, useState, MouseEvent, useEffect } from 'react';
+import { FC, useState, MouseEvent, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import Container from '../Container/Container';
@@ -9,6 +9,7 @@ import { StyledTopLine } from './StyledTopLine';
 import Button from '../../Elements/Button/Button';
 import { getUsers } from '../../../redux/reducers/usersReducer/usersReducer';
 import ContactModal from '../../Sections/ContactModal/ContactModal';
+import { AddressModalContext } from '../../../../App';
 
 const TopLine: FC = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,8 @@ const TopLine: FC = () => {
 
   const [hamburgerActive, sethamburgerActive] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);
+
+  const addressButtonCLickHandler = useContext(AddressModalContext);
 
   const isDesktopOrLaptop = useMediaQuery({ minWidth: 1280 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1280 });
@@ -78,9 +81,7 @@ const TopLine: FC = () => {
             {(isDesktopOrLaptop || isTablet) && (
               <Button
                 text="Укажите свой адрес"
-                clickHandler={(event: MouseEvent<HTMLButtonElement>): void =>
-                  console.log('Address')
-                }
+                clickHandler={addressButtonCLickHandler}
                 address
               />
             )}

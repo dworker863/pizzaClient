@@ -10,7 +10,7 @@ import Anchor from '../../Elements/Anchor/Anchor';
 import { IAuthFormProps } from './IAuthForm';
 import { StyledAuthButtonsWrapper } from './StyledAuthForm';
 import FormItem from '../../Elements/FormItem/FormItem';
-import { initialValues } from '../../../utils/staticData';
+import { authInitialValues } from '../../../utils/staticData';
 
 const AuthForm: FC<IAuthFormProps> = ({
   formFields,
@@ -21,7 +21,7 @@ const AuthForm: FC<IAuthFormProps> = ({
 }) => {
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={authInitialValues}
       validationSchema={
         mode === 'login'
           ? authValidation

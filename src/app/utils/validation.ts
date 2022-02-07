@@ -27,3 +27,8 @@ export const passwordValidation = Yup.object({
     .oneOf([Yup.ref('password'), null], 'Пароли не совпадают')
     .required('Подтвердите пароль'),
 });
+
+export const addressValidation = Yup.object({
+  address: Yup.string().required('Укажите адрес'),
+  room: Yup.number().required('Укажите номер дома или квартиры'),
+});

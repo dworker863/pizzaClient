@@ -31,9 +31,11 @@ export const StyledContactModalMobileWrapper = styled.div<IStyledActiveComponent
     isActive
       ? css`
           opacity: 1;
+          display: block;
         `
       : css`
           opacity: 0;
+          display: none;
         `}
 `;
 

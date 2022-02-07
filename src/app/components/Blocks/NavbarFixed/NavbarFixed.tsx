@@ -9,11 +9,11 @@ import { useMediaQuery } from 'react-responsive';
 
 const Link = Scroll.Link;
 
-const NavbarFixed: FC<INavbarFixed> = ({ items, position }) => {
+const NavbarFixed: FC<INavbarFixed> = ({ items, isActive }) => {
   const isTabletOrLaptop = useMediaQuery({ minWidth: 768 });
 
   return (
-    <StyledNavbarFixed isActive={position > 220 ? true : false}>
+    <StyledNavbarFixed isActive={isActive ? true : false}>
       <Container reverse>
         <StyledMenu>
           {items.map((item) => (

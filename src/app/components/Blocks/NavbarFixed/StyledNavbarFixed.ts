@@ -10,7 +10,8 @@ export const StyledNavbarFixed = styled.nav<IStyledActiveComponent>`
   `}
 
   z-index: 100;
-  top: -40px;
+  /* display: none; */
+  top: -120px;
   opacity: 0;
   background-color: #fff;
   transition: all 0.3s;

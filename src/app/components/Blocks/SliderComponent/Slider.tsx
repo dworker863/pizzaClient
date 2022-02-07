@@ -19,7 +19,7 @@ const Slider: FC = () => {
       modules={[Navigation, Pagination]}
       initialSlide={1}
       spaceBetween={50}
-      slidesPerView={1.999999}
+      slidesPerView={1}
       loop
       slideToClickedSlide
       centeredSlides
@@ -29,22 +29,23 @@ const Slider: FC = () => {
       }}
       pagination={{
         clickable: true,
-        // el: '.paginationWrapper',
-        // renderBullet: (index, className) => {
-        //   return '<span class="' + className + '">' + (index + 1) + '</span>';
-        // },
       }}
       effect="coverflow"
       autoplay={{ delay: 10000, disableOnInteraction: false }}
       coverflowEffect={{ stretch: 400, depth: 380 }}
+      breakpoints={{
+        '1280': {
+          slidesPerView: 1.999999,
+        },
+      }}
     >
-      <SwiperSlide className="left-10">
+      <SwiperSlide className="xl:left-10">
         <img src={sliderPizza} alt="Пицца" height={411} />
       </SwiperSlide>
-      <SwiperSlide className="left-10">
+      <SwiperSlide className="xl:left-10">
         <img src={sliderSnacks} alt="Закуски" height={411} />
       </SwiperSlide>
-      <SwiperSlide className="left-10">
+      <SwiperSlide className="xl:left-10">
         <img src={sliderHot} alt="Горячее" height={411} />
       </SwiperSlide>
       <StyledSliderButton className="prevButton">

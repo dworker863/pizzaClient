@@ -9,7 +9,7 @@ import { StyledCategoryContainer } from './app/components/Sections/Category/Styl
 import { ICategory } from './app/components/Sections/Category/ICategory';
 import { RootState } from './app/redux/store';
 import { getCategories } from './app/redux/reducers/categoriesReducer/categoriesReducer';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Scroll from 'react-scroll';
 import NavbarFixed from './app/components/Blocks/NavbarFixed/NavbarFixed';
 import Navbar from './app/components/Blocks/Navbar/Navbar';
@@ -19,6 +19,7 @@ const Element = Scroll.Element;
 
 function App() {
   const [scrollTop, setScrollTop] = useState(0);
+  const headerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     window.addEventListener('scroll', scrollHandler);
@@ -40,8 +41,13 @@ function App() {
 
   return (
     <ThemeProvider theme={commonTheme}>
-      <NavbarFixed items={categories} position={scrollTop} />
-      <Header />
+      <NavbarFixed
+        items={categories}
+        isActive={
+          headerRef.current && headerRef.current.offsetHeight < scrollTop
+        }
+      />
+      <Header ref={headerRef} />
       <Container>
         <Navbar items={categories} />
       </Container>

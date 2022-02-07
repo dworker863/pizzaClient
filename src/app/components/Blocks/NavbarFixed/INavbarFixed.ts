@@ -1,4 +1,4 @@
 export interface INavbarFixed {
   items: any[];
-  position: number;
+  isActive?: boolean | null;
 }

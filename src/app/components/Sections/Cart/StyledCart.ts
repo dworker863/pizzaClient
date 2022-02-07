@@ -108,6 +108,7 @@ export const StyledCartTContent = styled.p<IStyledActiveComponent>`
   ${({ isActive }) =>
     !isActive &&
     css`
-      height: 0px;
+      min-height: 0px;
+      height: 0;
     `}
 `;
